@@ -34,14 +34,4 @@
     }
   }
   
-  @media (max-width: 768px) { // Pour les appareils mobiles
-    .prestations-container {
-      .prestations-image {
-        &.left,
-        &.right {
-          transform: translateY(30%); // Décale légèrement les images latérales vers le bas
-        }
-      }
-    }
-  }
-  
+

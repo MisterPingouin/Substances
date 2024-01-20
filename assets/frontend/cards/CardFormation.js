@@ -18,15 +18,15 @@ import {
           />
         </CardHeader>
         <CardBody>
-          <Typography variant="h5" color="blue-gray" className="mb-2">
-            Formation 
+          <Typography variant="h5" color="blue-gray" className="mb-2 text-2xl">
+            Formation
           </Typography>
           <Typography className="font-subtitlefont">
           Morbi nec ligula ipsum.Maecenas non mollis quam, eget viverra nisi. Sed vitae magna iaculis, sollicitudin nunc sitamet, bibendum sem.
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
-          <Button>Read More</Button>
+          <Button className=" bg-colorbrown">Read More</Button>
         </CardFooter>
       </Card>
     );

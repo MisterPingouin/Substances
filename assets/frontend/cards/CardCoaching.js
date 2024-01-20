@@ -18,7 +18,7 @@ import {
           />
         </CardHeader>
         <CardBody>
-          <Typography variant="h5" color="blue-gray" className="mb-2">
+          <Typography variant="h5" color="blue-gray" className="mb-2 text-2xl">
             Coaching
           </Typography>
           <Typography className="font-subtitlefont">
@@ -26,7 +26,7 @@ import {
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
-          <Button>Read More</Button>
+          <Button className=" bg-colorbrown">Read More</Button>
         </CardFooter>
       </Card>
     );

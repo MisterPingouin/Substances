@@ -11,17 +11,15 @@
   align-items: center;
   justify-content: center;
   z-index: 12;
-
 }
 
 .burger {
   position: relative;
   width: 2.5em;
   height: 2px;
-  background-color: white; 
+  background-color: white;
   transition: transform 0.3s;
   z-index: 12;
-
 }
 
 .burger::before,
@@ -35,15 +33,20 @@
   transition: transform 0.3s, top 0.3s;
 }
 
-.burger::before { top: -10px; }
-.burger::after { top: 10px; }
+.burger::before {
+  top: -10px;
+}
+.burger::after {
+  top: 10px;
+}
 
 .burgerActive {
-  transform: rotate(45deg); 
+  transform: rotate(45deg);
 
-  &::before, &::after {
-      transform: rotate(90deg); 
-      top: 0; 
+  &::before,
+  &::after {
+    transform: rotate(90deg);
+    top: 0;
   }
 }
 
@@ -62,7 +65,6 @@
 
   z-index: 11;
 
-
   .body {
     box-sizing: border-box;
 
@@ -78,7 +80,6 @@
 
     .nav {
       display: flex;
-
       flex-direction: column;
 
       font-size: 40px;
@@ -89,21 +90,15 @@
 
       .header {
         color: black;
-
         border-bottom: 1px solid black;
-
         text-transform: uppercase;
-
         font-size: 15px;
-
         margin-bottom: 40px;
       }
 
       a {
         text-decoration: none;
-
         color: white;
-
         font-weight: 300;
       }
     }
@@ -111,62 +106,41 @@
 
   .footer {
     display: flex;
-
     width: 100%;
-
     justify-content: center;
-
     font-size: 12px;
-
     gap: 20px;
     bottom: 0;
+    min-height: 20em;
   }
 }
 .link {
   position: relative;
-
   display: flex;
-
   align-items: center;
 
   .indicator {
     width: 10px;
-
     height: 10px;
-
     background-color: white;
-
     border-radius: 50%;
-
     position: absolute;
-
     left: -30px;
   }
 }
 
 .svgCurve {
   position: absolute;
-
   top: 0;
-
   left: -99px;
-
   width: 100px;
-
   height: 100%;
-
   fill: #fabd43;
-
   stroke: none;
-
   z-index: 11;
 }
 
-
-
-  .logo {
-    height: 5em;
-    margin-right: 20px;
-  }
-
-
+.logo {
+  height: 7em;
+  margin-top: 1em;
+}
