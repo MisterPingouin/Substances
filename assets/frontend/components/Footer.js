@@ -11,8 +11,7 @@ const Footer = () => {
         <img src={backgroundImageFooter} alt="Background" className="w-[62rem]" />
       </div>
 
-      {/* Contenu du footer */}
-      <div className="py-6 z-30 relative"> {/* Z-index plus élevé pour les liens */}
+      <div className="py-6 z-30 relative"> 
         <div className="flex flex-col md:flex-row justify-between">
           <div>
             <div className="flex flex-col ml-6 mb-4 text-2xl font-bold">
