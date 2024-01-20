@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './frontend/pages/Home';
 import ErrorPage from './frontend/pages/ErrorPage';
-import './styles/app.css';
+import './styles/app.scss';
 
 const App = () => {
   return (

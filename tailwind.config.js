@@ -5,6 +5,10 @@ module.exports = {
       "./templates/**/*.html.twig",
   ],
   theme: {
+    fontFamily: {
+        'titlefont': ['PT Sans'],
+        'subtitlefont': ['PT Mono'],
+    },
     extend: {},
   },
   plugins: [],
