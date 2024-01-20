@@ -22,7 +22,7 @@ module.exports = withMT({
     extend: {
         colors: {
             coloryellow: '#fabd43',
-            colorbrown: '#',
+            colorbrown: '#342A2C',
         },
 
 

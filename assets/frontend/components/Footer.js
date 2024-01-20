@@ -1,4 +1,6 @@
 import React from 'react';
+import logo from '../../images/logo.svg';
+
 
 const Footer = () => {
   return (
@@ -19,7 +21,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="ml-auto">
-            <img src="logo-url.jpg" alt="Logo" className="h-8 w-8 md:h-12 md:w-12" />
+            <img src={logo} alt="Logo" className="h-24 w-24" />
           </div>
         </div>
       </div>
