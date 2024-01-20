@@ -13,7 +13,12 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
-
+    .configureCssLoader(options => {
+        options.modules = {
+            auto: /\.module\.\w+$/i
+        };
+    })
+    
     /*
      * ENTRY CONFIG
      *
@@ -21,7 +26,7 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/index.js')
-    .addStyleEntry('styles', './assets/styles/app.css')
+    .addStyleEntry('styles', './assets/styles/app.scss')
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
 
@@ -55,6 +60,7 @@ Encore
 
     // enables Sass/SCSS support
     .enableSassLoader()
+    
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()

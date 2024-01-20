@@ -5,7 +5,26 @@ module.exports = {
       "./templates/**/*.html.twig",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+        'titlefont': ['PT Sans'],
+        'subtitlefont': ['PT Mono'],
+    },
+
+    maxWidth: {
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/4': '75%',
+        '4/5': '95%',
+       },
+
+    extend: {
+        colors: {
+            coloryellow: '#fabd43',
+            colorbrown: '#',
+        },
+
+
+    },
   },
   plugins: [],
 }
