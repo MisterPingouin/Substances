@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="text-colorbrown  mx-auto relative z-10">
         <div className="text-colorbrown border-t border-black w-11/12 mx-auto relative z-10">
       </div>
-      <div className='absolute bottom-0 right-0 left-0 z-0'>
+      <div className='absolute flex justify-center items-center bottom-0 right-0 left-0 z-0'>
         <img src={backgroundImageFooter} alt="Background" className="w-[62rem]" />
       </div>
 

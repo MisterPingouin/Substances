@@ -49,7 +49,7 @@ const Contact = () => {
     <div className='my-6'>
       <Header />
       <div className="max-w-6xl mx-auto rounded-lg">
-        <div className="grid md:grid-cols-2 items-center gap-16 sm:p-10 p-4 font-subtitlefont">
+        <div className="relative z-50 grid md:grid-cols-2 items-center gap-16 sm:p-10 p-4 font-subtitlefont">
           <div className="bg-gray-100 p-6 rounded-lg">
             <p className="text-sm font-semibold text-[#333]">Je suis intéressé par...</p>
             <div className="space-y-4 max-lg:mt-4">
