@@ -13,7 +13,12 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
-
+    .configureCssLoader(options => {
+        options.modules = {
+            auto: /\.module\.\w+$/i
+        };
+    })
+    
     /*
      * ENTRY CONFIG
      *
@@ -55,6 +60,7 @@ Encore
 
     // enables Sass/SCSS support
     .enableSassLoader()
+    
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
