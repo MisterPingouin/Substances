@@ -8,18 +8,9 @@ export default function Header() {
   const [showButton, setShowButton] = useState(true);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        // Scrolling down
-        setShowButton(false);
-        setIsActive(false); // Cela ferme également le menu si ouvert
-      } else {
-        // Scrolling up
-        setShowButton(true);
-      }
-      lastScrollY = window.scrollY;
+
+      setShowButton(window.scrollY < 50);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
