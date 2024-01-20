@@ -18,7 +18,7 @@ export default function Index() {
 
     enter: {
         d: targetPath,
-        transition: {duration: 1, ease: [0.76, 0, 0.24, 1]}
+        transition: {duration: 0.9, ease: [0.76, 0, 0.24, 1]}
     },
 
     exit: {

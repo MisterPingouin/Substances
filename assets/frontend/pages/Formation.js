@@ -5,14 +5,14 @@ import Footer from '../components/Footer';
 
 
 
-const Contact = () => {
+const Formation = () => {
   return (
     <div className=''>
            <Header />
-      <h1>Contact</h1>
+      <h1>Formation</h1>
       <Footer />
     </div>
   );
 };
 
-export default Contact;
+export default Formation;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
     Card,
     CardHeader,
@@ -26,7 +27,9 @@ import {
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
+        <Link to="/atelier">
           <Button className=" bg-colorbrown">Read More</Button>
+          </Link>
         </CardFooter>
       </Card>
     );
