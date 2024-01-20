@@ -9,10 +9,10 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between ">
           <div>
             <div className="flex flex-col mb-4 text-2xl font-bold">
-              <a href="/contact" className="text-black hover:text-gray-800">Contact</a>
-              <a href="#" className="text-black hover:text-gray-800">Formation produit</a>
-              <a href="#" className="text-black hover:text-gray-800">Conseil & Coaching</a>
-              <a href="#" className="text-black hover:text-gray-800">Ateliers</a>
+              <a href="/contact" className="text-black hover:text-gray-600">Contact</a>
+              <a href="/formation" className="text-black hover:text-gray-800">Formation produit</a>
+              <a href="/conseil" className="text-black hover:text-gray-800">Conseil & Coaching</a>
+              <a href="/atelier" className="text-black hover:text-gray-800">Ateliers</a>
               <a href="#" className="text-black hover:text-gray-800">A propos</a>
             </div>
             <div className="flex text-xl space-x-8">

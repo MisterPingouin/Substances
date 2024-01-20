@@ -1,6 +1,7 @@
 .button {
+  top: 3;
   right: 0px;
-  margin: 20px;
+  margin: 60px;
   z-index: 2;
   width: 80px;
   height: 80px;
@@ -42,7 +43,6 @@
 
 .burgerActive {
   transform: rotate(45deg);
-
   &::before,
   &::after {
     transform: rotate(90deg);
@@ -52,40 +52,26 @@
 
 .menu {
   height: 100vh;
-
   background-color: #fabd43;
-
   position: fixed;
-
   right: 0;
-
   top: 0;
-
   color: white;
-
   z-index: 11;
 
   .body {
     box-sizing: border-box;
-
     height: 100%;
-
     padding: 100px;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: space-between;
 
     .nav {
       display: flex;
       flex-direction: column;
-
       font-size: 40px;
-
       gap: 12px;
-
       margin-top: 80px;
 
       .header {
@@ -140,7 +126,6 @@
   z-index: 11;
 }
 
-.logo {
-  height: 7em;
-  margin-top: 1em;
-}
+
+
+
