@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 12;
+  z-index: 31;
 }
 
 .burger {
@@ -20,7 +20,7 @@
   height: 2px;
   background-color: white;
   transition: transform 0.3s;
-  z-index: 12;
+  z-index: 31;
 }
 
 .burger::before,
@@ -57,7 +57,7 @@
   right: 0;
   top: 0;
   color: white;
-  z-index: 11;
+  z-index: 30;
 
   .body {
     box-sizing: border-box;
@@ -123,7 +123,7 @@
   height: 100%;
   fill: #fabd43;
   stroke: none;
-  z-index: 11;
+  z-index: 30;
 }
 
 

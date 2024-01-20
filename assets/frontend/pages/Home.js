@@ -14,6 +14,7 @@ const Home = () => {
         </div>
         <div className='max-w-full bg-coloryellow h-96'></div>
         <Prestations />
+        <div className='max-w-full bg-white h-[100rem]'></div>
       </main>
       <Footer />
     </div>
