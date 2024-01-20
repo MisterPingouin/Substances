@@ -1,10 +1,18 @@
-import './bootstrap.js';
-/*
- * Welcome to your app's main JavaScript file!
- *
- * This file will be included onto the page via the importmap() Twig function,
- * which should already be in your base.html.twig.
- */
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './frontend/pages/Home';
+import ErrorPage from './frontend/pages/ErrorPage';
 import './styles/app.css';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+const App = () => {
+  return (
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </Router>
+  );
+};
+
+export default App;
