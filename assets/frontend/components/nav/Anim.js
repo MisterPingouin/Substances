@@ -4,15 +4,15 @@ export const menuSlide = {
         transition: { duration: 0 }
     },
     enter: {
-        clipPath: "circle(150% at 100% 0%)", 
+        clipPath: "circle(123% at 100% 0%)", 
         transition: { duration: 1, ease: [0.76, 0, 0.24, 1] }
     },
     exit: {
         transition: {
             duration: 1,
-            ease: "linear", 
-            times: [0, 0.9, 1], 
-            clipPath: ["circle(18% at 100% 8%)", "circle(150% at 100% 0%)", "circle(0% at 100% 0%)"]
+            ease: "easeOut", 
+            times: [0, 0.1, 1], 
+            clipPath: ["circle(18% at 100% 8%)", "circle(123% at 100% 0%)", "circle(0% at 100% 0%)"]
         }
     }
 };
