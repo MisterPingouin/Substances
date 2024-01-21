@@ -11,7 +11,7 @@ export const menuSlide = {
         transition: {
             duration: 1,
             ease: "easeOut", 
-            times: [0, 0.1, 1], 
+            times: [0, 0.9, 1], 
             clipPath: ["circle(18% at 100% 8%)", "circle(150% at 100% 0%)", "circle(0% at 100% 0%)"]
         }
     }

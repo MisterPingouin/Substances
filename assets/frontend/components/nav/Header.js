@@ -23,7 +23,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div className='flex justify-between pl-4 m-2 items-center'>
+    <div className='flex justify-between pl-4 m-2 items-center relative z-10'>
       <Link to="/">
         <img src={logo} alt="Logo" className="h-36 pt-10 ml-24"/>
       </Link>
@@ -33,7 +33,7 @@ export default function Header() {
         </div>
       )}
 
-      <div className="absolute  right-0 top-0 ">
+      <div className="absolute right-0 top-0 ">
         <img src={backgroundImage} alt="Background" className="h-[20rem] " /> 
       </div>
 

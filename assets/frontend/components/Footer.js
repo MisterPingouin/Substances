@@ -4,14 +4,14 @@ import backgroundImageFooter from '../../images/FormeFooter.svg';
 
 const Footer = () => {
   return (
-    <footer className="text-colorbrown  mx-auto relative z-10">
-        <div className="text-colorbrown border-t border-black w-11/12 mx-auto relative z-10">
+    <footer className="text-colorbrown  mx-auto relative">
+    <div className="text-colorbrown border-t border-black w-11/12 mx-auto relative z-10">
       </div>
-      <div className='absolute flex justify-center items-center bottom-0 right-0 left-0 z-0'>
-        <img src={backgroundImageFooter} alt="Background" className="w-[62rem]" />
+      <div className='absolute flex justify-center items-center bottom-0 right-0 left-0'>
+        <img src={backgroundImageFooter} alt="Background" className="w-full" />
       </div>
 
-      <div className="py-6 z-30 relative"> 
+      <div className="py-6 relative"> 
         <div className="flex flex-col md:flex-row justify-between">
           <div>
             <div className="flex flex-col ml-6 mb-4 text-2xl font-bold">

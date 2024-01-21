@@ -1,8 +1,8 @@
 .button {
-  top: 3;
-  right: 0px;
+  top: 1rem;
+  position: relative;
+  right: 1rem;
   margin: 60px;
-  z-index: 2;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -51,13 +51,13 @@
 }
 
 .menu {
-  height: 80vh;
+  height: 100vh;
   background-color: #fabd43;
   position: fixed;
   right: 0;
   top: 0;
   color: white;
-  z-index: 99;
+  z-index: 98;
 
   .body {
     box-sizing: border-box;

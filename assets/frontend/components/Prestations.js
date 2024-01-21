@@ -72,13 +72,13 @@ const Prestations = () => {
           </motion.div>
         ))}
       </div>
-      <button type="button" className="bg-white opacity-40 z-10 absolute left-3 rotate-180 text-black bg-white-700 hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-white-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 " onClick={handleBack}>
+      <button type="button" className="bg-white opacity-40 z-10 absolute left-3 rotate-180 text-black bg-white-700 hover:bg-white-800 focus:outline-none focus:ring-white-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 " onClick={handleBack}>
 <svg className="w-7 h-7 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
 </svg>
 <span className="sr-only">Left Arrow</span>
 </button>
-      <button type="button" className="bg-white opacity-40 z-10 absolute right-3 text-black bg-white-700 hover:bg-white-800 focus:ring-4 focus:outline-none focus:ring-white-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2" onClick={handleNext}>
+      <button type="button" className="bg-white opacity-40 z-10 absolute right-3 text-black bg-white-700 hover:bg-white-800 focus:outline-none focus:ring-white-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2" onClick={handleNext}>
 <svg className="w-7 h-7 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
 </svg>
