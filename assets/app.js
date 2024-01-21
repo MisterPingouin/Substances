@@ -6,6 +6,8 @@ import Formation from './frontend/pages/Formation';
 import Conseil from './frontend/pages/Conseil';
 import Atelier from './frontend/pages/Atelier';
 import ErrorPage from './frontend/pages/ErrorPage';
+import Login from './frontend/pages/Login';
+import Admin from './frontend/pages/Admin';
 import './styles/app.scss';
 
 const App = () => {
@@ -18,6 +20,8 @@ const App = () => {
           <Route path="/formation" element={<Formation />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </Router>
   );
