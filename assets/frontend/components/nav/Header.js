@@ -12,7 +12,9 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowButton(window.scrollY < 50);
+      if (!isActive) {
+        setShowButton(window.scrollY < 50);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -20,7 +22,7 @@ export default function Header() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isActive]); 
 
   return (
     <div className='flex justify-between pl-4 m-2 items-center relative z-95'>

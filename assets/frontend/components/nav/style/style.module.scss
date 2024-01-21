@@ -1,12 +1,10 @@
 .button {
   top: 1rem;
-  position: relative;
-  right: 1rem;
+  position: fixed;
+  right: 1.7rem;
   margin: 60px;
   width: 80px;
   height: 80px;
-  border-radius: 50%;
-  background-color: #fabd43;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -17,7 +15,7 @@
 .burger {
   position: relative;
   width: 2.5em;
-  height: 2px;
+  height: 2.5px;
   background-color: white;
   transition: transform 0.3s;
   z-index: 99;
@@ -29,7 +27,7 @@
   position: absolute;
   left: 0;
   width: 2.5em;
-  height: 2px;
+  height: 2.5px;
   background-color: white;
   transition: transform 0.3s, top 0.3s;
 }
@@ -92,7 +90,6 @@
 
   .footer {
     display: flex;
-    width: 100%;
     justify-content: center;
     font-size: 12px;
     gap: 98px;

@@ -10,7 +10,7 @@ const Prestations = () => {
 
   const handleNext = () => {
     setMovingDirection("right");
-    setPositionIndexes(prevIndexes => prevIndexes.map(prevIndex => (prevIndex + 2) % 3));
+    setPositionIndexes(prevIndexes => prevIndexes.map(prevIndex => (prevIndex + 1) % 3));
   };
 
   const handleBack = () => {
@@ -21,7 +21,7 @@ const Prestations = () => {
   const cards = [<Card />, <Card1 />, <Card2 />];
   const positions = ["left", "center", "right"];
   const cardVariants = {
-    center: { x: "0%", scale: 1.4, zIndex: 8 },
+    center: { x: "0%", scale: 1.4, zIndex: 9 },
     left: { x: "-80%", scale: 1, zIndex: 6 },
     right: { x: "80%", scale: 1, zIndex: 5 },
   };
