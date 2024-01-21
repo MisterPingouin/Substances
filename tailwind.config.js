@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const withMT = require("@material-tailwind/react/utils/withMT");
+module.exports = withMT({
   content: [
       "./assets/**/*.js",
       "./templates/**/*.html.twig",
@@ -12,6 +13,7 @@ module.exports = {
 
     maxWidth: {
         '1/4': '25%',
+        '2/3': '40%',
         '1/2': '50%',
         '3/4': '75%',
         '4/5': '95%',
@@ -20,12 +22,12 @@ module.exports = {
     extend: {
         colors: {
             coloryellow: '#fabd43',
-            colorbrown: '#',
+            colorbrown: '#342A2C',
         },
 
 
     },
   },
   plugins: [],
-}
+});
 

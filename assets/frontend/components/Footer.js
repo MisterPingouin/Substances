@@ -1,32 +1,37 @@
 import React from 'react';
+import logo from '../../images/logo.svg'; 
+import backgroundImageFooter from '../../images/FormeFooter.svg';
 
 const Footer = () => {
   return (
-    <div>
-    <footer className="bg-white border-t border-black fixed bottom-0 w-4/5 left-1/2 transform -translate-x-1/2">
-              <div className="py-6">
-        <div className="flex flex-col md:flex-row justify-between ">
-            <div>
-                <div className="flex flex-col mb-4 font-bold">
-                    <a href="#" className="text-black hover:text-gray-800">Contact</a>
-                    <a href="#" className="text-black hover:text-gray-800">Formation produit</a>
-                    <a href="#" className="text-black hover:text-gray-800">Conseil & Coaching</a>
-                    <a href="#" className="text-black hover:text-gray-800">Ateliers</a>
-                    <a href="#" className="text-black hover:text-gray-800">A propos</a>
-                </div>
-                <div className="flex space-x-8">
-                    <a href="#" className="text-black hover:text-gray-800">Mentions légales</a>
-                    <a href="#" className="text-black hover:text-gray-800">Plan de site</a>
-                </div>
-            </div>
-            <div className="ml-auto">
-                <img src="logo-url.jpg" alt="Logo" className="h-8 w-8 md:h-12 md:w-12" />
-            </div>
-        </div>
-    </div>
-</footer>
+    <footer className="text-colorbrown  mx-auto relative">
+    <div className="text-colorbrown border-t border-black w-11/12 mx-auto relative z-10">
+      </div>
+      <div className='absolute flex justify-center items-center bottom-0 right-0 left-0'>
+        <img src={backgroundImageFooter} alt="Background" className="w-full" />
+      </div>
 
-    </div>
+      <div className="py-6 relative"> 
+        <div className="flex flex-col md:flex-row justify-between">
+          <div>
+            <div className="flex flex-col ml-6 mb-4 text-2xl font-bold text-black">
+              <a href="/contact" className='hover:text-coloryellow'>Contact</a>
+              <a href="/formation" className='hover:text-coloryellow' >Formation produit</a>
+              <a href="/conseil"  className='hover:text-coloryellow'>Conseil & Coaching</a>
+              <a href="/atelier"  className='hover:text-coloryellow'>Ateliers</a>
+              <a href="#" className='hover:text-coloryellow'>A propos</a>
+            </div>
+            <div className="ml-6 flex text-xl space-x-12 text-black ">
+              <a href="#" className='hover:text-gray-800'>Mentions légales</a>
+              <a href="#" className='hover:text-gray-800'>Plan de site</a>
+            </div>
+          </div>
+          <div className="ml-auto self-end items-end mr-6">
+            <img src={logo} alt="Logo" className="min-h-12" />
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 
