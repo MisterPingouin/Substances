@@ -23,7 +23,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div className='flex justify-between pl-4 m-2 items-center relative z-10'>
+    <div className='flex justify-between pl-4 m-2 items-center relative z-95'>
       <Link to="/">
         <img src={logo} alt="Logo" className="h-36 pt-10 ml-24"/>
       </Link>
