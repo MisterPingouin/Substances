@@ -56,7 +56,6 @@ export default function Nav() {
           className={styles.nav}
         >
           <div className={styles.header}>
-            <p>Navigation</p>
           </div>
           {navItems.map((item, index) => (
             <CustomLink

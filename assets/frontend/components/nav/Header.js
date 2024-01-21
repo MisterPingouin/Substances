@@ -25,9 +25,9 @@ export default function Header() {
   }, [isActive]); 
 
   return (
-    <div className='flex justify-between pl-4 m-2 items-center relative z-95'>
+    <div className='flex justify-between pl-4 ml-22 items-center relative z-95'>
       <Link to="/">
-        <img src={logo} alt="Logo" className="h-36 pt-10 ml-24"/>
+        <img src={logo} alt="Logo" className="h-28 mt-12 ml-24 pl-4 pt-2"/>
       </Link>
       {showButton && (
         <div onClick={() => { setIsActive(!isActive) }} className={styles.button}>
