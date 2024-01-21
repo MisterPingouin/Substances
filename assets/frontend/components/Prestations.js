@@ -10,7 +10,7 @@ const Prestations = () => {
 
   const handleNext = () => {
     setMovingDirection("right");
-    setPositionIndexes(prevIndexes => prevIndexes.map(prevIndex => (prevIndex + 1) % 3));
+    setPositionIndexes(prevIndexes => prevIndexes.map(prevIndex => (prevIndex + 2) % 3));
   };
 
   const handleBack = () => {
