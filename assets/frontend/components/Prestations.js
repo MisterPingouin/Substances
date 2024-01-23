@@ -21,14 +21,15 @@ const Prestations = () => {
   const cards = [<Card />, <Card1 />, <Card2 />];
   const positions = ["left", "center", "right"];
   const cardVariants = {
-    center: { x: "0%", scale: 1.4, zIndex: 9 },
-    left: { x: "-80%", scale: 1, zIndex: 6 },
-    right: { x: "80%", scale: 1, zIndex: 5 },
+    center: { x: "0%", scale: 1.8, opacity : 1, zIndex: 9 },
+    left: { x: "-80%", scale: 1, opacity : 0.5, zIndex: 6 },
+    right: { x: "80%", scale: 1, opacity : 0.5, zIndex: 5 },
   };
 
   const transitionSettings = {
     duration: 0.5,
-    zIndex: { duration: 0.25 }
+    zIndex: { duration: 0.25 },
+    opacity: { duration: 0.25 } 
   };
 
   const calculateZIndex = (index, direction) => {

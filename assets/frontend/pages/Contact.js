@@ -51,11 +51,11 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto rounded-lg">
         <div className="relative z-50 grid md:grid-cols-2 items-center gap-16 sm:p-10 p-4 font-subtitlefont">
           <div className="bg-gray-100 p-6 rounded-lg">
-            <p className="text-sm font-semibold text-[#333]">Je suis intéressé par...</p>
+            <p className="pl-2 text-xl font-titlefont font-semibold text-[#333]">Je suis intéressé par...</p>
             <div className="space-y-4 max-lg:mt-4">
               {/* Boutons pour l'objet de la demande */}
               {['Conseil / Formation', 'Atelier Particuliers', 'Atelier Professionnels', 'Simplement un petit mot', 'Autre'].map((item) => (
-                <button key={item} type="button" className={`px-4 py-2 rounded-md text-sm tracking-wider font-medium outline-none border-2 ${formData.objetDemande === item ? 'bg-coloryellow text-white border-coloryellow' : 'bg-transparent text-gray-500 border-gray-300'}`} onClick={() => handleButtonClick(item)}>{item}</button>
+                <button key={item} type="button" className={`px-4 py-2 mr-4 rounded-md text-sm tracking-wider font-medium outline-none border-2 ${formData.objetDemande === item ? 'bg-coloryellow text-white border-coloryellow' : 'bg-transparent text-gray-500 border-gray-300'}`} onClick={() => handleButtonClick(item)}>{item}</button>
               ))}
             </div>
             <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
@@ -68,12 +68,12 @@ const Contact = () => {
               <input type='text' placeholder='Société' className="w-full rounded-md py-3 px-4 text-sm outline-[#a91079]" name="societe" onChange={handleChange} />
               <textarea placeholder='Message' rows="6" className="w-full rounded-md px-4 text-sm pt-3 outline-[#a91079]" name="message" onChange={handleChange}></textarea>
               {errors.message && <p className="text-red-500 text-xs italic">{errors.message}</p>}
-              <button type='submit' className="text-white bg-colorbrown hover:bg-colorbrown font-semibold rounded-md text-sm px-4 py-3 flex items-center justify-center w-full">Envoyer le Message</button>
+              <button type='submit' className="text-white font-titlefont bg-colorbrown hover:bg-colorbrown font-semibold rounded-md text-sm px-4 py-3 flex items-center justify-center w-full">Envoyer le Message</button>
             </form>
           </div>
           <div>
-            <h1 className="text-4xl font-extrabold text-white">Entrons en Contact</h1>
-            <p className="text-sm text-gray-400 mt-3">Vous avez des questions sur l’agence, les services que nous proposons ou tout simplement envie de nous laisser un petit mot? N’hésitez pas! Remplissez le formulaire ci-dessous et vous serez contacté dans les plus brefs délais.</p>
+            <h1 className="text-4xl font-extrabold font-titlefont text-black">Entrons en Contact</h1>
+            <p className="text-sm text-black mt-3">Vous avez des questions sur l’agence, les services que nous proposons ou tout simplement envie de nous laisser un petit mot? N’hésitez pas! Remplissez le formulaire ci-dessous et vous serez contacté dans les plus brefs délais.</p>
             {/* Autres éléments d'information, si nécessaire */}
           </div>
         </div>
