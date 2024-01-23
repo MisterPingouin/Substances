@@ -24,10 +24,10 @@ const About = () => {
           </div>
         </div>
         <div className='flex flex-col items-center justify-center z-20 relative'>
-        <div className="flex flex-col justify-center text-colorbrown items-center text-3xl font-subtitlefont w-2/3">
-          <h1 className="text-6xl font-bold uppercase mt-20">💬 En quelques mots</h1>
-          <p className="mt-10 font-bold">Professionnelle experte dans l’industrie agro-alimentaire, spécialisée secteur boisson depuis 2007. Formatrice diplômée (Cicerone®, WSET®, IFCO, Saké Sommelier®) dans les domaines des spiritueux, bières et saké.</p>
-          <h1 className="text-6xl font-bold uppercase mt-16 mb-8">🔍 En détail...</h1>
+        <div className="flex flex-col justify-center text-colorbrown text-3xl font-subtitlefont w-2/3">
+          <h1 className="text-6xl font-bold font-titlefont uppercase mt-20">💬 En quelques mots</h1>
+          <p className="mt-10 font-bold font-titlefont">Professionnelle experte dans l’industrie agro-alimentaire, spécialisée secteur boisson depuis 2007. Formatrice diplômée (Cicerone®, WSET®, IFCO, Saké Sommelier®) dans les domaines des spiritueux, bières et saké.</p>
+          <h1 className="text-6xl font-bold uppercase mt-16 mb-8 font-titlefont">🔍 En détail...</h1>
           <p className="mt-8">Ingénieure agroalimentaire, formation complétée par un master en marketing et management en Australie, j'ai pu évoluer depuis 2007 dans des missions chez des acteurs de la filière brassicole et des spiritueux comme Cheffe de Marché, Cheffe de produit & Innovation en France comme à l'étranger puis Directrice de l’offre Produit chez Ninkasi jusqu'en 2023.</p>
           <p className="mt-8">J'ai pu développer une expertise holistique en brand management, innovation, business développement, stratégie distributive, export et RSE qui pourra vous aider dans vos projets professionnels.</p>
           <p className="mt-8">Au travers de ces années, une passion produit pour les substances licites est née! En 2020, j'ai rejoint la première promotion de Zythologues à l’IFCO et j'ai passé le niveau 1 du diplôme de Sake Sommelier de la Sake Sommelier Association of London en 2020. Je continue sur ma lancée en passant le WSET Spiritueux niveau 3 en 2023.</p>

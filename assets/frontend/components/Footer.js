@@ -5,7 +5,7 @@ import backgroundImageFooter from '../../images/FormeFooter.svg';
 const Footer = () => {
   return (
     <footer className="text-colorbrown  mx-auto relative">
-      <div className='m-10'>
+      <div className='mt-10 mr-10 ml-10'>
     <div className="text-colorbrown border-t border-black w-[95%] mb-8 mx-auto relative z-10">
       </div>
       <div className='absolute flex justify-center items-center bottom-0 right-0 left-0'>

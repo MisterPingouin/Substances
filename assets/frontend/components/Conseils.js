@@ -48,7 +48,7 @@ const Conseils = () => {
                 className="w-full max-w-4xl"
               />
             )}
-            <div className="flex flex-col justify-center text-colorbrown items-center text-3xl font-subtitlefont w-2/3">
+            <div className="flex flex-col justify-center text-colorbrown text-3xl font-subtitlefont w-2/3">
               <h1 className="text-6xl font-bold mt-20">{conseil.titre}</h1>
               <p className="mt-10 ">{conseil.sousDescription}</p>
               <p className="mt-10 ">
@@ -64,7 +64,7 @@ const Conseils = () => {
               <Link to="/contact">
                 <button
                   type="button"
-                  class="inline-block rounded bg-coloryellow px-6 pb-2 pt-2.5  font-xl  leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca]"
+                  className="inline-block rounded bg-coloryellow px-6 pb-2 pt-2.5  font-xl  leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca]"
                 >
                   Me Contacter
                 </button>{" "}

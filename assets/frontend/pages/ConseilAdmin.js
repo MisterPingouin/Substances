@@ -129,11 +129,11 @@ const ConseilAdmin = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto">
       <HeaderAdmin />
 
       {/* Formulaire d'ajout de conseil */}
-      <div className="mb-8">
+      <div className="mb-8 p-10 m-8">
         <h2 className="text-xl font-semibold mb-3">
           Ajouter un nouveau conseil
         </h2>
@@ -196,7 +196,7 @@ const ConseilAdmin = () => {
         />
         <button
           onClick={handleAddConseil}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-coloryellow text-white font-bold py-2 px-4 rounded"
         >
           Ajouter
         </button>
@@ -207,7 +207,7 @@ const ConseilAdmin = () => {
         {conseils.map((conseil) => (
           <div
             key={conseil.id}
-            className="border p-4 mb-4 bg-white shadow rounded"
+            className="border p-10 m-8 mb-4 bg-white shadow rounded"
           >
             <h3 className="font-bold text-lg">{conseil.titre}</h3>
             <p>{conseil.lien}</p>
@@ -233,7 +233,7 @@ const ConseilAdmin = () => {
             <div className="flex justify-end mt-2">
               <button
                 onClick={() => openModalWithConseil(conseil)}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                className="bg-coloryellow text-white font-bold py-2 px-4 rounded mr-2"
               >
                 Modifier
               </button>

@@ -68,7 +68,7 @@ const Ateliers = () => {
               <Link to="/contact">
                 <button
                   type="button"
-                  class="inline-block rounded bg-coloryellow px-6 pb-2 pt-2.5 font-xl leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca]"
+                  className="inline-block rounded bg-coloryellow px-6 pb-2 pt-2.5 font-xl leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca]"
                 >
                   Me Contacter
                 </button>

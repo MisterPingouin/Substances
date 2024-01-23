@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/nav/Header';
 import Footer from '../components/Footer';
 import Prestations from '../components/Prestations';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -12,7 +13,22 @@ const Home = () => {
         <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 pr-14 font-bold w-2/3">Passion Substances Licites</h1>
         <h2 className='text-4xl p-4 text-black mb-20 mr-20 pr-14 font-subtitlefont w-2/3'>Le monde des bières, des spiritueux et des sakés est un univers aux 1000 merveilles dans lequel on découvre toujours un nouveau savoir faire, une nouvelle personne, une nouvelle boisson qui nait de l'imagination et de l'expérience de personnes incroyables.</h2>
         </div>
-        <div className='max-w-full flex z-10 bg-coloryellow h-[70rem]'></div>
+        <div className='max-w-full flex flex-col h-[700px] bg-coloryellow justify-center items-center relative z-10'>
+        <div className='flex flex-col justify-center items-center relative z-10'>
+        <h2 className="text-4xl p-4 text-colorbrown pt-20 mr-20 pr-14 font-bold w-2/3">Julia-Charlotte Basso</h2>
+        <p className='text-4xl p-4 text-black mb-2 mr-20 pr-14 font-subtitlefont w-2/3'>15 ans d’expérience et d’expertise en substances licites (bière, spiritueux & saké). Enchantée !</p>
+        <div className='text-4xl p-4 text-colorbrown mr-20 pr-14 font-bold w-2/3'>
+              <Link to="/about">
+                <button
+                  type="button"
+                  className="inline-block rounded bg-white px-6 pb-2 pt-2.5 font-bold font-xl  leading-normal text-colorbrown shadow-[0_4px_9px_-4px_#3b71ca]"
+                >
+                  Faisons connaissance
+                </button>{" "}
+              </Link>
+              </div>
+              </div>
+        </div>
         <Prestations />
         <div className='max-w-full bg-white h-[100rem]'></div>
       </main>
