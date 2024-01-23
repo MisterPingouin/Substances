@@ -11,6 +11,7 @@ import Admin from './frontend/pages/Admin';
 import FormationAdmin from './frontend/pages/FormationAdmin';
 import ConseilAdmin from './frontend/pages/ConseilAdmin';
 import AtelierAdmin from './frontend/pages/AtelierAdmin';
+import About from './frontend/pages/About';
 import './styles/app.scss';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/atelier" element={<Atelier />} />
           <Route path="/conseil" element={<Conseil />} />
           <Route path="/formation" element={<Formation />} />

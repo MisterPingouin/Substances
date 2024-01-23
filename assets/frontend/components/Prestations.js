@@ -49,7 +49,7 @@ const Prestations = () => {
   return (
     <div className="z-20 relative w-full flex justify-center text-colorbrown flex-col items-center my-8">
       <h1 className="text-5xl ml-6 mb-8 self-start font-bold max-w-3/4">Mes Prestations</h1>
-      <div className="relative w-full h-[700px] pr-10 pl-10 flex justify-center items-center">
+      <div className="relative w-full h-[900px] pr-10 pl-10 flex justify-center items-center">
         {cards.map((cardComponent, index) => (
           <motion.div
             key={index}
