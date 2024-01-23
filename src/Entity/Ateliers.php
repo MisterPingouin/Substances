@@ -29,7 +29,7 @@ class Ateliers
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $descriptionGras = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
@@ -39,7 +39,7 @@ class Ateliers
     private ?string $description3 = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $imageCarroussel = null;
+    private ?string $imageCaroussel = null;
 
     public function getId(): ?int
     {
@@ -142,14 +142,14 @@ class Ateliers
         return $this;
     }
 
-    public function getImageCarroussel(): ?string
+    public function getImageCaroussel(): ?string
     {
-        return $this->imageCarroussel;
+        return $this->imageCaroussel;
     }
 
-    public function setImageCarroussel(?string $imageCarroussel): static
+    public function setImageCaroussel(?string $imageCaroussel): static
     {
-        $this->imageCarroussel = $imageCarroussel;
+        $this->imageCaroussel = $imageCaroussel;
 
         return $this;
     }
