@@ -14,6 +14,12 @@ const navItems = [
   },
 
   {
+    title: "Qui suis-je ?",
+
+    href: "/about",
+  },
+
+  {
     title: "Atelier",
 
     href: "/atelier",
