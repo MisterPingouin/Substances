@@ -31,27 +31,16 @@ class ConseilController extends AbstractController
         return $this->json($conseil, Response::HTTP_CREATED);
     }
 
-    #[Route('/update/{id}', name: 'conseils_update', methods: ['PUT'])]
+    #[Route('/update/{id}', name: 'conseils_update', methods: ['POST'])] 
     public function update(Request $request, Conseils $conseil, EntityManagerInterface $entityManager): Response
     {
-        // Vérifiez si l'entité existe
         if (!$conseil) {
             return $this->json(['message' => 'Conseil not found'], Response::HTTP_NOT_FOUND);
         }
-    
-        // Vérifiez si les champs requis sont présents dans la requête
-        $requiredFields = ['lien', 'titre', 'sousDescription', 'description', 'description2', 'logoDescription'];
-        foreach ($requiredFields as $field) {
-            if (!$request->request->has($field)) {
-                return $this->json(['message' => 'Missing required field: ' . $field], Response::HTTP_BAD_REQUEST);
-            }
-        }
-    
-        // Mettez à jour les données de l'entité
+
         $this->updateConseilDataFromRequest($conseil, $request);
-            // Flush les modifications
         $entityManager->flush();
-    
+
         return $this->json($conseil);
     }
     

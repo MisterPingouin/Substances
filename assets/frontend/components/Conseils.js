@@ -32,14 +32,14 @@ const Conseils = () => {
     <>
     <div className='text-3xl p-4 text-colorbrown mr-20 pr-14 space-y-2 mb-14 mt-4 font-bold w-2/3'>
     {conseils.map((conseil, index) => (
-      <div key={index} id={`conseil-${conseil.id}`}>
-        <h2>{conseil.lien}</h2>
-      </div>
+          <div key={index}>
+          <a href={`#conseil-${conseil.id}`}>{conseil.lien}</a>
+        </div>
     ))}
   </div>
     <div>
       {conseils.map((conseil, index) => (
-        <div key={index} id={`conseil-${conseil.id}`} className='flex flex-col items-center justify-center'>
+          <div key={index} id={`conseil-${conseil.id}`} className='flex flex-col items-center justify-center'>
         {conseil.image && <img src={conseil.image} alt={conseil.titre} className='w-full max-w-4xl' />}
         <div className='flex flex-col justify-center text-colorbrown items-center text-2xl font-subtitlefont w-2/3'>
           <h1 className='text-6xl font-bold mt-20'>{conseil.titre}</h1>
