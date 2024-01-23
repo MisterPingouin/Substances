@@ -55,7 +55,7 @@ class AtelierController extends AbstractController
 
     private function updateAtelierDataFromRequest(Ateliers $atelier, Request $request): void
     {
-        $fieldsToUpdate = ['lien', 'titre', 'sousDescription', 'description', 'description2', 'description3', 'imageCaroussel'];
+        $fieldsToUpdate = ['lien', 'titre', 'sousDescription', 'description', 'descriptionGras', 'description2', 'description3', 'imageCaroussel'];
 
         foreach ($fieldsToUpdate as $field) {
             if ($request->request->has($field)) {
