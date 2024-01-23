@@ -1,9 +1,10 @@
 import React from 'react';
+import HeaderAdmin from '../components/nav/HeaderAdmin';
 
 const Admin = () => {
     return (
-        <div>
-            <h1>Tout marche bien</h1>
+        <div className='font-titlefont'>
+        <HeaderAdmin />
         </div>
     );
 };

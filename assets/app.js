@@ -8,6 +8,9 @@ import Atelier from './frontend/pages/Atelier';
 import ErrorPage from './frontend/pages/ErrorPage';
 import Login from './frontend/pages/Login';
 import Admin from './frontend/pages/Admin';
+import FormationAdmin from './frontend/pages/FormationAdmin';
+import ConseilAdmin from './frontend/pages/ConseilAdmin';
+import AtelierAdmin from './frontend/pages/AtelierAdmin';
 import './styles/app.scss';
 
 const App = () => {
@@ -19,9 +22,12 @@ const App = () => {
           <Route path="/conseil" element={<Conseil />} />
           <Route path="/formation" element={<Formation />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<ErrorPage />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/auth" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/atelier" element={<AtelierAdmin />} />
+          <Route path="/admin/conseil" element={<ConseilAdmin />} />
+          <Route path="/admin/formation" element={<FormationAdmin />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
   );
