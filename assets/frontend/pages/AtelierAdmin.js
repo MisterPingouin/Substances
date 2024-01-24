@@ -57,31 +57,41 @@ const AtelierAdmin = () => {
   const handleModalFileChange = (e) => {
     const { name, files } = e.target;
     if (name === "imageCaroussel") {
-      const fileList = [...editingAtelier.imageCaroussel, ...Array.from(files)];
-      setEditingAtelier({ ...editingAtelier, [name]: fileList });
+      // Ajouter des nouvelles images au tableau existant
+      const newImages = Array.from(files);
+      setEditingAtelier(prevState => ({
+        ...prevState,
+        [name]: [...prevState[name], ...newImages]
+      }));
     } else {
       const file = files[0];
-      setEditingAtelier({ ...editingAtelier, [name]: file });
+      setEditingAtelier(prevState => ({
+        ...prevState,
+        [name]: file
+      }));
     }
   };
+  
+  
 
 
   const handleSubmitAtelier = (atelierData, isEditing = false) => {
     const formData = new FormData();
     Object.keys(atelierData).forEach((key) => {
       if (key === "imageCaroussel") {
-        if (atelierData[key].some(file => file instanceof File)) {
-          atelierData[key].forEach((file, index) => {
-            if (file instanceof File) {
-              formData.append(`${key}[${index}]`, file);
-            }
-          });
-        } else if (isEditing) {
-          if (key === "imageCaroussel" && !atelierData[key].every(item => item instanceof File)) {
-            formData.append(key, JSON.stringify(atelierData[key]));
+        atelierData[key].forEach((file, index) => {
+          if (file instanceof File) {
+            formData.append(`${key}[${index}]`, file);
+          }
+        });
+        if (isEditing) {
+          // Envoie les URLs existants si aucune nouvelle image n'est ajoutée
+          const existingImages = atelierData[key].filter(item => !(item instanceof File));
+          if (existingImages.length > 0) {
+            formData.append(`${key}_existing`, JSON.stringify(existingImages));
           }
         }
-      } else if (atelierData[key] !== null) {
+      } else {
         formData.append(key, atelierData[key]);
       }
     });
@@ -148,9 +158,12 @@ const AtelierAdmin = () => {
   
 
   const handleRemoveImageFromCarrousel = (index) => {
-    const updatedCarrousel = editingAtelier.imageCaroussel.filter((_, idx) => idx !== index);
-    setEditingAtelier({ ...editingAtelier, imageCaroussel: updatedCarrousel });
-  }  
+    setEditingAtelier(prevState => {
+      const updatedImages = prevState.imageCaroussel.filter((_, idx) => idx !== index);
+      return { ...prevState, imageCaroussel: updatedImages };
+    });
+  };
+  
 
   return (
     <div className="container mx-auto">
