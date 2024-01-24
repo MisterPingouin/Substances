@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 #[Route('/api/ateliers')]
 class AtelierController extends AbstractController
@@ -53,6 +54,24 @@ class AtelierController extends AbstractController
         return $this->json(null, Response::HTTP_NO_CONTENT);
     }
 
+    #[Route('/remove-carousel-image/{id}', name: 'ateliers_remove_carousel_image', methods: ['POST'])]
+public function removeCarouselImage(Request $request, Ateliers $atelier, EntityManagerInterface $entityManager): Response
+{
+    // Récupérer l'index de l'image à supprimer du carrousel
+    $imageIndex = $request->request->get('imageIndex');
+
+    // Supprimer l'image du tableau
+    $images = $atelier->getImageCaroussel();
+    if (isset($images[$imageIndex])) {
+        unset($images[$imageIndex]);
+        $atelier->setImageCaroussel(array_values($images)); // Réindexer le tableau
+        $entityManager->flush();
+    }
+
+    return $this->json($atelier);
+}
+
+
     private function updateAtelierDataFromRequest(Ateliers $atelier, Request $request): void
     {
         $fieldsToUpdate = ['lien', 'titre', 'sousDescription', 'description', 'descriptionGras', 'description2', 'description3', 'imageCaroussel'];
@@ -60,6 +79,10 @@ class AtelierController extends AbstractController
         foreach ($fieldsToUpdate as $field) {
             if ($request->request->has($field)) {
                 $value = $request->request->get($field);
+                if ($field === 'imageCaroussel' && !empty($value)) {
+                    // Décoder la chaîne JSON en tableau si nécessaire
+                    $value = is_string($value) ? json_decode($value, true) : $value;
+                }
                 $setterMethod = 'set'.ucfirst($field);
                 $atelier->$setterMethod($value);
             }
@@ -68,33 +91,60 @@ class AtelierController extends AbstractController
         $this->handleFileUpload($atelier, $request, 'image');
     }
 
-    private function handleFileUpload(Ateliers $atelier, Request $request, $fieldName): void {
+    private function handleFileUpload(Ateliers $atelier, Request $request): void
+    {
+        // Gérer l'upload de l'image principale
+        $this->uploadSingleFile($atelier, $request, 'image');
+
+        // Gérer l'upload des images du carrousel
+        $this->uploadMultipleFiles($atelier, $request, 'imageCaroussel');
+    }
+
+    private function uploadSingleFile(Ateliers $atelier, Request $request, string $fieldName): void
+    {
         if ($request->files->has($fieldName)) {
-            $files = $request->files->get($fieldName);
-            $fileNames = [];
-    
-            if (!is_array($files)) {
-                $files = [$files]; // Assurez-vous que $files est toujours un tableau
-            }
-    
-            foreach ($files as $file) {
+            $file = $request->files->get($fieldName);
+            if ($file instanceof UploadedFile && $file->isValid()) {
                 $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+                try {
+                    $file->move($this->getParameter('uploads_directory'), $fileName);
+                    $atelier->{'set'.ucfirst($fieldName)}('/uploads/'.$fileName);
+                } catch (FileException $e) {
+                    // Gérer l'exception
+                }
+            }
+        }
+    }
     
+    private function uploadMultipleFiles(Ateliers $atelier, Request $request, string $fieldName): void
+{
+    if ($request->files->has($fieldName)) {
+        $files = $request->files->get($fieldName);
+        if (!is_array($files)) {
+            $files = [$files];
+        }
+
+        $fileNames = $atelier->getImageCaroussel(); // Récupérer les URLs existants
+
+        foreach ($files as $file) {
+            if ($file instanceof UploadedFile) {
+                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
                 try {
                     $file->move($this->getParameter('uploads_directory'), $fileName);
                     $fileNames[] = '/uploads/'.$fileName;
                 } catch (FileException $e) {
-                    // Gérer l'exception si le fichier ne peut pas être déplacé
+                    // Gérer l'exception
                 }
             }
-    
-            if ($fieldName === 'imageCaroussel') {
-                $atelier->setImageCaroussel($fileNames);
-            } else {
-                $atelier->{'set'.ucfirst($fieldName)}($fileNames[0] ?? null);
-            }
         }
+
+        $atelier->setImageCaroussel($fileNames);
+    } elseif ($request->request->has($fieldName)) {
+        // Gérer les URLs existants (pas de nouveaux fichiers)
+        $atelier->setImageCaroussel(json_decode($request->request->get($fieldName), true));
     }
+}
+    
     
 
 

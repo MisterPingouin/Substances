@@ -38,8 +38,8 @@ class Ateliers
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description3 = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $imageCaroussel = null;
+    #[ORM\Column(type: Types::JSON, nullable: true)]
+    private $imageCaroussel = [];
 
     public function getId(): ?int
     {
@@ -142,15 +142,15 @@ class Ateliers
         return $this;
     }
 
-    public function getImageCaroussel(): ?string
+    public function getImageCaroussel(): array
     {
         return $this->imageCaroussel;
     }
-
-    public function setImageCaroussel(?string $imageCaroussel): static
+    
+    public function setImageCaroussel(array $imageCaroussel): self
     {
         $this->imageCaroussel = $imageCaroussel;
-
+    
         return $this;
     }
 }

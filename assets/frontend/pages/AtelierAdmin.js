@@ -41,7 +41,7 @@ const AtelierAdmin = () => {
   const handleFileChange = (e) => {
     const { name, files } = e.target;
     if (name === "imageCaroussel") {
-      const fileList = Array.from(files);
+      const fileList = [...newAtelier.imageCaroussel, ...Array.from(files)];
       setNewAtelier({ ...newAtelier, [name]: fileList });
     } else {
       const file = files[0];
@@ -57,7 +57,7 @@ const AtelierAdmin = () => {
   const handleModalFileChange = (e) => {
     const { name, files } = e.target;
     if (name === "imageCaroussel") {
-      const fileList = Array.from(files);
+      const fileList = [...editingAtelier.imageCaroussel, ...Array.from(files)];
       setEditingAtelier({ ...editingAtelier, [name]: fileList });
     } else {
       const file = files[0];
@@ -69,10 +69,18 @@ const AtelierAdmin = () => {
   const handleSubmitAtelier = (atelierData, isEditing = false) => {
     const formData = new FormData();
     Object.keys(atelierData).forEach((key) => {
-      if (key === "imageCaroussel" && atelierData[key]) {
-        Array.from(atelierData[key]).forEach((file, index) => {
-          formData.append(`${key}[${index}]`, file);
-        });
+      if (key === "imageCaroussel") {
+        if (atelierData[key].some(file => file instanceof File)) {
+          atelierData[key].forEach((file, index) => {
+            if (file instanceof File) {
+              formData.append(`${key}[${index}]`, file);
+            }
+          });
+        } else if (isEditing) {
+          if (key === "imageCaroussel" && !atelierData[key].every(item => item instanceof File)) {
+            formData.append(key, JSON.stringify(atelierData[key]));
+          }
+        }
       } else if (atelierData[key] !== null) {
         formData.append(key, atelierData[key]);
       }
@@ -112,6 +120,8 @@ const AtelierAdmin = () => {
       .catch((error) => console.error("Error deleting atelier:", error));
   };
 
+  
+
   const openModalWithAtelier = (atelier) => {
     setEditingAtelier({ ...atelier });
     setModalIsOpen(true);
@@ -122,19 +132,25 @@ const AtelierAdmin = () => {
     setEditingAtelier(null);
   };
 
+  
+
   const renderCarrouselImages = (images) => {
-    return (images || []).map((file, index) => (
-      <div key={index}>
-        <img src={URL.createObjectURL(file)} alt={`Carrousel ${index}`} />
-        <button onClick={() => handleRemoveImageFromCarrousel(index)}>Remove</button>
-      </div>
-    ));
+    return images.map((image, index) => {
+      const imageUrl = image instanceof File ? URL.createObjectURL(image) : image;
+      return (
+        <div key={index}>
+          <img src={imageUrl} alt={`Carrousel ${index}`} />
+          <button onClick={() => handleRemoveImageFromCarrousel(index)}>Remove</button>
+        </div>
+      );
+    });
   };
+  
 
   const handleRemoveImageFromCarrousel = (index) => {
-    const updatedCarrousel = newAtelier.imageCaroussel.filter((_, idx) => idx !== index);
-    setNewAtelier({ ...newAtelier, imageCaroussel: updatedCarrousel });
-  };
+    const updatedCarrousel = editingAtelier.imageCaroussel.filter((_, idx) => idx !== index);
+    setEditingAtelier({ ...editingAtelier, imageCaroussel: updatedCarrousel });
+  }  
 
   return (
     <div className="container mx-auto">
@@ -202,12 +218,14 @@ const AtelierAdmin = () => {
           onChange={handleFileChange}
           className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
         />
-        <input
-          type="file"
-          name="imageCaroussel"
-          onChange={handleFileChange}
-          className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-        />
+<input
+  type="file"
+  name="imageCaroussel"
+  onChange={handleFileChange}
+  multiple
+  className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+/>
+
         <button
           onClick={handleAddAtelier}
           className="bg-coloryellow text-white font-bold py-2 px-4 rounded"
@@ -337,12 +355,14 @@ const AtelierAdmin = () => {
               <label className="block mb-2 text-sm font-bold text-gray-700">
                 Image du carrousel:
               </label>
-      <input
-        type="file"
-        name="imageCaroussel"
-        onChange={handleModalFileChange}
-        className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-      />
+              <input
+  type="file"
+  name="imageCaroussel"
+  onChange={handleFileChange}
+  multiple
+  className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+/>
+
       </div>
       <div className="flex justify-between">
         <button
