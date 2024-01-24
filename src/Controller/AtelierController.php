@@ -68,23 +68,35 @@ class AtelierController extends AbstractController
         $this->handleFileUpload($atelier, $request, 'image');
     }
 
-    private function handleFileUpload(Ateliers $atelier, Request $request, $fieldName): void
-    {
+    private function handleFileUpload(Ateliers $atelier, Request $request, $fieldName): void {
         if ($request->files->has($fieldName)) {
-            $file = $request->files->get($fieldName);
-            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-
-            try {
-                $file->move($this->getParameter('uploads_directory'), $fileName);
-                $setterMethod = 'set'.ucfirst($fieldName);
-                if (method_exists($atelier, $setterMethod)) {
-                    $atelier->$setterMethod('/uploads/'.$fileName);
+            $files = $request->files->get($fieldName);
+            $fileNames = [];
+    
+            if (!is_array($files)) {
+                $files = [$files]; // Assurez-vous que $files est toujours un tableau
+            }
+    
+            foreach ($files as $file) {
+                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+    
+                try {
+                    $file->move($this->getParameter('uploads_directory'), $fileName);
+                    $fileNames[] = '/uploads/'.$fileName;
+                } catch (FileException $e) {
+                    // Gérer l'exception si le fichier ne peut pas être déplacé
                 }
-            } catch (FileException $e) {
-                // Handle the exception if the file could not be moved
+            }
+    
+            if ($fieldName === 'imageCaroussel') {
+                $atelier->setImageCaroussel($fileNames);
+            } else {
+                $atelier->{'set'.ucfirst($fieldName)}($fileNames[0] ?? null);
             }
         }
     }
+    
+
 
     private function generateUniqueFileName(): string
     {
