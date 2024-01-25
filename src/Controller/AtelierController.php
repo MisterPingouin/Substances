@@ -54,22 +54,41 @@ class AtelierController extends AbstractController
         return $this->json(null, Response::HTTP_NO_CONTENT);
     }
 
-    #[Route('/remove-carousel-image/{id}', name: 'ateliers_remove_carousel_image', methods: ['POST'])]
+    #[Route('/remove-carousel-image/{id}', name: 'ateliers_remove_carousel_image', methods: ['DELETE'])]
 public function removeCarouselImage(Request $request, Ateliers $atelier, EntityManagerInterface $entityManager): Response
 {
-    // Récupérer l'index de l'image à supprimer du carrousel
-    $imageIndex = $request->request->get('imageIndex');
+    if (!$atelier) {
+        return $this->json(['message' => 'Atelier not found'], Response::HTTP_NOT_FOUND);
+    }
 
-    // Supprimer l'image du tableau
+    $data = json_decode($request->getContent(), true);
+    $imageIndex = $data['imageIndex'] ?? null;
+
+    if ($imageIndex === null) {
+        return $this->json(['message' => 'Invalid image index'], Response::HTTP_BAD_REQUEST);
+    }
+
     $images = $atelier->getImageCaroussel();
+
     if (isset($images[$imageIndex])) {
+        $imageToRemove = $images[$imageIndex];
+        
+        // Supprimer l'image du système de fichiers
+        $imagePath = $this->getParameter('uploads_directory').'/'.basename($imageToRemove);
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+
         unset($images[$imageIndex]);
         $atelier->setImageCaroussel(array_values($images)); // Réindexer le tableau
         $entityManager->flush();
+    } else {
+        return $this->json(['message' => 'Image not found'], Response::HTTP_NOT_FOUND);
     }
 
     return $this->json($atelier);
 }
+
 
 
     private function updateAtelierDataFromRequest(Ateliers $atelier, Request $request): void

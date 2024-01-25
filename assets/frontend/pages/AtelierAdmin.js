@@ -114,28 +114,32 @@ const AtelierAdmin = () => {
     setEditingAtelier(null);
   };
 
-  const renderCarrouselImages = (images) => images.map((image, index) => {
+  const renderCarrouselImages = (images, atelierId) => images.map((image, index) => {
     const imageUrl = image instanceof File ? URL.createObjectURL(image) : image;
     return (
       <div key={index}>
         <img src={imageUrl} alt={`Carrousel ${index}`} />
-        <button onClick={() => handleRemoveImageFromCarrousel(atelier.id, index)}>Remove</button>
+        <button onClick={() => handleRemoveImageFromCarrousel(atelierId, index)}>Remove</button>
       </div>
     );
   });
-
-  const renderCarrouselImages1 = (images) => images.map((image, index) => (
+  
+  const renderCarrouselImages1 = (images, atelierId) => images.map((image, index) => (
     <div key={index}>
       <img src={image} alt={`Carrousel ${index}`} />
-      <button onClick={() => handleRemoveImageFromCarrousel(atelier.id, index)}>Remove</button>
+      <button onClick={() => handleRemoveImageFromCarrousel(atelierId, index)}>Remove</button>
     </div>
   ));
+  
 
   const handleRemoveImageFromCarrousel = (atelierId, index) => {
-    axios.post(`/api/ateliers/remove-carousel-image/${atelierId}`, { imageIndex: index })
-      .then(() => fetchAteliers())
-      .catch(error => console.error("Error removing image:", error));
+    axios.delete(`/api/ateliers/remove-carousel-image/${atelierId}`, {
+      data: { imageIndex: index }
+    })
+    .then(() => fetchAteliers())
+    .catch(error => console.error("Error removing image:", error));
   };
+  
   
 
   const handleAddImageToCarrousel = (atelierId, files) => {
@@ -264,7 +268,7 @@ const AtelierAdmin = () => {
       multiple
       onChange={(e) => handleAddImageToCarrousel(atelier.id, e.target.files)}
     />
-    {atelier.imageCaroussel && renderCarrouselImages1(atelier.imageCaroussel)}
+{atelier.imageCaroussel && renderCarrouselImages1(atelier.imageCaroussel, atelier.id)}
             <div className="flex justify-end mt-2">
               <button
                 onClick={() => openModalWithAtelier(atelier)}
