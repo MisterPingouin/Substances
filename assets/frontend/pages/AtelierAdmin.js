@@ -136,6 +136,19 @@ const AtelierAdmin = () => {
       .then(() => fetchAteliers())
       .catch(error => console.error("Error removing image:", error));
   };
+  
+
+  const handleAddImageToCarrousel = (atelierId, files) => {
+    const formData = new FormData();
+    Array.from(files).forEach(file => {
+      formData.append('imageCaroussel[]', file);
+    });
+  
+    axios.post(`/api/ateliers/add-carousel-image/${atelierId}`, formData)
+      .then(() => fetchAteliers())
+      .catch(error => console.error("Error adding image to carrousel:", error));
+  };
+  
 
   return (
     <div className="container mx-auto">
@@ -246,14 +259,12 @@ const AtelierAdmin = () => {
                 Image du carrousel:
               </label>
               <input
-  type="file"
-  name="imageCaroussel"
-  onChange={handleFileChange}
-  multiple
-  className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-/>
-  {atelier.imageCaroussel && renderCarrouselImages1(atelier.imageCaroussel)}
-
+      type="file"
+      name="imageCaroussel"
+      multiple
+      onChange={(e) => handleAddImageToCarrousel(atelier.id, e.target.files)}
+    />
+    {atelier.imageCaroussel && renderCarrouselImages1(atelier.imageCaroussel)}
             <div className="flex justify-end mt-2">
               <button
                 onClick={() => openModalWithAtelier(atelier)}

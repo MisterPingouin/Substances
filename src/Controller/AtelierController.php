@@ -144,6 +144,36 @@ public function removeCarouselImage(Request $request, Ateliers $atelier, EntityM
         $atelier->setImageCaroussel(json_decode($request->request->get($fieldName), true));
     }
 }
+
+#[Route('/add-carousel-image/{id}', name: 'ateliers_add_carousel_image', methods: ['POST'])]
+public function addCarouselImage(Request $request, Ateliers $atelier, EntityManagerInterface $entityManager): Response
+{
+    if (!$atelier) {
+        return $this->json(['message' => 'Atelier not found'], Response::HTTP_NOT_FOUND);
+    }
+
+    $images = $atelier->getImageCaroussel() ?? [];
+
+    $files = $request->files->get('imageCaroussel');
+    if ($files) {
+        foreach ($files as $file) {
+            if ($file->isValid()) {
+                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+                try {
+                    $file->move($this->getParameter('uploads_directory'), $fileName);
+                    $images[] = '/uploads/'.$fileName;
+                } catch (FileException $e) {
+                    return $this->json(['message' => 'Failed to upload image'], Response::HTTP_INTERNAL_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    $atelier->setImageCaroussel($images);
+    $entityManager->flush();
+
+    return $this->json($atelier);
+}
     
     
 
