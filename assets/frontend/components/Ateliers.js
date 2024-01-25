@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
+import ImageCarousel from './ImageCarousel';
 
 const Ateliers = () => {
   const [ateliers, setAteliers] = useState([]);
@@ -60,10 +60,7 @@ const Ateliers = () => {
               <p className="mt-10 ">
                 {renderWithLineBreaks(atelier.description3)}
               </p>
-              {atelier.imageCaroussel && (
-                <img src={atelier.imageCaroussel} alt="Caroussel" className="w-full" />
-              )}
-            </div>
+                          </div>
             <div className="flex flex-col space-y-4 mt-10 mb-10 text-colorbrown font-bold text-xl w-2/3">
               <Link to="/contact">
                 <button
@@ -73,6 +70,7 @@ const Ateliers = () => {
                   Me Contacter
                 </button>
               </Link>
+              {atelier.imageCaroussel && <ImageCarousel images={atelier.imageCaroussel} />}
             </div>
           </div>
         ))}

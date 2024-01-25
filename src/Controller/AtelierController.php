@@ -79,7 +79,7 @@ public function removeCarouselImage(Request $request, Ateliers $atelier, EntityM
         }
 
         unset($images[$imageIndex]);
-        $atelier->setImageCaroussel(array_values($images)); // Réindexer le tableau
+        $atelier->setImageCaroussel(array_values($images));
         $entityManager->flush();
     } else {
         return $this->json(['message' => 'Image not found'], Response::HTTP_NOT_FOUND);
