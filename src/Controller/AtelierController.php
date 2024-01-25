@@ -73,7 +73,6 @@ public function removeCarouselImage(Request $request, Ateliers $atelier, EntityM
     if (isset($images[$imageIndex])) {
         $imageToRemove = $images[$imageIndex];
         
-        // Supprimer l'image du système de fichiers
         $imagePath = $this->getParameter('uploads_directory').'/'.basename($imageToRemove);
         if (file_exists($imagePath)) {
             unlink($imagePath);

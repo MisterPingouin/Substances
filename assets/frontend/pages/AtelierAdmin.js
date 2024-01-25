@@ -124,7 +124,7 @@ const AtelierAdmin = () => {
     );
   });
   
-  const renderCarrouselImages1 = (images, atelierId) => images.map((image, index) => (
+  const renderCarrouselImagesList = (images, atelierId) => images.map((image, index) => (
     <div key={index}>
       <img src={image} alt={`Carrousel ${index}`} />
       <button onClick={() => handleRemoveImageFromCarrousel(atelierId, index)}>Remove</button>
@@ -133,13 +133,20 @@ const AtelierAdmin = () => {
   
 
   const handleRemoveImageFromCarrousel = (atelierId, index) => {
-    axios.delete(`/api/ateliers/remove-carousel-image/${atelierId}`, {
-      data: { imageIndex: index }
-    })
-    .then(() => fetchAteliers())
-    .catch(error => console.error("Error removing image:", error));
-  };
-  
+    if (atelierId === undefined) {
+        setNewAtelier(prevAtelier => {
+            const updatedImages = prevAtelier.imageCaroussel.filter((_, i) => i !== index);
+            return { ...prevAtelier, imageCaroussel: updatedImages };
+        });
+    } else {
+        axios.delete(`/api/ateliers/remove-carousel-image/${atelierId}`, {
+            data: { imageIndex: index }
+        })
+        .then(() => fetchAteliers())
+        .catch(error => console.error("Error removing image:", error));
+    }
+};
+
   
 
   const handleAddImageToCarrousel = (atelierId, files) => {
@@ -268,7 +275,7 @@ const AtelierAdmin = () => {
       multiple
       onChange={(e) => handleAddImageToCarrousel(atelier.id, e.target.files)}
     />
-{atelier.imageCaroussel && renderCarrouselImages1(atelier.imageCaroussel, atelier.id)}
+{atelier.imageCaroussel && renderCarrouselImagesList(atelier.imageCaroussel, atelier.id)}
             <div className="flex justify-end mt-2">
               <button
                 onClick={() => openModalWithAtelier(atelier)}
