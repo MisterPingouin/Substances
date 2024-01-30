@@ -7,62 +7,41 @@ import { CardAteliers as Card2 } from "../cards/CardAteliers";
 const cards = [<Card />, <Card1 />, <Card2 />];
 
 const Prestation = () => {
-    const [xPos, setXPos] = useState(0);
-    const cardWidthRef = React.useRef(0);
+    const [width, setWidth] = useState(0);
+    const marginEnd = 50;
 
     useEffect(() => {
-        const handleResize = () => {
-            const cardWidth = window.innerWidth * 0.8;
-            cardWidthRef.current = cardWidth;
-            setXPos(0); // Initialiser xPos pour commencer avec la première carte
+        const updateWidth = () => {
+            setWidth(window.innerWidth * 0.8 * cards.length + marginEnd);
         };
 
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        updateWidth();
+        window.addEventListener('resize', updateWidth);
+        return () => window.removeEventListener('resize', updateWidth);
     }, []);
 
-    const handleDragEnd = (event, info) => {
-        const offset = info.offset.x;
-        setXPos((prev) => {
-            const cardSpacing = 16; // Espacement entre les cartes
-            const totalWidth = cards.length * cardWidthRef.current + (cards.length - 1) * cardSpacing;
-            const maxOffset = -totalWidth + cardWidthRef.current; // Droite de la dernière carte
-            const minOffset = 0; // Gauche de la première carte
-
-            // Calculer le nouvel offset en respectant les limites
-            let newOffset = prev + offset;
-            if (newOffset > minOffset) newOffset = minOffset;
-            if (newOffset < maxOffset) newOffset = maxOffset;
-
-            return newOffset;
-        });
-    };
-
     return (
-        <>
-            <div className="relative w-full overflow-hidden flex justify-center items-center">
-                <h1 className="text-3xl font-bold mb-4">Mes Prestations</h1>
+        <div className="ml-12">
+            <h1 className="ml-2 text-5xl mt-14 font-bold mb-8">Mes Prestations</h1>
+            <div style={{ overflow: 'hidden' }}>
                 <motion.div
                     drag="x"
-                    onDragEnd={handleDragEnd}
-                    style={{ x: xPos }}
-                    className="flex"
+                    dragConstraints={{ left: -width + window.innerWidth - marginEnd, right: 0 }}
+                    className="flex cursor-pointer"
                 >
                     {cards.map((card, index) => (
-                        <div 
-                            className={`flex-none ${index > 0 ? 'ml-4' : ''}`} 
-                            key={index} 
-                            style={{ width: `${cardWidthRef.current}px` }}
+                        <motion.div 
+                            key={index}
+                            className={`flex-none ${index === cards.length - 1 ? 'mr-12' : ''}`}
+                            style={{ maxWidth: `${window.innerWidth * 0.8}px` }}
                         >
                             {card}
-                        </div>
+                        </motion.div>
                     ))}
                 </motion.div>
             </div>
-        </>
+        </div>
     );
 };
 
 export default Prestation;
-
