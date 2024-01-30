@@ -134,13 +134,8 @@
   background: rgba(0, 0, 0, 0.8);
   z-index: 90;
   opacity: 1;
-  transition: opacity 300ms ease-in-out;
+  transition: opacity 1000ms ease-in-out;
 }
-
-.overlayActive::before {
-  opacity: 0;
-}
-
 
 .button, .burger {
   z-index: 99; /* Assurez-vous que le z-index soit plus élevé que celui de l'overlay */
