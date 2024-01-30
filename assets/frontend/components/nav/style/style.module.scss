@@ -16,7 +16,7 @@
 .burger {
   position: relative;
   width: 2.5em;
-  height: 2.5px;
+  height: 3px;
   background-color: white;
   transition: transform 0.3s;
   z-index: 99;
@@ -28,7 +28,7 @@
   position: absolute;
   left: 0;
   width: 2.5em;
-  height: 2.5px;
+  height: 3px;
   background-color: white;
   transition: transform 0.3s, top 0.3s;
 }
@@ -156,8 +156,9 @@
   .burger {
     height: 4px;
   }
-}
+
 .burger::before,
 .burger::after {
   height: 4px;
+}
 }
