@@ -162,7 +162,7 @@ const AtelierAdmin = () => {
   
 
   return (
-    <div className="container mx-auto">
+    <div className="mx-auto">
       <HeaderAdmin />
   
       {/* Formulaire d'ajout d'atelier */}
@@ -251,7 +251,7 @@ const AtelierAdmin = () => {
         {ateliers.map((atelier) => (
           <div
             key={atelier.id}
-            className="border p-10 mb-4 m-8 bg-white shadow rounded"
+            className=" flex flex-col justify-center items-center border p-10 m-8 mb-4 bg-white shadow rounded"
           >
             <h3 className="font-bold text-lg">{atelier.titre}</h3>
             <p>{atelier.lien}</p>
@@ -263,11 +263,11 @@ const AtelierAdmin = () => {
               <img
                 src={atelier.image}
                 alt="Image de l'atelier"
-                className="w-full h-auto rounded-lg mt-2"
+                className="w-1/2 h-auto rounded-lg mt-2"
               />
             )}
                           <label className="block mb-2 text-sm font-bold text-gray-700">
-                Image du carrousel:
+                Rajout image du carrousel:
               </label>
               <input
       type="file"

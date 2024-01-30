@@ -129,7 +129,7 @@ const FormationAdmin = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="mx-auto">
       <HeaderAdmin />
 
       {/* Formulaire d'ajout de formation */}
@@ -207,7 +207,7 @@ const FormationAdmin = () => {
         {formations.map((formation) => (
           <div
             key={formation.id}
-            className="border p-10 m-8 mb-4 bg-white shadow rounded"
+            className=" flex flex-col justify-center items-center border p-10 m-8 mb-4 bg-white shadow rounded"
           >
             <h3 className="font-bold text-lg">{formation.titre}</h3>
             <p>{formation.lien}</p>
@@ -220,7 +220,7 @@ const FormationAdmin = () => {
               <img
                 src={formation.image}
                 alt="Image du formation"
-                className="w-full h-auto rounded-lg mt-2"
+                className="w-1/2 h-auto rounded-lg mt-2"
               />
             )}
             {formation.logoUrl && (

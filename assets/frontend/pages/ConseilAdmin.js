@@ -129,7 +129,7 @@ const ConseilAdmin = () => {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="mx-auto">
       <HeaderAdmin />
 
       {/* Formulaire d'ajout de conseil */}
@@ -207,7 +207,7 @@ const ConseilAdmin = () => {
         {conseils.map((conseil) => (
           <div
             key={conseil.id}
-            className="border p-10 m-8 mb-4 bg-white shadow rounded"
+            className=" flex flex-col justify-center items-center border p-10 m-8 mb-4 bg-white shadow rounded"
           >
             <h3 className="font-bold text-lg">{conseil.titre}</h3>
             <p>{conseil.lien}</p>
@@ -220,14 +220,14 @@ const ConseilAdmin = () => {
               <img
                 src={conseil.image}
                 alt="Image du conseil"
-                className="w-full h-auto rounded-lg mt-2"
+                className="w-1/2 h-auto rounded-lg mt-2"
               />
             )}
             {conseil.logoUrl && (
               <img
                 src={conseil.logoUrl}
                 alt="Logo"
-                className="w-full h-auto rounded-lg mt-2"
+                className="w-1/2 h-auto rounded-lg mt-2"
               />
             )}
             <div className="flex justify-end mt-2">
