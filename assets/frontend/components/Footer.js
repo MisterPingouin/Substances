@@ -54,7 +54,7 @@ const Footer = () => {
                 </div>
                 <div className="bg-black rounded-full p-5">
                   <a
-                    href="https://www.linkedin.com/in/julia-charlotte-basso-41434912/"
+                    href="#"
                     className="hover:underline hover:text-white"
                   >
                     <svg
@@ -72,7 +72,8 @@ const Footer = () => {
           </div>
           <div className="ml-6 flex justify-between items-center">
             <div className="flex text-xl space-x-12 text-colorborwn mb-20 pt-4">
-              <a href="#" className="hover:text-gray-600 cursor-pointer">
+              <a                     href="https://www.linkedin.com/in/julia-charlotte-basso-41434912/"
+ className="hover:text-gray-600 cursor-pointer">
                 Mentions légales
               </a>
               <a href="#" className="hover:text-gray-600 cursor-pointer">
@@ -116,7 +117,8 @@ const Footer = () => {
             <div className="flex items-end mb-16">
               <div className="flex space-x-9">             
                  <div className="bg-black rounded-full p-5">
-                  <a href="#" className="hover:underline hover:text-white">
+                  <a                     href="https://www.linkedin.com/in/julia-charlotte-basso-41434912/"
+ className="hover:underline hover:text-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-10 w-10 text-white"
@@ -129,7 +131,7 @@ const Footer = () => {
                 </div>
                 <div className="bg-black rounded-full p-5">
                   <a
-                    href="https://www.linkedin.com/in/julia-charlotte-basso-41434912/"
+                    href="#"
                     className="hover:underline hover:text-white"
                   >
                     <svg

@@ -43,7 +43,13 @@ const Home = () => {
        <Card2/>
        </div>
       </div>
-        <div className='max-w-full bg-white h-[100rem]'></div>
+        <div className='max-w-full h-[50rem]'>
+        </div>
+        <div className="mt-10 mr-20 ml-20 text-colorbrown mx-auto relative z-10">
+        <div className="border-t border-black w-[95%] mb-8 mx-auto relative z-10"></div>
+        <div className='flex w-full'> <h2 className="ml-6 text-5xl mt-14 font-bold mb-8">Ils me font confiance</h2>
+</div>
+        </div>  
       </main>
       <Footer />
     </div>

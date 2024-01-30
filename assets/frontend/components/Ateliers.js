@@ -57,7 +57,7 @@ const Ateliers = () => {
               <p className="mt-10 ">
                 {renderWithLineBreaks(atelier.description2)}
               </p>
-              <p className="mt-10 ">
+              <p className="mt-10">
                 {renderWithLineBreaks(atelier.description3)}
               </p>
                           </div>
