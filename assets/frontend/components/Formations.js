@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Conseils = () => {
-  const [conseils, setConseils] = useState([]);
+const Formations = () => {
+  const [formations, setFormations] = useState([]);
 
   useEffect(() => {
     axios
-      .get("/api/conseils/list")
+      .get("/api/formations/list")
       .then((response) => {
-        setConseils(response.data);
+        setFormations(response.data);
       })
       .catch((error) => console.log(error));
   }, []);
@@ -27,39 +27,39 @@ const Conseils = () => {
   return (
     <>
       <div className="text-3xl p-4 text-colorbrown mr-20 pr-14 space-y-2 mb-14 mt-4 font-bold w-2/3">
-        {conseils.map((conseil, index) => (
+        {formations.map((formation, index) => (
           <div key={index}>
-            <a href={`#conseil-${conseil.id}`}>{conseil.lien}</a>
+            <a href={`#formation-${formation.id}`}>{formation.lien}</a>
           </div>
         ))}
       </div>
       <div>
-        {conseils.map((conseil, index) => (
+        {formations.map((formation, index) => (
           <div
             key={index}
-            id={`conseil-${conseil.id}`}
+            id={`formation-${formation.id}`}
             className="flex flex-col items-center justify-center z-20 relative"
           >
-            {conseil.image && (
+            {formation.image && (
               <img
-                src={conseil.image}
-                alt={conseil.titre}
+                src={formation.image}
+                alt={formation.titre}
                 className="w-full max-w-4xl"
               />
             )}
             <div className="flex flex-col justify-center text-colorbrown text-3xl font-subtitlefont w-2/3">
-              <h1 className="text-6xl font-bold mt-20">{conseil.titre}</h1>
-              <p className="mt-10 ">{conseil.sousDescription}</p>
+              <h1 className="text-6xl font-bold mt-20">{formation.titre}</h1>
+              <p className="mt-10 ">{formation.sousDescription}</p>
               <p className="mt-10 ">
-                {renderWithLineBreaks(conseil.description)}
+                {renderWithLineBreaks(formation.description)}
               </p>
-              {conseil.logoUrl && (
-                <img src={conseil.logoUrl} alt="Logo" className="w-full" />
+              {formation.logoUrl && (
+                <img src={formation.logoUrl} alt="Logo" className="w-full" />
               )}
-              <p className=" text-sm ">{conseil.logoDescription}</p>
+              <p className=" text-sm ">{formation.logoDescription}</p>
             </div>
             <div className="flex flex-col space-y-4 mt-10 mb-10 text-colorbrown font-bold text-xl  w-2/3">
-              <p className="">{renderWithLineBreaks(conseil.description2)}</p>
+              <p className="">{renderWithLineBreaks(formation.description2)}</p>
               <Link to="/contact">
                 <button
                   type="button"
@@ -76,4 +76,4 @@ const Conseils = () => {
   );
 };
 
-export default Conseils;
+export default Formations;
