@@ -27,11 +27,11 @@ const ImageCarousel = ({ images }) => {
   const swipePower = (offset, velocity) => Math.abs(offset) * velocity;
 
   return (
-    <div className='w-full h-[70rem] relative mb-10 mt-10 pb-10'>
+    <div className='w-full h-[70rem] relative mb-10 mt-10 overflow-hidden'>
       <AnimatePresence initial={false}>
-        <motion.img
+        <motion.div
           key={page}
-          src={images[page]}
+          className="w-full h-full absolute"
           custom={page}
           variants={variants}
           initial="enter"
@@ -52,22 +52,23 @@ const ImageCarousel = ({ images }) => {
               navigateToImage((page - 1 + images.length) % images.length);
             }
           }}
-          className="w-full h-full absolute"
-        />
+        >
+          <img src={images[page]} className="w-full h-full object-cover" />
+        </motion.div>
       </AnimatePresence>
       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex">
-  <div className="rounded-full bg-white bg-opacity-40 p-1">
-    {images.map((_, index) => (
-      <span
-        key={index}
-        className={`mx-1 cursor-pointer ${index === page ? 'text-coloryellow text-4xl' : 'text-white text-4xl'}`}
-        onClick={() => navigateToImage(index)}
-      >
-        ●
-      </span>
-    ))}
-  </div>
-</div>
+        <div className="rounded-full bg-white bg-opacity-40 p-1">
+          {images.map((_, index) => (
+            <span
+              key={index}
+              className={`mx-1 cursor-pointer ${index === page ? 'text-coloryellow text-4xl' : 'text-white text-4xl'}`}
+              onClick={() => navigateToImage(index)}
+            >
+              ●
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

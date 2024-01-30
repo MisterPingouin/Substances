@@ -61,7 +61,7 @@ const Ateliers = () => {
                 {renderWithLineBreaks(atelier.description3)}
               </p>
                           </div>
-            <div className="flex flex-col space-y-4 mt-10 mb-10 text-colorbrown font-bold text-xl w-2/3">
+            <div className="flex flex-col space-y-4 mt-10 mb-10 text-colorbrown font-bold text-3xl w-2/3">
               <Link to="/contact">
                 <button
                   type="button"

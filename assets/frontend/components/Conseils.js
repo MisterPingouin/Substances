@@ -58,7 +58,7 @@ const Conseils = () => {
               )}
               <p className=" text-sm ">{conseil.logoDescription}</p>
             </div>
-            <div className="flex flex-col space-y-4 mt-10 mb-10 text-colorbrown font-bold text-xl  w-2/3">
+            <div className="flex flex-col space-y-4 mt-10 mb-10 text-colorbrown font-bold text-3xl  w-2/3">
               <p className="">{renderWithLineBreaks(conseil.description2)}</p>
               <Link to="/contact">
                 <button
