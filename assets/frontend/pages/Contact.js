@@ -42,11 +42,19 @@ const Contact = () => {
     if (!validateForm()) return;
 
     try {
-      // Envoi des données via Axios à l'API Symfony
+        const response = await axios.post('http://votre_backend.com/api/contact', formData);
+        console.log('Réponse du serveur', response.data);
+        // Gérer la réponse ici (afficher un message de succès, par exemple)
     } catch (error) {
-      console.error('Erreur lors de l\'envoi du formulaire', error);
+        console.error('Erreur lors de l\'envoi du formulaire', error);
+        if (error.response) {
+            // Gérer les erreurs de validation côté serveur ici
+            setErrors(error.response.data);
+        }
+        // Autres traitements d'erreur
     }
-  };
+};
+
 
   return (
     <div className=''>
