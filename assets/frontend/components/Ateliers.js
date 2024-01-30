@@ -70,8 +70,8 @@ const Ateliers = () => {
                   Me Contacter
                 </button>
               </Link>
-              {atelier.imageCaroussel && <ImageCarousel images={atelier.imageCaroussel} />}
             </div>
+            {atelier.imageCaroussel && <ImageCarousel  images={atelier.imageCaroussel} />}
           </div>
         ))}
       </div>
