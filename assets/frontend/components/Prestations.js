@@ -22,12 +22,12 @@ const Prestation = () => {
 
     return (
         <div className="ml-12">
-            <h1 className="ml-2 text-5xl mt-14 font-bold mb-8">Mes Prestations</h1>
+            <h1 className="ml-6 text-5xl mt-14 font-bold mb-8">Mes Prestations</h1>
             <div style={{ overflow: 'hidden' }}>
                 <motion.div
                     drag="x"
                     dragConstraints={{ left: -width + window.innerWidth - marginEnd, right: 0 }}
-                    className="flex cursor-pointer"
+                    className="flex space-x-10 cursor-pointer"
                 >
                     {cards.map((card, index) => (
                         <motion.div 

@@ -61,22 +61,22 @@ const Contact = () => {
       <Header />
       <main className="flex-grow justify-center items-center">
         <div className="flex flex-col justify-center items-center relative z-10">
-        <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 pr-14 font-bold w-2/3">
+        <h1 className="text-7xl p-4 lg:p-2 lg:mt-24 text-colorbrown pt-20 mr-20 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:w-3/4">
             <span className="block">Contactez-moi</span>
           </h1>
-          <h2 className="text-4xl p-4 text-colorbrown mr-20 pr-8 font-subtitlefont w-2/3">
+          <h2 className="text-4xl p-4 text-colorbrown mr-20 lg:mr-0 pr-8 font-subtitlefont w-2/3 lg:w-3/4">
           Choisissez l’objet
 de votre message et ensuite
 c’est à vous de jouer !
           </h2>
-          <div className="p-4 text-colorbrown mr-20 pr-14 font-bold w-2/3">
-            <div className="space-y-4 max-w-[70%]">
+          <div className="p-4 text-colorbrown mr-20 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:flex lg:flex-col lg:items-center lg:w-3/4">
+            <div className="space-y-4 max-w-[70%] self-start lg:w-3/4">
               {/* Boutons pour l'objet de la demande */}
               {['Formations produits', 'Conseil & accompagnement', 'Ateliers', 'Autre'].map((item) => (
                 <button key={item} type="button" className={`px-4 py-2 mr-4 rounded-md text-2xl tracking-wider font-semibold outline-none border-4 ${formData.objetDemande === item ? 'bg-coloryellow text-white border-coloryellow' : 'bg-white text-coloryellow border-coloryellow'}`} onClick={() => handleButtonClick(item)}>{item}</button>
               ))}
             </div>
-            <form className="mt-8 space-y-2" onSubmit={handleSubmit}>
+            <form className="lg:hidden mt-8 space-y-2 w-full" onSubmit={handleSubmit}>
               <label className='text-xl'>Nom</label>
               <input type='text' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="nom" onChange={handleChange} />
               {errors.nom && <p className="text-red-500 text-sm italic">{errors.nom}</p>}
@@ -97,11 +97,39 @@ c’est à vous de jouer !
               <input type='text' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="societe" onChange={handleChange} />
               <div className=""></div>
               <label className='text-xl'>Message</label>
-              <textarea placeholder='Message' rows="6" className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="message" onChange={handleChange}></textarea>
+              <textarea rows="6" className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="message" onChange={handleChange}></textarea>
               {errors.message && <p className="text-red-500 text-sm italic">{errors.message}</p>}
               <div className="h-4"></div>
               <Button type="submit" className=" text-2xl mt-4 bg-colorbrown capitalize">Envoyer</Button>
             </form>
+            <div className='hidden lg:flex flex-col relative justify-center items-center w-full '>
+            <form className="mt-8 space-y-6 self-start lg:w-3/4" onSubmit={handleSubmit}>
+              <div className='flex space-x-20'>
+                <div className='space-y-2 w-1/2'>
+              <label className='text-xl'>Nom</label>
+              <input type='text' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="nom" onChange={handleChange} />
+              {errors.nom && <p className="text-red-500 text-sm italic">{errors.nom}</p>}
+              <label className='text-xl block mt-1'>Prénom</label>
+              <input type='text' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="prenom" onChange={handleChange} />
+              {errors.prenom && <p className="text-red-500 text-sm italic">{errors.prenom}</p>}
+              <label className='text-xl block mt-1'>Téléphone</label>
+              <input type='tel' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="telephone" onChange={handleChange} />
+              {errors.telephone && <p className="text-red-500 text-sm italic">{errors.telephone}</p>}
+              <label className='text-xl block mt-1'>Adresse mail</label>
+              <input type='email' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="email" onChange={handleChange} />
+              {errors.email && <p className="text-red-500 text-sm italic">{errors.email}</p>}
+              </div>
+              <div className='space-y-2 w-3/4'>
+              <label className='text-xl'>Société</label>
+              <input type='text-xl' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="societe" onChange={handleChange} />
+              <label className='text-xl inline-block mt-1'>Message</label>
+              <textarea rows="8" className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="message" onChange={handleChange}></textarea>
+              {errors.message && <p className="text-red-500 text-sm italic">{errors.message}</p>}
+              </div>
+              </div>
+              <Button type="submit" className=" text-2xl mt-4 bg-colorbrown capitalize">Envoyer</Button>
+            </form>
+            </div>
           </div>
         </div>
       </main>

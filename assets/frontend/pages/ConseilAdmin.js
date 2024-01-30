@@ -227,7 +227,7 @@ const ConseilAdmin = () => {
               <img
                 src={conseil.logoUrl}
                 alt="Logo"
-                className="w-1/2 h-auto rounded-lg mt-2"
+                className="max-h-1/4 w-auto rounded-lg mt-2"
               />
             )}
             <div className="flex justify-end mt-2">
@@ -326,7 +326,7 @@ const ConseilAdmin = () => {
             <div className="flex justify-between">
               <button
                 onClick={handleUpdateConseil}
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                className="bg-coloryellow hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
               >
                 Sauvegarder
               </button>

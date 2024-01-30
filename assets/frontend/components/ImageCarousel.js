@@ -57,11 +57,11 @@ const ImageCarousel = ({ images }) => {
         </motion.div>
       </AnimatePresence>
       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex">
-        <div className="rounded-full bg-white bg-opacity-40 p-1">
+        <div className="rounded-full bg-white bg-opacity-20">
           {images.map((_, index) => (
             <span
               key={index}
-              className={`mx-1 cursor-pointer ${index === page ? 'text-coloryellow text-4xl' : 'text-white text-4xl'}`}
+              className={`mx-1 cursor-pointer ${index === page ? 'text-coloryellow text-3xl' : 'text-white text-3xl'}`}
               onClick={() => navigateToImage(index)}
             >
               ●

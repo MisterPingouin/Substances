@@ -124,13 +124,19 @@ const AtelierAdmin = () => {
     );
   });
   
-  const renderCarrouselImagesList = (images, atelierId) => images.map((image, index) => (
-    <div key={index}>
-      <img src={image} alt={`Carrousel ${index}`} />
-      <button onClick={() => handleRemoveImageFromCarrousel(atelierId, index)}>Remove</button>
-    </div>
-  ));
-  
+
+const renderCarrouselImagesList = (images, atelierId) => (
+  <div className="grid grid-cols-4 gap-4">
+    {images.map((image, index) => (
+      <div key={index} className="w-full">
+        <img src={image} alt={`Carrousel ${index}`} className="w-full h-auto object-cover rounded-lg" />
+        <button onClick={() => handleRemoveImageFromCarrousel(atelierId, index)} className="mt-2 bg-red-500 text-white p-2 rounded">
+          Remove
+        </button>
+      </div>
+    ))}
+  </div>
+);
 
   const handleRemoveImageFromCarrousel = (atelierId, index) => {
     if (atelierId === undefined) {
@@ -266,16 +272,18 @@ const AtelierAdmin = () => {
                 className="w-1/2 h-auto rounded-lg mt-2"
               />
             )}
-                          <label className="block mb-2 text-sm font-bold text-gray-700">
-                Rajout image du carrousel:
+                          <label className="block pb-4 mt-4 mb-2 text-sm font-bold text-gray-700">
+                Modification et ajout image du carrousel:
               </label>
               <input
       type="file"
       name="imageCaroussel"
+      className="mb-2"
       multiple
       onChange={(e) => handleAddImageToCarrousel(atelier.id, e.target.files)}
     />
 {atelier.imageCaroussel && renderCarrouselImagesList(atelier.imageCaroussel, atelier.id)}
+<h1 className="m-4 titlefont font-bold">Modification texte et image principale :</h1>
             <div className="flex justify-end mt-2">
               <button
                 onClick={() => openModalWithAtelier(atelier)}
@@ -368,7 +376,7 @@ const AtelierAdmin = () => {
       <div className="flex justify-between">
         <button
           onClick={handleUpdateAtelier}
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-coloryellow text-white font-bold py-2 px-4 rounded"
         >
           Sauvegarder
         </button>

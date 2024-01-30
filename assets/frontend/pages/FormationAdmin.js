@@ -326,7 +326,7 @@ const FormationAdmin = () => {
             <div className="flex justify-between">
               <button
                 onClick={handleUpdateFormation}
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                className="bg-coloryellow hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
               >
                 Sauvegarder
               </button>
