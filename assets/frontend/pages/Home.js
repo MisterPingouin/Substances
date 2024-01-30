@@ -3,6 +3,9 @@ import Header from '../components/nav/Header';
 import Footer from '../components/Footer';
 import Prestations from '../components/Prestations';
 import { Link } from 'react-router-dom';
+import { CardCoaching as Card } from "../cards/CardCoaching";
+import { CardFormation as Card1 } from "../cards/CardFormation";
+import { CardAteliers as Card2 } from "../cards/CardAteliers";
 
 const Home = () => {
   return (
@@ -29,7 +32,17 @@ const Home = () => {
               </div>
               </div>
         </div>
+        <div className='lg:hidden'>
         <Prestations/>
+        </div>
+        <div className='hidden w-full h-auto lg:flex flex-col justify-center items-center m-4'>
+        <h1 className="ml-4 self-start text-5xl mt-14 font-bold mb-8">Mes Prestations</h1>
+        <div className='flex space-x-12 m-4 w-[90%]'>
+       <Card/>
+       <Card1/>
+       <Card2/>
+       </div>
+      </div>
         <div className='max-w-full bg-white h-[100rem]'></div>
       </main>
       <Footer />
