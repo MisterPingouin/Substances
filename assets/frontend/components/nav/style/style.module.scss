@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: center;
   z-index: 99;
+  animation: 0.5s ease-out 0s 1 slideInFromRight;
 }
 
 .burger {
@@ -138,8 +139,25 @@
 }
 
 .button, .burger {
-  z-index: 99; /* Assurez-vous que le z-index soit plus élevé que celui de l'overlay */
+  z-index: 99; 
 }
 
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 
+@media (min-width: 1024px) {
 
+  .burger {
+    height: 4px;
+  }
+}
+.burger::before,
+.burger::after {
+  height: 4px;
+}
