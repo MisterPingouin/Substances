@@ -79,26 +79,26 @@ c’est à vous de jouer !
             <form className="mt-8 space-y-2" onSubmit={handleSubmit}>
               <label className='text-xl'>Nom</label>
               <input type='text' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="nom" onChange={handleChange} />
-              {errors.nom && <p className="text-red-500 text-xs italic">{errors.nom}</p>}
+              {errors.nom && <p className="text-red-500 text-sm italic">{errors.nom}</p>}
               <div className=""></div>
               <label className='text-xl'>Prénom</label>
               <input type='text' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="prenom" onChange={handleChange} />
-              {errors.prenom && <p className="text-red-500 text-xs italic">{errors.prenom}</p>}
+              {errors.prenom && <p className="text-red-500 text-sm italic">{errors.prenom}</p>}
               <div className=""></div>
               <label className='text-xl'>Téléphone</label>
               <input type='tel' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="telephone" onChange={handleChange} />
-              {errors.telephone && <p className="text-red-500 text-xs italic">{errors.telephone}</p>}
+              {errors.telephone && <p className="text-red-500 text-sm italic">{errors.telephone}</p>}
               <div className=""></div>
               <label className='text-xl'>Adresse mail</label>
               <input type='email' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="email" onChange={handleChange} />
-              {errors.email && <p className="text-red-500 text-xs italic">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 text-sm italic">{errors.email}</p>}
               <div className=""></div>
               <label className='text-xl'>Société</label>
               <input type='text' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="societe" onChange={handleChange} />
               <div className=""></div>
               <label className='text-xl'>Message</label>
               <textarea placeholder='Message' rows="6" className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="message" onChange={handleChange}></textarea>
-              {errors.message && <p className="text-red-500 text-xs italic">{errors.message}</p>}
+              {errors.message && <p className="text-red-500 text-sm italic">{errors.message}</p>}
               <div className="h-4"></div>
               <Button type="submit" className=" text-2xl mt-4 bg-colorbrown capitalize">Envoyer</Button>
             </form>
