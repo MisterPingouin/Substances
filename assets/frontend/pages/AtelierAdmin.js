@@ -4,76 +4,104 @@ import HeaderAdmin from "../components/nav/HeaderAdmin";
 
 const AtelierAdmin = () => {
   const [ateliers, setAteliers] = useState([]);
-  const [newAtelier, setNewAtelier] = useState({
-    lien: "",
-    image: null,
-    titre: "",
-    sousDescription: "",
-    description: "",
-    descriptionGras: "",
-    description2: "",
-    description3: "",
-    imageCaroussel: null,
-  });
+  const [newAtelier, setNewAtelier] = useState(initialAtelierState());
   const [editingAtelier, setEditingAtelier] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("/api/ateliers/list")
-      .then((response) => setAteliers(response.data))
-      .catch((error) => console.log(error));
+    fetchAteliers();
   }, []);
 
+  function initialAtelierState() {
+    return {
+      lien: "",
+      image: null,
+      titre: "",
+      sousDescription: "",
+      description: "",
+      descriptionGras: "",
+      description2: "",
+      description3: "",
+      imageCaroussel: [],
+    };
+  }
+
+  function fetchAteliers() {
+    axios.get("/api/ateliers/list")
+      .then((response) => setAteliers(response.data))
+      .catch((error) => console.error("Error fetching ateliers:", error));
+  }
+
   const handleInputChange = (e) => {
-    setNewAtelier({ ...newAtelier, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setNewAtelier({ ...newAtelier, [name]: value });
   };
 
   const handleFileChange = (e) => {
-    if (modalIsOpen) {
-      setEditingAtelier({
-        ...editingAtelier,
-        [e.target.name]: e.target.files[0],
-      });
+    const { name, files } = e.target;
+    if (name === "imageCaroussel") {
+      setNewAtelier({ ...newAtelier, [name]: [...newAtelier.imageCaroussel, ...Array.from(files)] });
     } else {
-      setNewAtelier({ ...newAtelier, [e.target.name]: e.target.files[0] });
+      setNewAtelier({ ...newAtelier, [name]: files[0] });
     }
+  };
+
+  const handleModalInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditingAtelier({ ...editingAtelier, [name]: value });
+  };
+
+  const handleModalFileChange = (e) => {
+    const { name, files } = e.target;
+    setEditingAtelier(prevState => ({ ...prevState, [name]: files[0] }));
   };
 
   const handleAddAtelier = () => {
     const formData = new FormData();
-    Object.keys(newAtelier).forEach((key) => {
-      formData.append(key, newAtelier[key]);
+    Object.keys(newAtelier).forEach(key => {
+      if (key === 'imageCaroussel') {
+        newAtelier[key].forEach((file, index) => {
+          if (file instanceof File) {
+            formData.append(`${key}[${index}]`, file);
+          }
+        });
+      } else {
+        formData.append(key, newAtelier[key]);
+      }
     });
 
-    axios
-      .post("/api/ateliers/add", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
+
+    axios.post("/api/ateliers/add", formData, config)
+      .then(() => {
+        fetchAteliers();
+        setNewAtelier(initialAtelierState());
       })
-      .then((response) => {
-        setAteliers([...ateliers, response.data]);
-        setNewAtelier({
-          lien: "",
-          image: null,
-          titre: "",
-          sousDescription: "",
-          description: "",
-          descriptionGras: "",
-          description2: "",
-          description3: "",
-          imageCaroussel: null,
-        });
+      .catch((error) => console.error("Error adding atelier:", error));
+  };
+
+  const handleUpdateAtelier = () => {
+    const formData = new FormData();
+    Object.keys(editingAtelier).forEach(key => {
+      if (key !== 'imageCaroussel') {
+        formData.append(key, editingAtelier[key]);
+      }
+    });
+
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
+
+    axios.post(`/api/ateliers/update/${editingAtelier.id}`, formData, config)
+      .then(() => {
+        fetchAteliers();
+        closeModal();
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error("Error updating atelier:", error));
   };
 
   const handleDeleteAtelier = (id) => {
-    axios
-      .delete(`/api/ateliers/delete/${id}`)
+    axios.delete(`/api/ateliers/delete/${id}`)
       .then(() => setAteliers(ateliers.filter((atelier) => atelier.id !== id)))
-      .catch((error) => console.log(error));
+      .catch((error) => console.error("Error deleting atelier:", error));
   };
 
   const openModalWithAtelier = (atelier) => {
@@ -81,54 +109,57 @@ const AtelierAdmin = () => {
     setModalIsOpen(true);
   };
 
-  const handleModalInputChange = (e) => {
-    setEditingAtelier({ ...editingAtelier, [e.target.name]: e.target.value });
-  };
-
-  const handleModalFileChange = (e) => {
-    if (e.target.files.length > 0) {
-      setEditingAtelier({
-        ...editingAtelier,
-        [e.target.name]: e.target.files[0],
-      });
-    }
-  };
-
-  const handleUpdateAtelier = () => {
-    const formData = new FormData();
-    Object.keys(editingAtelier).forEach((key) => {
-      if (key === "image" || key === "imageCaroussel") {
-        if (editingAtelier[key] instanceof File) {
-          formData.append(key, editingAtelier[key]);
-        }
-      } else {
-        formData.append(key, editingAtelier[key]);
-      }
-    });
-
-    axios({
-      method: "post",
-      url: `/api/ateliers/update/${editingAtelier.id}`,
-      data: formData,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    })
-      .then((response) => {
-        setAteliers(
-          ateliers.map((item) =>
-            item.id === editingAtelier.id ? response.data : item
-          )
-        );
-        closeModal();
-      })
-      .catch((error) => console.log(error));
-  };
-
   const closeModal = () => {
     setModalIsOpen(false);
     setEditingAtelier(null);
   };
+
+  const renderCarrouselImages = (images, atelierId) => images.map((image, index) => {
+    const imageUrl = image instanceof File ? URL.createObjectURL(image) : image;
+    return (
+      <div key={index}>
+        <img src={imageUrl} alt={`Carrousel ${index}`} />
+        <button onClick={() => handleRemoveImageFromCarrousel(atelierId, index)}>Remove</button>
+      </div>
+    );
+  });
+  
+  const renderCarrouselImagesList = (images, atelierId) => images.map((image, index) => (
+    <div key={index}>
+      <img src={image} alt={`Carrousel ${index}`} />
+      <button onClick={() => handleRemoveImageFromCarrousel(atelierId, index)}>Remove</button>
+    </div>
+  ));
+  
+
+  const handleRemoveImageFromCarrousel = (atelierId, index) => {
+    if (atelierId === undefined) {
+        setNewAtelier(prevAtelier => {
+            const updatedImages = prevAtelier.imageCaroussel.filter((_, i) => i !== index);
+            return { ...prevAtelier, imageCaroussel: updatedImages };
+        });
+    } else {
+        axios.delete(`/api/ateliers/remove-carousel-image/${atelierId}`, {
+            data: { imageIndex: index }
+        })
+        .then(() => fetchAteliers())
+        .catch(error => console.error("Error removing image:", error));
+    }
+};
+
+  
+
+  const handleAddImageToCarrousel = (atelierId, files) => {
+    const formData = new FormData();
+    Array.from(files).forEach(file => {
+      formData.append('imageCaroussel[]', file);
+    });
+  
+    axios.post(`/api/ateliers/add-carousel-image/${atelierId}`, formData)
+      .then(() => fetchAteliers())
+      .catch(error => console.error("Error adding image to carrousel:", error));
+  };
+  
 
   return (
     <div className="container mx-auto">
@@ -196,18 +227,23 @@ const AtelierAdmin = () => {
           onChange={handleFileChange}
           className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
         />
-        <input
-          type="file"
-          name="imageCaroussel"
-          onChange={handleFileChange}
-          className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-        />
+<input
+  type="file"
+  name="imageCaroussel"
+  onChange={handleFileChange}
+  multiple
+  className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+/>
+
         <button
           onClick={handleAddAtelier}
           className="bg-coloryellow text-white font-bold py-2 px-4 rounded"
         >
           Ajouter
         </button>
+        {newAtelier.imageCaroussel && 
+  renderCarrouselImages(newAtelier.imageCaroussel)}
+
       </div>
   
       {/* Liste des ateliers */}
@@ -230,13 +266,16 @@ const AtelierAdmin = () => {
                 className="w-full h-auto rounded-lg mt-2"
               />
             )}
-            {atelier.imageCaroussel && (
-              <img
-                src={atelier.imageCaroussel}
-                alt="Image du carrousel"
-                className="w-full h-auto rounded-lg mt-2"
-              />
-            )}
+                          <label className="block mb-2 text-sm font-bold text-gray-700">
+                Image du carrousel:
+              </label>
+              <input
+      type="file"
+      name="imageCaroussel"
+      multiple
+      onChange={(e) => handleAddImageToCarrousel(atelier.id, e.target.files)}
+    />
+{atelier.imageCaroussel && renderCarrouselImagesList(atelier.imageCaroussel, atelier.id)}
             <div className="flex justify-end mt-2">
               <button
                 onClick={() => openModalWithAtelier(atelier)}
@@ -325,15 +364,6 @@ const AtelierAdmin = () => {
       />
        </div>
       <div>
-              <label className="block mb-2 text-sm font-bold text-gray-700">
-                Image du carrousel:
-              </label>
-      <input
-        type="file"
-        name="imageCaroussel"
-        onChange={handleModalFileChange}
-        className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-      />
       </div>
       <div className="flex justify-between">
         <button
