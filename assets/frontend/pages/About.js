@@ -20,7 +20,7 @@ const About = () => {
         </div>
         <div className="flex justify-center items-center">
           <div className="flex flex-col justify-center items-center w-full">
-            <img src={about} alt="Qui suis-je" className="w-full max-w-4xl" />
+            <img src={about} alt="Photo de Julia-Charlotte Basso" className="w-full max-w-4xl" />
           </div>
         </div>
         <div className='flex flex-col items-center justify-center z-20 relative'>

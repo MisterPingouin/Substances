@@ -19,20 +19,20 @@ const Footer = () => {
             {/* Gauche - Liens et Mentions */}
             <div>
               <div className="flex">
-                <div className="flex flex-col ml-6 mb-4 text-3xl font-bold text-black space-y-1">
-                  <a href="/formation" className="hover:text-coloryellow">
+                <div className="flex flex-col ml-6 mb-4 text-3xl font-bold text-colorborwn space-y-1">
+                  <a href="/formation" className="hover:text-gray-600 cursor-pointer">
                     Formation produit
                   </a>
-                  <a href="/conseil" className="hover:text-coloryellow">
+                  <a href="/conseil" className="hover:text-gray-600 cursor-pointer">
                     Conseil & Coaching
                   </a>
-                  <a href="/atelier" className="hover:text-coloryellow">
+                  <a href="/atelier" className="hover:text-gray-600 cursor-pointer">
                     Ateliers
                   </a>
-                  <a href="/about" className="hover:text-coloryellow">
+                  <a href="/about" className="hover:text-gray-600 cursor-pointer">
                     Faisons connaissance
                   </a>
-                  <a href="/contact" className="hover:text-coloryellow">
+                  <a href="/contact" className="hover:text-gray-600 cursor-pointer">
                     Contact
                   </a>
                 </div>
@@ -71,16 +71,16 @@ const Footer = () => {
             </div>
           </div>
           <div className="ml-6 flex justify-between items-center">
-            <div className="flex text-xl space-x-12 text-black mb-20 pt-4">
-              <a href="#" className="hover:text-gray-800">
+            <div className="flex text-xl space-x-12 text-colorborwn mb-20 pt-4">
+              <a href="#" className="hover:text-gray-600 cursor-pointer">
                 Mentions légales
               </a>
-              <a href="#" className="hover:text-gray-800">
+              <a href="#" className="hover:text-gray-600 cursor-pointer">
                 Plan de site
               </a>
             </div>
             <div className="mb-20">
-              <img src={logo} alt="Logo" className="min-h-12" />
+              <img src={logo} alt="Logo Substances" className="min-h-12" />
             </div>
           </div>
         </div>
@@ -88,28 +88,28 @@ const Footer = () => {
             {/* Gauche - Liens et Mentions */}
             <div>
               <div className="flex">
-                <div className="flex flex-col ml-12 mb-16 text-xl font-bold text-black space-y-1">
-                  <a href="/formation" className="hover:text-coloryellow">
+                <div className="flex flex-col ml-12 mb-16 text-xl font-bold text-colorbrown space-y-1">
+                  <a href="/formation" className="hover:text-gray-600 cursor-pointer">
                     Formation produit
                   </a>
-                  <a href="/conseil" className="hover:text-coloryellow">
+                  <a href="/conseil" className="hover:text-gray-600 cursor-pointer">
                     Conseil & Coaching
                   </a>
-                  <a href="/atelier" className="hover:text-coloryellow">
+                  <a href="/atelier" className="hover:text-gray-600 cursor-pointer">
                     Ateliers
                   </a>
-                  <a href="/about" className="hover:text-coloryellow">
+                  <a href="/about" className="hover:text-gray-600 cursor-pointer">
                     Faisons connaissance
                   </a>
-                  <a href="/contact" className="hover:text-coloryellow">
+                  <a href="/contact" className="hover:text-gray-600 cursor-pointer">
                     Contact
                   </a>
                 </div>
-                <div className="flex flex-col mb-16 ml-28 justify-end text-xl space-y-1 text-black mr-36">
-              <a href="#" className="hover:text-gray-800">
+                <div className="flex flex-col mb-16 ml-28 justify-end text-xl space-y-1 text-colorborwn mr-36">
+              <a href="/mention" className="hover:text-gray-600 cursor-pointer">
                 Mentions légales
               </a>
-              <a href="#" className="hover:text-gray-800">
+              <a href="#" className="hover:text-gray-600 cursor-pointer">
                 Plan de site
               </a>
             </div>
@@ -145,7 +145,7 @@ const Footer = () => {
               </div>
             </div>
             <div className=" absolute right-8 self-end mb-14">
-              <img src={logo} alt="Logo" className="min-h-14" />
+              <img src={logo} alt="Logo substances" className="min-h-14" />
             </div>
               </div>
               </div>

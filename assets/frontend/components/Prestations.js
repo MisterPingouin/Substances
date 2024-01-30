@@ -27,7 +27,7 @@ const Prestation = () => {
                 <motion.div
                     drag="x"
                     dragConstraints={{ left: -width + window.innerWidth - marginEnd, right: 0 }}
-                    className="flex cursor-pointer"
+                    className="flex space-x-10 cursor-pointer"
                 >
                     {cards.map((card, index) => (
                         <motion.div 

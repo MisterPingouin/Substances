@@ -97,7 +97,7 @@ c’est à vous de jouer !
               <input type='text' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="societe" onChange={handleChange} />
               <div className=""></div>
               <label className='text-xl'>Message</label>
-              <textarea placeholder='Message' rows="6" className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="message" onChange={handleChange}></textarea>
+              <textarea rows="6" className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="message" onChange={handleChange}></textarea>
               {errors.message && <p className="text-red-500 text-sm italic">{errors.message}</p>}
               <div className="h-4"></div>
               <Button type="submit" className=" text-2xl mt-4 bg-colorbrown capitalize">Envoyer</Button>

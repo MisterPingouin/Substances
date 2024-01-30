@@ -16,20 +16,20 @@ import {
         <CardHeader>
           <img
             src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-            alt="card-image"
+            alt="Prestation Ateliers Substances"
           />
         </CardHeader>
         <CardBody>
-          <Typography variant="h5" className="mb-2 text-5xl">
+        <Typography variant="h5" className="ml-2 mb-2 pt-8 pb-2 text-5xl">
             Atelier
           </Typography>
-          <Typography className="font-subtitlefont text-4xl">
+          <Typography className="ml-2 font-subtitlefont text-4xl">
           Morbi nec ligula ipsum.Maecenas non mollis quam, eget viverra nisi. Sed vitae magna iaculis, sollicitudin nunc sitamet, bibendum sem.
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
         <Link to="/atelier">
-        <Button className=" text-3xl bg-colorbrown capitalize">Découvrir</Button>
+        <Button className="ml-2 text-3xl pt-3 pb-3 mb-6 bg-colorbrown capitalize">Découvrir</Button>
           </Link>
         </CardFooter>
       </Card>
