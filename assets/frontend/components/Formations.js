@@ -56,7 +56,7 @@ const Formations = () => {
               {formation.logoUrl && (
                 <img src={formation.logoUrl} alt="Logo" className="w-full" />
               )}
-              <p className=" text-sm ">{formation.logoDescription}</p>
+              <p className=" text-xl ">{formation.logoDescription}</p>
             </div>
             <div className="flex flex-col space-y-4 mt-10 mb-10 text-colorbrown font-bold text-3xl w-2/3">
               <p className="">{renderWithLineBreaks(formation.description2)}</p>
