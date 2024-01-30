@@ -29,7 +29,7 @@ const Home = () => {
               </div>
               </div>
         </div>
-        <Prestations />
+        <Prestations/>
         <div className='max-w-full bg-white h-[100rem]'></div>
       </main>
       <Footer />

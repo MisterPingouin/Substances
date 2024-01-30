@@ -24,9 +24,11 @@ export default function Header() {
     };
   }, [isActive]); 
 
+  const overlayStyle = isActive ? styles.overlayActive : "";
+
   return (
-    <div className='flex justify-between pl-4 ml-22 items-center relative z-95'>
-      <Link to="/">
+    <div className={`flex justify-between pl-4 ml-22 items-center relative z-95 ${overlayStyle}`}>
+            <Link to="/">
         <img src={logo} alt="Logo" className="h-28 mt-12 ml-24 pl-4 pt-2"/>
       </Link>
       {showButton && (
