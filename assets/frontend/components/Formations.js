@@ -30,7 +30,7 @@ const Formations = () => {
     <>
       <div className="text-4xl p-4 text-colorbrown mr-20 pr-14 space-y-2 mt-4 font-bold w-2/3">
         {formations.map((formation, index) => (
-          <div key={index} className="flex">
+          <div key={index} className="flex items-center">
                                   <img src={arrow} alt="Arrow right" className="h-auto w-12 mr-4" />
             <a href={`#formation-${formation.id}`}>{formation.lien}</a>
           </div>
@@ -44,7 +44,7 @@ const Formations = () => {
             className="flex flex-col items-center z-20 relative"
           >
  <div className="flex flex-col text-colorbrown text-3xl mt-14 font-subtitlefont w-3/4 pl-4 pr-10">
-            <div className="text-colorbrown border-t border-black relative z-10"></div>              <h1 className="text-6xl font-bold mt-20">{formation.titre}</h1>
+            <div className="text-colorbrown border-t border-black relative z-10"></div>              <h1 className="text-7xl font-bold font-titlefont mt-20">{formation.titre}</h1>
               <p className="mt-10 ">{formation.sousDescription}</p>
               <p className="mt-10 ">
                 {renderWithLineBreaks(formation.description)}
@@ -52,7 +52,7 @@ const Formations = () => {
               {formation.logoUrl && (
                 <img src={formation.logoUrl} alt="Logo" className="w-full" />
               )}
-              <p className=" text-xl ">{formation.logoDescription}</p>
+              <p className="text-xl">{formation.logoDescription}</p>
             </div>
             <div className="flex flex-col space-y-6 mt-10 mb-16 text-colorbrown font-bold text-3xl w-3/4 pl-4">
               <p className="">{renderWithLineBreaks(formation.description2)}</p>
