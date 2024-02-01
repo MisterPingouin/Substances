@@ -32,8 +32,8 @@ const Logo = () => {
     };
 
     return (
-        <div className="ml-12 relative z-20">
-            <div className="border-t border-black w-[95%] mb-8 mx-auto relative z-20"></div>
+        <div className="ml-12 mt-20 relative z-20">
+      <div className="text-colorbrown border-t border-black w-[85%] ml-8 mr-20 mx-auto relative z-10"></div>
             <h1 className="ml-6 text-5xl mt-14 font-bold mb-8">Ils me font confiance</h1>
             <div style={{ overflow: 'hidden' }}>
                 <motion.div
