@@ -10,11 +10,11 @@ const Conseil = () => {
       <Header />
       <main className="flex-grow justify-center items-center">
         <div className="flex flex-col justify-center items-center relative z-10">
-          <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 pr-14 font-bold w-2/3">
-            <span className="block">Conseil</span>
-            <span className="block">& Formation</span>
+          <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 pr-14 mb-4 font-bold w-2/3">
+            <span className="block">Conseil &</span>
+            <span className="block">accompagnement</span>
           </h1>
-          <h2 className="text-4xl p-4 text-colorbrown  mr-20 pr-8 font-subtitlefont w-2/3">
+          <h2 className="text-4xl p-4 text-colorbrown mr-20 pr-8 font-subtitlefont w-2/3">
             Accompagnement en profondeur ou conseil sur une problématique
             spécifique, découvrez mes deux offres de conseil aux professionels.
           </h2>
