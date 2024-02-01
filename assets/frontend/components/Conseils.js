@@ -51,7 +51,7 @@ const Conseils = () => {
                 {renderWithLineBreaks(conseil.description)}
               </p>
               {conseil.logoUrl && (
-                <img src={conseil.logoUrl} alt="Logo" className="w-full max-h-1/3" />
+                <img src={conseil.logoUrl} alt="Logo" className="w-full max-h-" />
               )}
               <p className=" text-xl ">{conseil.logoDescription}</p>
             </div>

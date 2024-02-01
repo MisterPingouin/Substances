@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import arrow from '../../images/arrowright.svg';
+
 
 const Formations = () => {
   const [formations, setFormations] = useState([]);
@@ -26,9 +28,10 @@ const Formations = () => {
 
   return (
     <>
-      <div className="text-3xl p-4 text-colorbrown mr-20 pr-14 space-y-2 mb-14 mt-4 font-bold w-2/3">
+      <div className="text-4xl p-4 text-colorbrown mr-20 pr-14 space-y-2 mt-4 font-bold w-2/3">
         {formations.map((formation, index) => (
-          <div key={index}>
+          <div key={index} className="flex">
+                                  <img src={arrow} alt="Arrow right" className="h-auto w-12 mr-4" />
             <a href={`#formation-${formation.id}`}>{formation.lien}</a>
           </div>
         ))}
@@ -38,17 +41,10 @@ const Formations = () => {
           <div
             key={index}
             id={`formation-${formation.id}`}
-            className="flex flex-col items-center justify-center z-20 relative"
+            className="flex flex-col items-center z-20 relative"
           >
-            {formation.image && (
-              <img
-                src={formation.image}
-                alt={formation.titre}
-                className="w-full max-w-4xl"
-              />
-            )}
-            <div className="flex flex-col justify-center text-colorbrown text-3xl font-subtitlefont w-2/3">
-              <h1 className="text-6xl font-bold mt-20">{formation.titre}</h1>
+ <div className="flex flex-col text-colorbrown text-3xl mt-14 font-subtitlefont w-3/4 pl-4 pr-10">
+            <div className="text-colorbrown border-t border-black relative z-10"></div>              <h1 className="text-6xl font-bold mt-20">{formation.titre}</h1>
               <p className="mt-10 ">{formation.sousDescription}</p>
               <p className="mt-10 ">
                 {renderWithLineBreaks(formation.description)}
@@ -58,7 +54,7 @@ const Formations = () => {
               )}
               <p className=" text-xl ">{formation.logoDescription}</p>
             </div>
-            <div className="flex flex-col space-y-4 mt-10 mb-10 text-colorbrown font-bold text-3xl w-2/3">
+            <div className="flex flex-col space-y-6 mt-10 mb-16 text-colorbrown font-bold text-3xl w-3/4 pl-4">
               <p className="">{renderWithLineBreaks(formation.description2)}</p>
               <Link to="/contact">
                 <button
@@ -69,6 +65,13 @@ const Formations = () => {
                 </button>{" "}
               </Link>
             </div>
+            {formation.image && (
+              <img
+                src={formation.image}
+                alt={formation.titre}
+                className="w-full max-w-4xl"
+              />
+            )}
           </div>
         ))}
               </div>
