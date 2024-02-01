@@ -3,6 +3,7 @@
 parameters:
     # Ajoutez cette ligne pour définir le répertoire de téléchargement des images
     uploads_directory: '%kernel.project_dir%/public/uploads'
+    logos_directory: '%kernel.project_dir%/public/logos'
 
 services:
     # default configuration for services in *this* file

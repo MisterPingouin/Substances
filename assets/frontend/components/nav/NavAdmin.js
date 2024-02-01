@@ -26,6 +26,12 @@ const navItems = [
     href: "/admin/conseil",
   },
 
+  {
+    title: "Logo & Certif",
+
+    href: "/admin/logo",
+  },
+
 ];
 
 export default function NavAdmin() {
