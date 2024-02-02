@@ -61,8 +61,8 @@ const Contact = () => {
   return (
     <div className=''>
       <Header />
-      <div class="hidden lg:flex justify-center items-center relative z-10">
-  <div class="text-colorbrown border-t w-[80%] mt-8 border-black  "></div>
+      <div className="hidden lg:flex justify-center items-center relative z-10">
+  <div className="text-colorbrown border-t w-[80%] mt-8 border-black  "></div>
 </div>
       <main className="flex-grow justify-center items-center min-h-full">
         <div className="flex flex-col justify-center items-center relative z-10">

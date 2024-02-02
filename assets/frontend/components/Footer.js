@@ -5,8 +5,8 @@ import backgroundImageFooter from "../../images/FormeFooter.svg";
 const Footer = () => {
   return (
     <footer className="text-colorbrown mx-auto relative">
-                  <div class="hidden lg:flex justify-center items-center relative z-10">
-  <div class="text-colorbrown border-t w-[80%] mt-14 border-black  "></div>
+                  <div className="hidden lg:flex justify-center items-center relative z-10">
+  <div className="text-colorbrown border-t w-[80%] mt-14 border-black  "></div>
 </div>
       <div className="mt-10 mr-20 ml-12 lg:ml-0 lg:mr-0">
         <div className="text-colorbrown border-t border-black w-[95%] mb-8 mx-auto relative z-10 lg:hidden"></div>

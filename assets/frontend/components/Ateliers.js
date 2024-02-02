@@ -29,7 +29,7 @@ const Ateliers = () => {
 
   return (
     <>
-      <div className="text-3xl p-4 text-colorbrown mr-20 pr-14 space-y-2 mt-4 font-bold w-2/3">
+      <div className="text-4xl p-4 text-colorbrown mr-20 pr-14 space-y-2 mt-4 font-bold w-2/3 lg:w-[80%] lg:mr-0 lg:p-0 lg:mt-10 lg:flex lg:space-x-24">
         {ateliers.map((atelier, index) => (
           <div key={index} className="flex items-center">
           <img src={arrow} alt="Arrow right" className="h-auto w-12 mr-4" />
