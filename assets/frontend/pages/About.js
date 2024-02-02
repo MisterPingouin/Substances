@@ -12,7 +12,7 @@ const About = () => {
       <Header />
       <main className="flex-grow justify-center items-center">
         <div className="flex flex-col justify-center items-center relative z-10">
-          <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 mb-10 pr-14 font-bold w-2/3">
+          <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 mb-2 pr-14 font-bold w-2/3">
             <span className="block">Faisons</span>
             <span className="block">Connaissance</span>
           </h1>

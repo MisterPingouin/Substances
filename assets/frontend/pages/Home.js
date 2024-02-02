@@ -42,28 +42,34 @@ const Home = () => {
         <div className='lg:hidden'>
         <Prestations/>
         </div>
-        <div className='hidden w-full h-auto lg:flex flex-col justify-center items-center m-4'>
-        <h1 className="ml-4 self-start text-5xl mt-14 font-bold mb-8">Mes Prestations</h1>
-        <div className='flex space-x-12 m-4 w-[90%]'>
+        <div className='hidden w-full h-auto lg:flex flex-col justify-center items-center'>
+        <h1 className="ml-20 pl-20 self-start text-5xl mt-16 font-bold mb-10">Mes Prestations</h1>
+        <div className='flex space-x-12 w-[80%]'>
        <Card/>
        <Card1/>
        <Card2/>
        </div>
       </div>
-      <div className="ml-12 mt-24 relative z-20">
-      <div className="text-colorbrown border-t border-black w-[85%] mb-16 ml-8 mr-20 mx-auto relative z-10"></div>
-
-        <h3 className="text-6xl p-4 text-colorbrown ml-4 font-bold  w-[87%]">Rien de mieux qu’un coup de fil pour discuter de vos besoins.</h3>
-        <p className='text-3xl p-4 text-black ml-4 font-subtitlefont w-[87%]'>Et ça tombe bien, vous pouvez prendre rendez-vous en 2 minutes !</p>
+      <div class="hidden lg:flex justify-center items-center relative z-10">
+  <div class="text-colorbrown border-t w-[80%] mt-24 border-black  "></div>
+</div>
+<div class="lg:flex lg:justify-center lg:items-center lg:relative lg:z-10">
+      <div className="ml-12 mt-24 lg:ml-0 lg:mt-8 lg:flex lg:w-[80%] lg:justify-center lg:items-center relative z-20">
+      <div className="text-colorbrown border-t border-black w-[85%] mb-16 ml-8 mr-20 mx-auto relative z-10 lg:hidden"></div>
+      <div>
+        <h3 className="text-6xl lg:text-5xl p-4 lg:pl-0 text-colorbrown ml-4 lg:ml-0 font-bold  w-[87%] lg:w-[75%]">Rien de mieux qu’un coup de fil pour discuter de vos besoins.</h3>
+        <p className='text-3xl lg:text-2xl p-4 lg:pl-0 text-black ml-4 lg:ml-0 font-subtitlefont w-[87%] lg:w-[75%]'>Et ça tombe bien, vous pouvez prendre rendez-vous en 2 minutes !</p>
+        </div>
         <Link to="/about">
                 <button
                   type="button"
-                  className="text-4xl inline-block rounded bg-coloryellow px-8 pb-3 pt-3 ml-7 mt-2 font-bold font-xl  leading-normal text-colorbrown shadow-[0_4px_9px_-4px_#3b71ca]"
+                  className="text-4xl lg:text-3xl inline-block whitespace-nowrap rounded bg-coloryellow px-10 lg:px-24 pb-3 lg:pb-6 pt-3 lg:pt-6 ml-7 lg:ml-0 mt-2 lg:mr-10 font-bold font-xl  leading-normal text-colorbrown shadow-[0_4px_9px_-4px_#3b71ca]"
                 >
                   Me contacter
                 </button>{" "}
               </Link>
         </div> 
+        </div>
         <Logo/>
       </main>
       <Footer />
