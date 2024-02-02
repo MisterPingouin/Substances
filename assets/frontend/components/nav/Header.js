@@ -41,8 +41,15 @@ export default function Header() {
 
   return (
     <div className={`flex justify-between pl-4 ml-22 items-center relative z-95 ${overlayStyle}`}>
+          <div className="hidden mt-14 lg:flex justify-center items-center w-full relative z-10">
+            <div className="flex w-[88%]">
+    <Link to="/">
+              <img src={logo} alt="Logo Substances" className="h-28" />
+    </Link>
+  </div>
+  </div>
       <Link to="/">
-        <img src={logo} alt="Logo Substances" className="h-28 mt-12 ml-24 pl-4 pt-2"/>
+        <img src={logo} alt="Logo Substances" className="h-28 mt-12 ml-24 pl-4 pt-2 lg:hidden"/>
       </Link>
       {showButton && (
         <div onClick={toggleMenu} className={styles.button}>
