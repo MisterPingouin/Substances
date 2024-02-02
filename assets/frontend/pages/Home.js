@@ -8,27 +8,30 @@ import { CardFormation as Card1 } from "../cards/CardFormation";
 import { CardAteliers as Card2 } from "../cards/CardAteliers";
 import Logo from '../components/Logo';
 import about from '../../images/Julia-Home.png';
+import aboutDesktop from '../../images/Julia-HomeDesktop.png';
+
 
 
 const Home = () => {
   return (
     <div className='font-titlefont'>
       <Header />
-      <main className="flex-grow justify-center items-center">
+      <main className="flex-grow justify-center items-center lg:mx-auto ">
         <div className='flex flex-col justify-center items-center relative z-10'>
-        <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 pr-14 font-bold w-2/3 lg:w-3/4">Passion Substances Licites</h1>
-        <h2 className='text-4xl p-4 text-black mb-20 mr-20 pr-14 font-subtitlefont w-2/3 lg:w-3/4'>Le monde des bières, des spiritueux et des sakés est un univers aux 1000 merveilles dans lequel on découvre toujours un nouveau savoir faire, une nouvelle personne, une nouvelle boisson qui nait de l'imagination et de l'expérience de personnes incroyables.</h2>
+        <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 pr-14 font-bold w-2/3 lg:mr-56 lg:w-3/4">Passion Substances Licites</h1>
+        <h2 className='text-4xl p-4 text-black mb-20 mr-20 pr-14 font-subtitlefont w-2/3 lg:mr-56 lg:w-3/4'>Le monde des bières, des spiritueux et des sakés est un univers aux 1000 merveilles dans lequel on découvre toujours un nouveau savoir faire, une nouvelle personne, une nouvelle boisson qui nait de l'imagination et de l'expérience de personnes incroyables.</h2>
         </div>
-        <div className='max-w-full flex flex-col  bg-coloryellow justify-center items-center relative z-10'>
-        <img src={about} alt="Photo de Julia-Charlotte Basso" className="w-full max-w-4xl" />
-        <div className='flex flex-col justify-center items-center relative z-10'>
-        <h2 className="text-5xl p-4 text-colorbrown mt-10 pt-20 mr-20 pr-14 font-bold w-2/3">Julia-Charlotte Basso</h2>
-        <p className='text-4xl p-4 text-black mb-2 mr-20 pr-14 font-subtitlefont w-2/3'>15 ans d’expérience et d’expertise en substances licites (bière, spiritueux & saké). Enchantée !</p>
-        <div className='text-4xl p-4 text-colorbrown mr-20 pr-14 font-bold w-2/3'>
+        <div className='max-w-full flex flex-col lg:flex-row bg-coloryellow justify-center items-center lg:justify-normal lg:items-start h-full relative z-10'>
+          <img src={about} alt="Photo de Julia-Charlotte Basso" className="w-full lg:hidden" />
+        <img src={aboutDesktop} alt="Photo de Julia-Charlotte Basso" className="hidden lg:block lg:w-1/2 lg:h-full object-cover" />  
+          <div className='flex flex-col justify-center items-center relative z-10'>
+        <h2 className="text-5xl p-4 text-colorbrown mt-10 pt-20 mr-20 pr-14 lg:mr-0 lg:pr-0 font-bold w-2/3">Julia-Charlotte Basso</h2>
+        <p className='text-4xl p-4 text-black mb-2 mr-20 pr-14 lg:mr-0 lg:pr-0 font-subtitlefont w-2/3'>15 ans d’expérience et d’expertise en substances licites (bière, spiritueux & saké). Enchantée !</p>
+        <div className='text-4xl p-4 text-colorbrown mr-20 pr-14 lg:mr-0 lg:pr-0 font-bold w-2/3'>
               <Link to="/about">
                 <button
                   type="button"
-                  className="inline-block rounded bg-white mb-28 px-6 pb-2 pt-2.5 font-bold font-xl  leading-normal text-colorbrown shadow-[0_4px_9px_-4px_#3b71ca]"
+                  className="inline-block rounded bg-white mb-28 lg:mb-0 px-6 pb-2 pt-2.5 font-bold font-xl  leading-normal text-colorbrown shadow-[0_4px_9px_-4px_#3b71ca]"
                 >
                   Faisons connaissance
                 </button>{" "}
