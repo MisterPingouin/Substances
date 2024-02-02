@@ -44,7 +44,7 @@ const Home = () => {
         </div>
         <div className='hidden w-full h-auto lg:flex flex-col justify-center items-center'>
         <h1 className="ml-20 pl-20 self-start text-5xl mt-16 font-bold mb-10">Mes Prestations</h1>
-        <div className='flex space-x-12 w-[80%]'>
+        <div className='flex space-x-12 w-[80%] relative z-10'>
        <Card/>
        <Card1/>
        <Card2/>
@@ -54,7 +54,7 @@ const Home = () => {
   <div class="text-colorbrown border-t w-[80%] mt-24 border-black  "></div>
 </div>
 <div class="lg:flex lg:justify-center lg:items-center lg:relative lg:z-10">
-      <div className="ml-12 mt-24 lg:ml-0 lg:mt-8 lg:flex lg:w-[80%] lg:justify-center lg:items-center relative z-20">
+      <div className="ml-12 mt-24 lg:ml-0 lg:mt-12 lg:flex lg:w-[80%] lg:justify-center lg:items-center relative z-20">
       <div className="text-colorbrown border-t border-black w-[85%] mb-16 ml-8 mr-20 mx-auto relative z-10 lg:hidden"></div>
       <div>
         <h3 className="text-6xl lg:text-5xl p-4 lg:pl-0 text-colorbrown ml-4 lg:ml-0 font-bold  w-[87%] lg:w-[75%]">Rien de mieux qu’un coup de fil pour discuter de vos besoins.</h3>
