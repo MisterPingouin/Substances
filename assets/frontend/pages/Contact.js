@@ -59,7 +59,7 @@ const Contact = () => {
   return (
     <div className=''>
       <Header />
-      <main className="flex-grow justify-center items-center">
+      <main className="flex-grow justify-center items-center min-h-full">
         <div className="flex flex-col justify-center items-center relative z-10">
         <h1 className="text-7xl p-4 lg:p-2 lg:mt-24 text-colorbrown pt-20 mr-20 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:w-3/4">
             <span className="block">Contactez-moi</span>
