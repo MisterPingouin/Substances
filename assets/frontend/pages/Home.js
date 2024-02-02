@@ -18,8 +18,8 @@ const Home = () => {
       <Header />
       <main className="flex-grow justify-center items-center lg:mx-auto ">
         <div className='flex flex-col justify-center items-center relative z-10'>
-        <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 pr-14 font-bold w-2/3 lg:mr-56 lg:w-3/4">Passion Substances Licites</h1>
-        <h2 className='text-4xl p-4 text-black mb-20 mr-20 pr-14 font-subtitlefont w-2/3 lg:mr-56 lg:w-3/4'>Le monde des bières, des spiritueux et des sakés est un univers aux 1000 merveilles dans lequel on découvre toujours un nouveau savoir faire, une nouvelle personne, une nouvelle boisson qui nait de l'imagination et de l'expérience de personnes incroyables.</h2>
+        <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 pr-14 font-bold w-2/3 lg:mr-0 lg:p-0 lg:mt-16 lg:w-[80%]">Passion Substances Licites</h1>
+        <h2 className='text-4xl p-4 text-black mb-20 mr-20 pr-14 font-subtitlefont w-2/3 lg:mr-0 lg:p-0 lg:mt-6 lg:w-[80%]'>Le monde des bières, des spiritueux et des sakés est un univers aux 1000 merveilles dans lequel on découvre toujours un nouveau savoir faire, une nouvelle personne, une nouvelle boisson qui nait de l'imagination et de l'expérience de personnes incroyables.</h2>
         </div>
         <div className='max-w-full flex flex-col lg:flex-row bg-coloryellow justify-center items-center lg:justify-normal lg:items-start h-full relative z-10'>
           <img src={about} alt="Photo de Julia-Charlotte Basso" className="w-full lg:hidden" />
