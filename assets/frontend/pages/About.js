@@ -3,6 +3,8 @@ import Header from '../components/nav/Header';
 import Footer from '../components/Footer';
 import about from '../../images/About.jpg';
 import { Link } from 'react-router-dom';
+import Certification from '../components/Certification';
+
 
 const About = () => {
   return (
@@ -45,8 +47,9 @@ const About = () => {
           </Link>
         </div>
         </div>
-        <Footer />
+        <Certification />
       </main>
+      <Footer />
     </div>
   );
 };
