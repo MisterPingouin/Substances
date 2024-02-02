@@ -42,7 +42,7 @@ export default function Header() {
   return (
     <div className={`flex justify-between pl-4 ml-22 items-center relative z-95 ${overlayStyle}`}>
           <div className="hidden mt-14 lg:flex justify-center items-center w-full relative z-10">
-            <div className="flex w-[88%]">
+            <div className="flex w-[83%]">
     <Link to="/">
               <img src={logo} alt="Logo Substances" className="h-28" />
     </Link>

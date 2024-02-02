@@ -8,6 +8,9 @@ const Conseil = () => {
   return (
     <div className="font-titlefont">
       <Header />
+      <div class="hidden lg:flex justify-center items-center relative z-10">
+  <div class="text-colorbrown border-t w-[85%] mt-8 border-black  "></div>
+</div>
       <main className="flex-grow justify-center items-center">
         <div className="flex flex-col justify-center items-center relative z-10">
           <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 pr-14 mb-4 font-bold w-2/3">
