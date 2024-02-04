@@ -56,7 +56,7 @@ const Certification = () => {
                 </motion.div>
                 </div>
             <div className='hidden lg:flex mt-16 lg:justify-center lg:items-center w-full'>
-            <h1 className=" text-5xl font-bold max-w-[22%] pr-10 ">Mes certifications</h1>
+            <h1 className=" text-5xl font-bold max-w-[20%] pr-10">Mes certifications</h1>
     <div className="flex space-x-10 items-center cursor-pointer max-w-[60%] ">
         {logos.map((logo) => (
             <div

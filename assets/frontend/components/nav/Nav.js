@@ -20,7 +20,7 @@ const navItems = [
   },
 
   {
-    title: "Atelier",
+    title: "Ateliers",
 
     href: "/atelier",
   },

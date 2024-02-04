@@ -36,7 +36,7 @@ const Logo = () => {
             <div className="hidden lg:flex justify-center items-center relative z-10">
   <div className="text-colorbrown border-t w-[80%] mt-14 border-black  "></div>
 </div>
-      <div className="text-colorbrown border-t border-black w-[80%] ml-8 mr-20 mx-auto relative z-10 lg:hidden"></div>
+      <div className="text-colorbrown border-t border-black w-[90%] ml-8 mr-20 mx-auto relative z-10 lg:hidden"></div>
             <h1 className="ml-8 text-5xl mt-14 font-bold mb-8 lg:hidden">Ils me font confiance</h1>
             <div style={{ overflow: 'hidden' }}>
                 <motion.div

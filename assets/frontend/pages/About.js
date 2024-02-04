@@ -36,7 +36,7 @@ const About = () => {
           </div>
         </div>
         <div className='flex flex-col items-center justify-center z-20 relative'>
-        <div className="flex flex-col justify-center text-colorbrown text-3xl font-subtitlefont w-2/3 lg:w-[80%]">
+        <div className="flex flex-col justify-center text-colorbrown text-3xl font-subtitlefont w-2/3 lg:w-[80%] lg:text-2xl">
           <h1 className="text-6xl font-bold font-titlefont uppercase mt-20 lg:hidden">💬 En quelques mots</h1>
           <h1 className="hidden lg:block text-6xl font-bold font-titlefont uppercase mt-20">En quelques mots 💬 </h1>
           <p className="mt-10 font-bold font-titlefont">Professionnelle experte dans l’industrie agro-alimentaire, spécialisée secteur boisson depuis 2007. Formatrice diplômée (Cicerone®, WSET®, IFCO, Saké Sommelier®) dans les domaines des spiritueux, bières et saké.</p>
@@ -50,12 +50,12 @@ const About = () => {
           </div>
           <div className='lg:flex lg:flex-col lg:w-1/2'>
           <p className="mt-8">Cette même année, je décide de créer « Substances » avec pour objectif transmettre ma passion produits pour les boissons fermentées (et éventuellement distillées !) et de mettre mon expérience acquise au cours de ces années au service des acteurs de ces filières par le biais du conseil et de la formation en devenant notamment formatrice à l'IFCO (et oui je passe de l'autre côté cette fois-ci) mais aussi en partageant des moments de convivialités à tout.e curieux.se qui souhaite en apprendre davantage sur les bières, les spiritueux et le saké japonais.</p>
-        <div className="flex flex-col font-titlefont space-y-2 mt-10 mb-10 text-colorbrown font-bold text-4xl w-2/3">
+        <div className="flex flex-col font-titlefont space-y-2 mt-10 mb-10 text-colorbrown font-bold text-4xl w-2/3 lg:text-3xl">
           <p>Assez parlé de moi</p><p> parlons de vous.</p>
           <Link to="/contact">
             <button
               type="button"
-              className="inline-block font-titlefont mt-4 rounded bg-coloryellow px-6 pb-2 pt-2.5 text-4xl leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca]"
+              className="inline-block font-titlefont mt-4 rounded bg-coloryellow px-6 pb-2 pt-2.5 text-4xl lg:text-3xl leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca]"
             >
               Me contacter
             </button>

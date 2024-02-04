@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { CardCoaching as Card } from "../cards/CardCoaching";
 import { CardFormation as Card1 } from "../cards/CardFormation";
@@ -10,15 +10,19 @@ const Prestation = () => {
     const [width, setWidth] = useState(0);
     const marginEnd = 50;
 
-    useEffect(() => {
-        const updateWidth = () => {
-            setWidth(window.innerWidth * 0.8 * cards.length + marginEnd);
-        };
+    const updateWidth = useCallback(() => {
+        const newWidth = window.innerWidth * 0.8 * cards.length + marginEnd;
+        setWidth(newWidth);
+    }, []); 
 
-        updateWidth();
+    useEffect(() => {
+        updateWidth(); 
         window.addEventListener('resize', updateWidth);
-        return () => window.removeEventListener('resize', updateWidth);
-    }, []);
+
+        return () => {
+            window.removeEventListener('resize', updateWidth);
+        };
+    }, [updateWidth]);
 
     return (
         <div className="ml-12">
