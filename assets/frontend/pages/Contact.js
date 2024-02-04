@@ -3,6 +3,8 @@ import axios from 'axios';
 import Header from '../components/nav/Header';
 import Footer from '../components/Footer';
 import { Button } from "@material-tailwind/react";
+import Logo from '../components/Logo';
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -59,21 +61,24 @@ const Contact = () => {
   return (
     <div className=''>
       <Header />
+      <div className="hidden lg:flex justify-center items-center relative z-10">
+  <div className="text-colorbrown border-t w-[80%] mt-8 border-black  "></div>
+</div>
       <main className="flex-grow justify-center items-center min-h-full">
         <div className="flex flex-col justify-center items-center relative z-10">
-        <h1 className="text-7xl p-4 lg:p-2 lg:mt-24 text-colorbrown pt-20 mr-20 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:w-3/4">
+        <h1 className="text-7xl p-4 lg:p-0 lg:mt-24 text-colorbrown pt-20 mr-20 lg:mb-6 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:w-[80%]">
             <span className="block">Contactez-moi</span>
           </h1>
-          <h2 className="text-4xl p-4 text-colorbrown mr-20 lg:mr-0 pr-8 font-subtitlefont w-2/3 lg:w-3/4">
+          <h2 className="text-4xl p-4 lg:p-0 lg:mb-8 text-colorbrown mr-20 lg:mr-0 pr-8 font-subtitlefont w-2/3 lg:w-[80%]">
           Choisissez l’objet
 de votre message et ensuite
 c’est à vous de jouer !
           </h2>
-          <div className="p-4 text-colorbrown mr-20 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:flex lg:flex-col lg:items-center lg:w-3/4">
-            <div className="space-y-4 max-w-[70%] self-start lg:w-3/4">
+          <div className="p-4 text-colorbrown mr-20 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:flex lg:flex-col lg:justify:center lg:items-center lg:w-full lg:p-0">
+            <div className="space-y-4  lg:w-[80%]">
               {/* Boutons pour l'objet de la demande */}
               {['Formations produits', 'Conseil & accompagnement', 'Ateliers', 'Autre'].map((item) => (
-                <button key={item} type="button" className={`px-4 py-2 mr-4 rounded-md text-2xl tracking-wider font-semibold outline-none border-4 ${formData.objetDemande === item ? 'bg-coloryellow text-white border-coloryellow' : 'bg-white text-coloryellow border-coloryellow'}`} onClick={() => handleButtonClick(item)}>{item}</button>
+                <button key={item} type="button" className={`px-4 py-2 mr-4 rounded-md text-2xl tracking-wider font-semibold outline-none border-4 lg:mr-8 ${formData.objetDemande === item ? 'bg-coloryellow text-white border-coloryellow' : 'bg-white text-coloryellow border-coloryellow'}`} onClick={() => handleButtonClick(item)}>{item}</button>
               ))}
             </div>
             <form className="lg:hidden mt-8 space-y-2 w-full" onSubmit={handleSubmit}>
@@ -103,8 +108,8 @@ c’est à vous de jouer !
               <Button type="submit" className=" text-2xl mt-4 bg-colorbrown capitalize">Envoyer</Button>
             </form>
             <div className='hidden lg:flex flex-col relative justify-center items-center w-full '>
-            <form className="mt-8 space-y-6 self-start lg:w-3/4" onSubmit={handleSubmit}>
-              <div className='flex space-x-20'>
+            <form className="mt-8 space-y-6 lg:w-[80%]" onSubmit={handleSubmit}>
+              <div className='flex justify-center items-center space-x-20'>
                 <div className='space-y-2 w-1/2'>
               <label className='text-xl'>Nom</label>
               <input type='text' className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown" name="nom" onChange={handleChange} />
@@ -131,6 +136,9 @@ c’est à vous de jouer !
             </form>
             </div>
           </div>
+        </div>
+        <div className='hidden lg:flex'>
+        <Logo/>
         </div>
       </main>
       <Footer />

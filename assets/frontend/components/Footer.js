@@ -5,9 +5,12 @@ import backgroundImageFooter from "../../images/FormeFooter.svg";
 const Footer = () => {
   return (
     <footer className="text-colorbrown mx-auto relative">
-      <div className="mt-10 mr-20 ml-20">
-        <div className="text-colorbrown border-t border-black w-[95%] mb-8 mx-auto relative z-10"></div>
-        <div className="absolute flex justify-center items-center bottom-0 right-[33rem] lg:right-[75rem] left-0">
+                  <div className="hidden lg:flex justify-center items-center relative z-10">
+  <div className="text-colorbrown border-t w-[80%] mt-14 border-black  "></div>
+</div>
+      <div className="mt-10 mr-20 ml-12 lg:ml-0 lg:mr-0">
+        <div className="text-colorbrown border-t border-black w-[95%] mb-8 mx-auto relative z-10 lg:hidden"></div>
+        <div className="absolute flex justify-center items-center bottom-0 right-[33rem] lg:right-[55rem] 2xl:right-[75rem] left-0">
           <img
             src={backgroundImageFooter}
             alt="Background"
@@ -85,11 +88,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
-          <div className="hidden lg:flex relative z-10">
+          <div className="hidden lg:flex justify-center items-center relative z-10">
             {/* Gauche - Liens et Mentions */}
-            <div>
-              <div className="flex">
-                <div className="flex flex-col ml-12 mb-16 text-xl font-bold text-colorbrown space-y-1">
+            <div className="flex w-[80%]">
+              <div className="flex justify-between w-full">
+                <div className="flex flex-col  mb-16 text-xl font-bold text-colorbrown space-y-1">
                   <a href="/formation" className="hover:text-gray-600 cursor-pointer">
                     Formation produit
                   </a>
@@ -106,7 +109,7 @@ const Footer = () => {
                     Contact
                   </a>
                 </div>
-                <div className="flex flex-col mb-16 ml-28 justify-end text-xl space-y-1 text-colorborwn mr-36">
+                <div className="flex flex-col mb-16 justify-end text-xl space-y-1 text-colorborwn ">
               <a href="/mention" className="hover:text-gray-600 cursor-pointer">
                 Mentions légales
               </a>
@@ -146,7 +149,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className=" absolute right-8 self-end mb-14">
+            <div className="self-end mb-14">
               <img src={logo} alt="Logo substances" className="min-h-14" />
             </div>
               </div>

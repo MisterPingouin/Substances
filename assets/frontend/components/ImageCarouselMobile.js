@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const ImageCarousel = ({ images }) => {
+const ImageCarouselMobile = ({ images }) => {
   const [page, setPage] = useState(0);
 
   const variants = {
@@ -35,7 +35,7 @@ const ImageCarousel = ({ images }) => {
   const swipePower = (offset, velocity) => Math.abs(offset) * velocity;
 
   return (
-    <div className='w-full h-[70rem] relative mb-10 mt-10 overflow-hidden lg:h-[40rem]'>
+    <div className='w-full h-[70rem] relative mb-10 mt-10 overflow-hidden lg:h-[40rem] lg:hidden'>
       <AnimatePresence initial={false}>
         <motion.div
           key={page}
@@ -64,16 +64,6 @@ const ImageCarousel = ({ images }) => {
           <img src={images[page]} className="w-full h-full object-cover" />
         </motion.div>
       </AnimatePresence>
-      <div className="controls">
-        {/* Bouton Prev */}
-        <div className="absolute left-2 z-10 lg:flex hidden items-center h-full cursor-pointer" onClick={handlePrev}>
-          <div className="text-4xl text-white">←</div>
-        </div>
-        {/* Bouton Next */}
-        <div className="absolute right-2 z-10 lg:flex hidden items-center h-full cursor-pointer" onClick={handleNext}>
-          <div className="text-4xl text-white">→</div>
-        </div>
-      </div>
       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex">
         <div className="rounded-full bg-white bg-opacity-20">
           {images.map((_, index) => (
@@ -91,4 +81,4 @@ const ImageCarousel = ({ images }) => {
   );
 };
 
-export default ImageCarousel;
+export default ImageCarouselMobile;
