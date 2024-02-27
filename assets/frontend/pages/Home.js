@@ -60,21 +60,22 @@ A votre disposition pour échanger dans ces univers sur une démarche de conseil
       <div className="ml-12 mt-14 lg:ml-0 lg:mt-12 lg:flex lg:w-[80%] lg:justify-center lg:items-center relative z-20">
       <div className="text-colorbrown border-t border-black w-[90%] mb-16 ml-8 mr-20 mx-auto relative z-10 lg:hidden"></div>
       <div>
-        <h3 className="text-6xl lg:text-5xl p-4 lg:pl-0 text-colorbrown ml-4 lg:ml-0 font-bold  w-[87%] lg:w-[75%]">Rien de mieux qu’un coup de fil pour discuter de vos besoins.</h3>
-        <p className='text-3xl lg:text-2xl p-4 lg:pl-0 text-black ml-4 lg:ml-0 font-subtitlefont w-[87%] lg:w-[75%]'>Et ça tombe bien, vous pouvez prendre rendez-vous en 2 minutes !</p>
+        <h3 className="text-6xl lg:text-5xl p-4 lg:pl-0 text-colorbrown ml-4 lg:ml-0 font-bold  w-[87%] lg:w-[80%]">Envie d'échanger sur votre projet ?</h3>
+        <p className='text-3xl lg:text-2xl p-4 lg:pl-0 text-black ml-4 lg:ml-0 font-subtitlefont w-[87%] lg:w-[80%]'>Des questions sur les produits ou un savoir faire métier comme le marketing, la RSE ou la distribution ? 
+Rien de plus simple ! Pour me contacter c'est par ici !</p>
         </div>
         <Link to="/about">
                 <button
                   type="button"
                   className="text-4xl lg:text-3xl inline-block whitespace-nowrap rounded bg-coloryellow px-10 lg:px-24 pb-3 lg:pb-6 pt-3 lg:pt-6 ml-7 lg:ml-0 mt-2 lg:mr-10 font-bold font-xl  leading-normal text-colorbrown shadow-[0_4px_9px_-4px_#3b71ca]"
                 >
-                  Me contacter
+                  Envoyer un petit mot
                 </button>{" "}
               </Link>
         </div> 
         </div>
-        <Logo/>
       </main>
+      <Logo/>
       <Footer />
     </div>
   );
