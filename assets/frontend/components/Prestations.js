@@ -25,7 +25,7 @@ const Prestation = () => {
     }, [updateWidth]);
 
     return (
-        <div className="ml-12">
+        <div className="ml-12 ">
             <h1 className="ml-6 text-5xl mt-14 font-bold mb-8">Mes Prestations</h1>
             <div style={{ overflow: 'hidden' }}>
                 <motion.div

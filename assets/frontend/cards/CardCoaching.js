@@ -11,7 +11,7 @@ import {
    
   export function CardCoaching() {
     return (
-      <div className=" drop-shadow mt-6 mb-1 lg:w-[33%]">
+      <div className=" drop-shadow mt-6 mb-1 lg:w-[33%] h-[97%] lg:h-auto">
       <Card className="h-full w-full text-colorbrown ">
         <CardHeader>
           <img
