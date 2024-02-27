@@ -34,7 +34,6 @@ const Logo = () => {
     return (
         <>
         <div className="text-colorbrown mt-20 border-t border-black w-[85%] mb-8 mx-auto relative z-10 lg:hidden"></div>
-
         <div className="ml-12 lg:ml-0 lg:mt-0 relative z-20">
                         <div className="hidden lg:flex justify-center items-center relative z-10">
   <div className="text-colorbrown border-t w-[80%] mt-14 border-black  "></div>
