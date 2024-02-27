@@ -11,7 +11,7 @@ import {
    
   export function CardCoaching() {
     return (
-      <div className=" drop-shadow mt-6 mb-1">
+      <div className=" drop-shadow mt-6 mb-1 lg:w-[33%]">
       <Card className="h-full w-full text-colorbrown ">
         <CardHeader>
           <img
@@ -21,15 +21,15 @@ import {
         </CardHeader>
         <CardBody>
           <Typography variant="h5" className="ml-2 mb-2 pt-8 pb-2 text-5xl lg:text-4xl">
-            Coaching
+            Conseil
           </Typography>
           <Typography className="ml-2 font-subtitlefont text-4xl lg:text-2xl">
-          Morbi nec ligula ipsum.Maecenas non mollis quam, eget viverra nisi. Sed vitae magna iaculis, sollicitudin nunc sitamet, bibendum sem.
-          </Typography>
+          Professionnels de ces univers, vous êtes dans le coeur opérationnel de l'activité de votre entreprise au quotidien.
+Un simple avis ou un accompagnement sur des problématiques métiers pour vous aider sur votre vision stratégique ?          </Typography>
         </CardBody>
-        <CardFooter className="pt-0">
+        <CardFooter className="pt-0 mt-auto lg:flex lg:justify-center">
         <Link to="/conseil">
-        <Button className="ml-2 text-3xl lg:text-2xl pt-3 pb-3 mb-6 bg-colorbrown capitalize">Découvrir</Button>
+        <Button className="ml-2 text-3xl lg:text-2xl pt-3 pb-3 mb-6 bg-colorbrown">P<span className="lowercase">lus de précisions</span></Button>
           </Link>
         </CardFooter>
       </Card>
