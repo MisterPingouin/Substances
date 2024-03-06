@@ -72,14 +72,13 @@ const Contact = () => {
           <div className="p-4 text-colorbrown mr-20 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:flex lg:flex-col lg:justify:center lg:items-center lg:w-full lg:p-0">
             <div className="space-y-4  lg:w-[80%]">
               {/* Boutons pour l'objet de la demande */}
-              {['Conseil', 'Formation', 'Ateliers', 'Donner mon avis !', 'Autres'].map((item, index) => (
+              {['Conseils', 'Formations', 'Ateliers', 'Donner mon avis !', 'Autres'].map((item) => (
   <button key={item} 
           type="button" 
-          className={`px-4 py-2 mr-4 rounded-md text-2xl tracking-wider font-semibold outline-none border-4 lg:mr-8 
-          ${formData.objetDemande === item 
-            ? (index % 2 === 0 ? 'bg-coloryellow text-white border-coloryellow' : 'bg-colorbrown text-white border-colorbrown')
-            : (index % 2 === 0 ? 'bg-white text-coloryellow border-coloryellow' : 'bg-white text-colorbrown border-colorbrown')}
-          `}
+          className={`px-4 py-2 mr-4 rounded-md text-2xl tracking-wider font-semibold outline-none border-4 
+                      ${formData.objetDemande === item 
+                        ? 'bg-coloryellow text-white border-coloryellow' 
+                        : 'bg-white text-coloryellow border-coloryellow hover:bg-coloryellow hover:text-white'}`}
           onClick={() => handleButtonClick(item)}>
     {item}
   </button>
@@ -143,9 +142,9 @@ const Contact = () => {
           </div>
         </div>
         <div className='hidden lg:flex'>
-        <Logo/>
         </div>
       </main>
+      <Logo/>
       <Footer />
     </div>
   );
