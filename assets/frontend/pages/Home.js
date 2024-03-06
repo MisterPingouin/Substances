@@ -17,30 +17,26 @@ const Home = () => {
       <Header />
       <main className="flex-grow justify-center items-center lg:mx-auto ">
         <div className='flex flex-col justify-center items-center relative z-10'>
-        <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 pr-14 font-bold w-2/3 lg:mr-0 lg:p-0 lg:mt-16 lg:w-[80%]">Passion substances licites...</h1>
-        <h2 className='text-4xl p-4 text-black mb-20 mr-20 pr-14 font-subtitlefont w-2/3 lg:mr-0 lg:p-0 lg:mt-6 lg:w-[80%]'>Le monde des bières, des spiritueux et des sakés est un univers aux 1000 merveilles dans lequel on découvre toujours un nouveau savoir faire, une nouvelle personne, une nouvelle boisson qui nait de l'imagination et de l'expérience de personnes incroyables.</h2>
+        <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 pr-12 font-bold w-2/3 lg:mr-0 lg:p-0 lg:mt-44 lg:w-[80%]">Passion substances licites...</h1>
+        <h2 className='text-4xl p-4 text-black mb-20 mr-20 pr-12 font-subtitlefont w-2/3 lg:mr-0 lg:p-0 lg:mt-10 lg:mb-32 lg:w-[80%]'>Le monde des bières, des spiritueux et des sakés est un univers aux 1000 merveilles dans lequel on découvre toujours un nouveau savoir faire, une nouvelle personne, une nouvelle boisson qui nait de l'imagination et de l'expérience de personnes incroyables.</h2>
         </div>
-        <div className='max-w-full flex flex-col lg:flex-row bg-coloryellow justify-center items-center lg:justify-normal lg:items-start h-full relative z-10'>
-          <img src={about} alt="Photo de Julia-Charlotte Basso" className="w-full lg:hidden" />
-        <img src={about} alt="Photo de Julia-Charlotte Basso" className="hidden lg:block lg:w-1/2 lg:h-full object-cover" />  
-          <div className='flex flex-col justify-center items-center relative z-10 lg:w-1/2'>
-        <h2 className="text-5xl p-4 text-colorbrown mt-10 pt-20 mr-20 pr-14 lg:mr-0 lg:pr-0 font-bold w-2/3">Julia-Charlotte Basso</h2>
-        <p className='text-4xl p-4 text-black w-3/4 pr-14 lg:mr-0 lg:pr-0 font-subtitlefont lg:w-2/3'>Avec plus de 15 ans d'expertise en substances licites : bières puis spiritueux... la production de saké ne m'a pas laissée indifférente. 
-</p>
-<p className='text-4xl p-4 text-black mb-2 w-3/4 pr-14 lg:mr-0 lg:pr-0 font-subtitlefont lg:w-2/3'>
-A votre disposition pour échanger dans ces univers sur une démarche de conseil en compétences métiers ou bien un souhait de monter en compétence sur ces produits !
-</p>
-        <div className='text-4xl p-4 text-colorbrown mr-20 pr-14 lg:mr-0 lg:pr-0 font-bold w-2/3'>
-              <Link to="/about">
-                <button
-                  type="button"
-                  className="inline-block rounded bg-white mb-28 lg:mb-0 px-6 pb-2 pt-2.5 font-bold font-xl  leading-normal text-colorbrown shadow-[0_4px_9px_-4px_#3b71ca]"
-                >
-                  Faisons connaissance
-                </button>{" "}
-              </Link>
-              </div>
-              </div>
+        <div className='max-w-full lg:grid lg:grid-cols-2 bg-coloryellow justify-center items-stretch h-full relative z-10'>
+          <img src={about} alt="Photo de Julia-Charlotte Basso" className="w-full h-auto lg:h-full object-cover" />
+          <div className='flex flex-col space-y-5 ml-24 pl-6 mr-52 lg:mb-10 relative z-10 p-4'>
+            <h2 className="text-5xl text-colorbrown mt-10 pt-20 font-bold w-full">Julia-Charlotte Basso</h2>
+            <p className='text-4xl text-black font-subtitlefont w-full'>Avec plus de 15 ans d'expertise en substances licites : bières puis spiritueux... la production de saké ne m'a pas laissée indifférente.</p>
+            <p className='text-4xl text-black mb-2 pb-6 font-subtitlefont w-full'>
+              A votre disposition pour échanger dans ces univers sur une démarche de conseil en compétences métiers ou bien un souhait de monter en compétence sur ces produits !
+            </p>
+            <Link to="/about">
+              <button
+                type="button"
+                className="text-4xl inline-block rounded bg-white mb-24 lg:mb-0 px-6 pb-2 pt-2.5 font-bold font-xl  leading-normal text-colorbrown shadow-[0_4px_9px_-4px_#3b71ca]"
+              >
+                Faisons connaissance
+              </button>
+            </Link>
+          </div>
         </div>
         <div className='lg:hidden'>
         <Prestations/>
@@ -64,7 +60,7 @@ A votre disposition pour échanger dans ces univers sur une démarche de conseil
         <p className='text-4xl lg:text-2xl p-4 lg:pl-0 text-black ml-4 lg:ml-0 font-subtitlefont w-[87%] lg:w-[80%]'>Des questions sur les produits ou un savoir faire métier comme le marketing, la RSE ou la distribution ? 
 Rien de plus simple ! Pour me contacter c'est par ici !</p>
         </div>
-        <Link to="/about">
+        <Link to="/contact">
                 <button
                   type="button"
                   className="text-4xl lg:text-3xl inline-block whitespace-nowrap rounded bg-coloryellow px-10 lg:px-24 pb-3 lg:pb-6 pt-3 lg:pt-6 ml-7 lg:ml-0 mt-2 lg:mr-10 font-bold font-xl  leading-normal text-colorbrown shadow-[0_4px_9px_-4px_#3b71ca]"
