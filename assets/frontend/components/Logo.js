@@ -43,7 +43,7 @@ const Logo = () => {
                 <motion.div
                     drag="x"
                     dragConstraints={{ left: -width, right: 0 }}
-                    className="flex items-center ml-6 space-x-10 cursor-pointer lg:hidden"
+                    className="flex items-center ml-6 space-x-10 lg:hidden"
                 >
                     {logos.map((logo, index) => (
                         <motion.div 

@@ -25,9 +25,9 @@ const Home = () => {
         <img src={about} alt="Photo de Julia-Charlotte Basso" className="hidden lg:block lg:w-1/2 lg:h-full object-cover" />  
           <div className='flex flex-col justify-center items-center relative z-10 lg:w-1/2'>
         <h2 className="text-5xl p-4 text-colorbrown mt-10 pt-20 mr-20 pr-14 lg:mr-0 lg:pr-0 font-bold w-2/3">Julia-Charlotte Basso</h2>
-        <p className='text-3xl p-4 text-black w-3/4 pr-14 lg:mr-0 lg:pr-0 font-subtitlefont lg:w-2/3'>Avec plus de 15 ans d'expertise en substances licites : bières puis spiritueux... la production de saké ne m'a pas laissée indifférente. 
+        <p className='text-4xl p-4 text-black w-3/4 pr-14 lg:mr-0 lg:pr-0 font-subtitlefont lg:w-2/3'>Avec plus de 15 ans d'expertise en substances licites : bières puis spiritueux... la production de saké ne m'a pas laissée indifférente. 
 </p>
-<p className='text-3xl p-4 text-black mb-2 w-3/4 pr-14 lg:mr-0 lg:pr-0 font-subtitlefont lg:w-2/3'>
+<p className='text-4xl p-4 text-black mb-2 w-3/4 pr-14 lg:mr-0 lg:pr-0 font-subtitlefont lg:w-2/3'>
 A votre disposition pour échanger dans ces univers sur une démarche de conseil en compétences métiers ou bien un souhait de monter en compétence sur ces produits !
 </p>
         <div className='text-4xl p-4 text-colorbrown mr-20 pr-14 lg:mr-0 lg:pr-0 font-bold w-2/3'>
@@ -61,7 +61,7 @@ A votre disposition pour échanger dans ces univers sur une démarche de conseil
       <div className="text-colorbrown border-t border-black w-[90%] mb-16 ml-8 mr-20 mx-auto relative z-10 lg:hidden"></div>
       <div>
         <h3 className="text-6xl lg:text-5xl p-4 lg:pl-0 text-colorbrown ml-4 lg:ml-0 font-bold  w-[87%] lg:w-[80%]">Envie d'échanger sur votre projet ?</h3>
-        <p className='text-3xl lg:text-2xl p-4 lg:pl-0 text-black ml-4 lg:ml-0 font-subtitlefont w-[87%] lg:w-[80%]'>Des questions sur les produits ou un savoir faire métier comme le marketing, la RSE ou la distribution ? 
+        <p className='text-4xl lg:text-2xl p-4 lg:pl-0 text-black ml-4 lg:ml-0 font-subtitlefont w-[87%] lg:w-[80%]'>Des questions sur les produits ou un savoir faire métier comme le marketing, la RSE ou la distribution ? 
 Rien de plus simple ! Pour me contacter c'est par ici !</p>
         </div>
         <Link to="/about">
