@@ -21,7 +21,7 @@ export function CardCoaching() {
         </CardHeader>
         <CardBody>
           <Typography variant="h5" className="pl-5 lg:pl-0 ml-2 mb-2 pt-8 pb-2 text-5xl lg:text-4xl">
-            Conseil
+            Conseils
           </Typography>
           <div className="pl-5 pr-5 lg:pl-0 lg:pr-0 ml-2 font-subtitlefont text-4xl lg:text-2xl">
             Professionnels de ces univers, vous êtes dans le coeur opérationnel de l'activité de votre entreprise au quotidien.

@@ -1,14 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/nav/Header';
 import Footer from '../components/Footer';
 import about from '../../images/About.jpg';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import Certification from '../components/Certification';
 import aboutDesktop from '../../images/Julia-ContactDesktop.png';
 
 
 
 const About = () => {
+
+  const [aboutData, setAboutData] = useState({
+    subtitle: '',
+    bloc1: '',
+    bloc2: '',
+    bloc3: '',
+    bloc4: ''
+  });
+
+  useEffect(() => {
+    axios.get('/api/about/')
+         .then((response) => {
+             if (response.data) {
+                 setAboutData(response.data);
+             }
+         })
+         .catch((error) => console.error('Error fetching about data:', error));
+}, []);
+
   return (
     <div className="font-titlefont">
       <Header />
@@ -37,19 +57,19 @@ const About = () => {
         </div>
         <div className='flex flex-col items-center justify-center z-20 relative'>
         <div className="flex flex-col justify-center text-colorbrown text-3xl font-subtitlefont w-2/3 lg:w-[80%] lg:text-2xl">
-          <h1 className="text-6xl font-bold font-titlefont uppercase mt-20 lg:hidden">💬 En quelques mots</h1>
+          <h1 className="text-6xl font-bold font-titlefont uppercase mt-20 lg:hidden">En quelques mots 💬 </h1>
           <h1 className="hidden lg:block text-6xl font-bold font-titlefont uppercase mt-20">En quelques mots 💬 </h1>
-          <p className="mt-10 font-bold font-titlefont">Professionnelle experte dans l’industrie agro-alimentaire, spécialisée secteur boisson depuis 2007. Formatrice diplômée (Cicerone®, WSET®, IFCO, Saké Sommelier®) dans les domaines des spiritueux, bières et saké.</p>
-          <h1 className="text-6xl font-bold uppercase mt-16 mb-8 font-titlefont lg:hidden">🔍 En détail...</h1>
+          <p className="mt-10 font-bold font-titlefont">{aboutData.subtitle}</p>
+          <h1 className="text-6xl font-bold uppercase mt-16 mb-8 font-titlefont lg:hidden">En détail... 🔍 </h1>
           <h1 className="hidden lg:block text-6xl font-bold uppercase mt-16 mb-8 font-titlefont">En détail... 🔍 </h1>
           <div className='lg:flex lg:space-x-32'>
           <div className='lg:flex lg:flex-col lg:w-1/2'>
-          <p className="mt-8">Ingénieure agroalimentaire, formation complétée par un master en marketing et management en Australie, j'ai pu évoluer depuis 2007 dans des missions chez des acteurs de la filière brassicole et des spiritueux comme Cheffe de Marché, Cheffe de produit & Innovation en France comme à l'étranger puis Directrice de l’offre Produit chez Ninkasi jusqu'en 2023.</p>
-          <p className="mt-8">J'ai pu développer une expertise holistique en brand management, innovation, business développement, stratégie distributive, export et RSE qui pourra vous aider dans vos projets professionnels.</p>
-          <p className="mt-8">Au travers de ces années, une passion produit pour les substances licites est née! En 2020, j'ai rejoint la première promotion de Zythologues à l’IFCO et j'ai passé le niveau 1 du diplôme de Sake Sommelier de la Sake Sommelier Association of London en 2020. Je continue sur ma lancée en passant le WSET Spiritueux niveau 3 en 2023.</p>
+          <p className="mt-8">{aboutData.bloc1}</p>
+          <p className="mt-8">{aboutData.bloc2}</p>
+          <p className="mt-8">{aboutData.bloc3}</p>
           </div>
           <div className='lg:flex lg:flex-col lg:w-1/2'>
-          <p className="mt-8">Cette même année, je décide de créer « Substances » avec pour objectif transmettre ma passion produits pour les boissons fermentées (et éventuellement distillées !) et de mettre mon expérience acquise au cours de ces années au service des acteurs de ces filières par le biais du conseil et de la formation en devenant notamment formatrice à l'IFCO (et oui je passe de l'autre côté cette fois-ci) mais aussi en partageant des moments de convivialités à tout.e curieux.se qui souhaite en apprendre davantage sur les bières, les spiritueux et le saké japonais.</p>
+          <p className="mt-8">{aboutData.bloc4}</p>
         <div className="flex flex-col font-titlefont space-y-2 mt-10 mb-10 text-colorbrown font-bold text-4xl w-2/3 lg:text-3xl">
           <p>Assez parlé de moi</p><p> parlons de vous.</p>
           <Link to="/contact">
