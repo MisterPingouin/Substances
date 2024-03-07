@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import logo from "../../images/logo.svg";
 import backgroundImageFooter from "../../images/FormeFooter.svg";
 
@@ -10,7 +11,7 @@ const Footer = () => {
       </div>
       <div className="text-colorbrown border-t mt-10 border-black w-[85%] mb-8 mx-auto relative z-10 lg:hidden"></div>
       <div className="mt-10 mr-20 ml-12 lg:ml-0 lg:mr-0">
-        <div className="absolute flex justify-center items-center bottom-0 right-[33rem] lg:right-[55rem] 2xl:right-[75rem] left-0">
+        <div className="absolute flex justify-center items-center bottom-0 right-[33rem] lg:right-[50rem] 2xl:right-[95rem] left-0">
           <img
             src={backgroundImageFooter}
             alt="Background"
@@ -23,36 +24,21 @@ const Footer = () => {
             <div>
               <div className="flex">
                 <div className="flex flex-col ml-6 mb-4 text-3xl font-bold text-colorborwn space-y-1">
-                  <a
-                    href="/formation"
-                    className="hover:text-gray-600 cursor-pointer"
-                  >
-                    Formation produit
-                  </a>
-                  <a
-                    href="/conseil"
-                    className="hover:text-gray-600 cursor-pointer"
-                  >
-                    Conseil & Coaching
-                  </a>
-                  <a
-                    href="/atelier"
-                    className="hover:text-gray-600 cursor-pointer"
-                  >
-                    Ateliers
-                  </a>
-                  <a
-                    href="/about"
-                    className="hover:text-gray-600 cursor-pointer"
-                  >
-                    Faisons connaissance
-                  </a>
-                  <a
-                    href="/contact"
-                    className="hover:text-gray-600 cursor-pointer"
-                  >
-                    Contact
-                  </a>
+                <Link to="/conseil" className="hover:text-gray-600 cursor-pointer">
+                  Conseils
+                </Link>
+                <Link to="/formation" className="hover:text-gray-600 cursor-pointer">
+                  Formations
+                </Link>
+                <Link to="/atelier" className="hover:text-gray-600 cursor-pointer">
+                  Ateliers
+                </Link>
+                <Link to="/about" className="hover:text-gray-600 cursor-pointer">
+                  Faisons connaissance
+                </Link>
+                <Link to="/contact" className="hover:text-gray-600 cursor-pointer">
+                  Contact
+                </Link>
                 </div>
               </div>
             </div>
@@ -86,16 +72,18 @@ const Footer = () => {
             </div>
           </div>
           <div className="ml-6 flex justify-between items-center">
-            <div className="flex text-xl space-x-12 text-colorborwn mb-20 pt-4">
-              <a
-                href="https://www.linkedin.com/in/julia-charlotte-basso-41434912/"
-                className="hover:text-gray-600 cursor-pointer"
-              >
+            <div className="flex text-xl space-x-12 text-colorborwn mb-20">
+            <div className="flex flex-col">
+            <p>© Photo Justine Nerini</p>
+              <div className="flex space-x-12">
+            <Link to="/mention" className="hover:text-gray-600 cursor-pointer">
                 Mentions légales
-              </a>
-              <a href="#" className="hover:text-gray-600 cursor-pointer">
+              </Link>
+              <Link to="/plan-du-site" className="hover:text-gray-600 cursor-pointer">
                 Plan de site
-              </a>
+              </Link>
+              </div>
+              </div>
             </div>
             <div className="mb-20">
               <img src={logo} alt="Logo Substances" className="min-h-12" />
@@ -107,44 +95,30 @@ const Footer = () => {
           <div className="flex w-[80%]">
             <div className="flex justify-between w-full">
               <div className="flex flex-col  mb-16 text-xl font-bold text-colorbrown space-y-1">
-                <a
-                  href="/formation"
-                  className="hover:text-gray-600 cursor-pointer"
-                >
-                  Formation produit
-                </a>
-                <a
-                  href="/conseil"
-                  className="hover:text-gray-600 cursor-pointer"
-                >
-                  Conseil & Coaching
-                </a>
-                <a
-                  href="/atelier"
-                  className="hover:text-gray-600 cursor-pointer"
-                >
+              <Link to="/conseil" className="hover:text-gray-600 cursor-pointer">
+                  Conseils
+                </Link>
+              <Link to="/formation" className="hover:text-gray-600 cursor-pointer">
+                  Formations
+                </Link>
+                <Link to="/atelier" className="hover:text-gray-600 cursor-pointer">
                   Ateliers
-                </a>
-                <a href="/about" className="hover:text-gray-600 cursor-pointer">
+                </Link>
+                <Link to="/about" className="hover:text-gray-600 cursor-pointer">
                   Faisons connaissance
-                </a>
-                <a
-                  href="/contact"
-                  className="hover:text-gray-600 cursor-pointer"
-                >
-                  Contact
-                </a>
+                </Link>
               </div>
               <div className="flex flex-col mb-16 justify-end text-xl space-y-1 text-colorborwn ">
-                <a
-                  href="/mention"
-                  className="hover:text-gray-600 cursor-pointer"
-                >
+              <Link to="/contact" className="font-bold hover:text-gray-600 cursor-pointer">
+                  Contact
+                </Link>
+                <p>© Photo Justine Nerini</p>
+              <Link to="/mention" className="hover:text-gray-600 cursor-pointer">
                   Mentions légales
-                </a>
-                <a href="#" className="hover:text-gray-600 cursor-pointer">
+                </Link>
+                <Link to="/plan-du-site" className="hover:text-gray-600 cursor-pointer">
                   Plan de site
-                </a>
+                </Link>
               </div>
               <div className="flex items-end mb-16">
                 <div className="flex space-x-9">
