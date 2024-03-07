@@ -24,8 +24,8 @@ const Home = () => {
           <img src={about} alt="Photo de Julia-Charlotte Basso" className="w-full h-auto lg:h-full object-cover" />
           <div className='flex flex-col space-y-5 ml-24 pl-10 mr-48 lg:mb-10 relative z-10 p-4'>
             <h2 className="text-5xl text-colorbrown mt-10 pt-20 font-bold w-full">Julia-Charlotte Basso</h2>
-            <p className='text-4xl text-black font-subtitlefont w-full'>Avec plus de 15 ans d'expertise en substances licites : bières puis spiritueux... la production de saké ne m'a pas laissée indifférente.</p>
-            <p className='text-4xl text-black mb-2 pb-6 font-subtitlefont w-full'>
+            <p className='text-4xl lg:text-2xl text-black font-subtitlefont w-full'>Avec plus de 15 ans d'expertise en substances licites : bières puis spiritueux... la production de saké ne m'a pas laissée indifférente.</p>
+            <p className='text-4xl lg:text-2xl text-black mb-2 pb-6 font-subtitlefont w-full'>
               A votre disposition pour échanger dans ces univers sur une démarche de conseil en compétences métiers ou bien un souhait de monter en compétence sur ces produits !
             </p>
             <Link to="/about">
