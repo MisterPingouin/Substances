@@ -14,6 +14,7 @@ import AtelierAdmin from "./frontend/pages/AtelierAdmin";
 import AboutAdmin from "./frontend/pages/AboutAdmin";
 import Logo from "./frontend/pages/LogoAdmin";
 import About from "./frontend/pages/About";
+import AvisAdmin from "./frontend/pages/AvisAdmin";
 import Mention from "./frontend/pages/Mention";
 import "./styles/app.scss";
 
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/auth" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/about" element={<AboutAdmin />} />
+        <Route path="/admin/avis" element={<AvisAdmin />} />
         <Route path="/admin/atelier" element={<AtelierAdmin />} />
         <Route path="/admin/conseil" element={<ConseilAdmin />} />
         <Route path="/admin/formation" element={<FormationAdmin />} />

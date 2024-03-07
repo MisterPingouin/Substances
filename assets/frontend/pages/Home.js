@@ -7,6 +7,7 @@ import { CardCoaching as Card } from "../cards/CardCoaching";
 import { CardFormation as Card1 } from "../cards/CardFormation";
 import { CardAteliers as Card2 } from "../cards/CardAteliers";
 import Logo from "../components/Logo";
+import Avis from "../components/Avis";
 import about from "../../images/Julia-Home.png";
 
 const Home = () => {
@@ -95,6 +96,7 @@ const Home = () => {
           </div>
         </div>
       </main>
+      <Avis />
       <Logo />
       <Footer />
     </div>

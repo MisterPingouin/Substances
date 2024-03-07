@@ -11,7 +11,7 @@ const Footer = () => {
       </div>
       <div className="text-colorbrown border-t mt-10 border-black w-[85%] mb-8 mx-auto relative z-10 lg:hidden"></div>
       <div className="mt-10 mr-20 ml-12 lg:ml-0 lg:mr-0">
-        <div className="absolute flex justify-center items-center bottom-0 right-[33rem] lg:right-[55rem] 2xl:right-[75rem] left-0">
+        <div className="absolute flex justify-center items-center bottom-0 right-[33rem] lg:right-[50rem] 2xl:right-[95rem] left-0">
           <img
             src={backgroundImageFooter}
             alt="Background"

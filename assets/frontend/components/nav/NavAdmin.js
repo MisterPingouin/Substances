@@ -36,6 +36,12 @@ const navItems = [
 
     href: "/admin/logo",
   },
+
+  {
+    title: "Avis Client",
+
+    href: "/admin/avis",
+  },
 ];
 
 export default function NavAdmin() {
