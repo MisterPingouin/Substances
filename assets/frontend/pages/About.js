@@ -37,12 +37,12 @@ const About = () => {
 </div>
       <main className="flex-grow justify-center items-center">
         <div className="flex flex-col justify-center items-center relative z-10">
-          <h1 className="text-7xl p-4 text-colorbrown pt-20 mr-20 mb-2 pr-14 font-bold w-2/3 lg:hidden">
+          <h1 className="text-7xl p-4 text-colorbrown pt-20 mb-2 font-bold w-[75%] lg:hidden">
             <span className="block">Faisons</span>
             <span className="block">Connaissance</span>
           </h1>
           <h1 className='hidden font-bold text-7xl mt-14 mb-6 lg:block lg:w-[80%]'>Faisons connaissance</h1>
-          <h2 className="text-4xl p-4 text-colorbrown mr-20 pr-8 mb-20 font-subtitlefont w-2/3 lg:w-[80%] lg:mr-0 lg:p-0 lg:mb-14">
+          <h2 className="text-4xl p-4 text-colorbrown mb-20 font-subtitlefont w-[75%] lg:w-[80%] lg:mr-0 lg:p-0 lg:mb-14">
             Moi c’est Julia-Charlotte Basso. Enchantée!
           </h2>
         </div>
@@ -56,7 +56,7 @@ const About = () => {
           </div>
         </div>
         <div className='flex flex-col items-center justify-center z-20 relative'>
-        <div className="flex flex-col justify-center text-colorbrown text-3xl font-subtitlefont w-2/3 lg:w-[80%] lg:text-2xl">
+        <div className="flex flex-col justify-center text-colorbrown text-3xl font-subtitlefont w-[75%] lg:w-[80%] lg:text-2xl">
           <h1 className="text-6xl font-bold font-titlefont uppercase mt-20 lg:hidden">En quelques mots 💬 </h1>
           <h1 className="hidden lg:block text-6xl font-bold font-titlefont uppercase mt-20">En quelques mots 💬 </h1>
           <p className="mt-10 font-bold font-titlefont">{aboutData.subtitle}</p>
@@ -70,7 +70,7 @@ const About = () => {
           </div>
           <div className='lg:flex lg:flex-col lg:w-1/2'>
           <p className="mt-8">{aboutData.bloc4}</p>
-        <div className="flex flex-col font-titlefont space-y-2 mt-10 mb-10 text-colorbrown font-bold text-4xl w-2/3 lg:text-3xl">
+        <div className="flex flex-col font-titlefont space-y-2 mt-10 mb-10 text-colorbrown font-bold text-4xl w-[75%] lg:text-3xl">
           <p>Assez parlé de moi</p><p> parlons de vous.</p>
           <Link to="/contact">
             <button
