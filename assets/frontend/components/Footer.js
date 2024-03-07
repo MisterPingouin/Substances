@@ -134,7 +134,7 @@ const Footer = () => {
                 </div>
                 <div className="bg-black rounded-full p-5">
                   <a
-                    href="#"
+                    href="https://www.instagram.com/subs_stances?igsh=ZTM1MHYxbW12Ymhu&utm_source=qr"
                     className="hover:underline hover:text-white"
                   >
                     <svg

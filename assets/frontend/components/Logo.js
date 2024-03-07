@@ -56,10 +56,10 @@ const Logo = () => {
                     ))}
                 </motion.div>
             </div>
-            <div className="hidden lg:flex lg:justify-center lg:items-center lg:relative lg:z-10">
-      <div className="ml-12 mt-14 lg:ml-0 lg:mt-12 lg:flex lg:w-[80%] lg:justify-center lg:items-center relative z-20">
-    <h1 className="text-5xl ml-12 font-bold pr-10 w-[87%] lg:w-[80%]">Ils me font confiance</h1>
-    <div className="flex space-x-12 items-center cursor-pointer ">
+     <div className='hidden lg:flex mt-16 lg:justify-center lg:items-center w-full'>
+        <div className='w-[80%] space-x-24 flex items-center'>
+    <h1 className="text-5xl font-bold max-w-[20%] pr-10">Ils me font confiance</h1>
+    <div className="flex space-x-12 items-center max-w-[75%]">
         {logos.slice(0, 5).map((logo) => (
             <div key={logo.id} className="w-48 h-30 flex justify-center items-center"> 
                 <img src={logo.logoPath} alt="Logo" className='w-auto h-auto'/>
@@ -67,8 +67,8 @@ const Logo = () => {
         ))}
     </div>
     </div>
+    </div>
 </div>
-        </div>
         </>
     );
 };
