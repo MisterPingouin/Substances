@@ -8,7 +8,7 @@ import CustomLink from "./Link";
 
 const navItems = [
   {
-    title: "Acceuil",
+    title: "Accueil",
 
     href: "/",
   },
@@ -20,21 +20,21 @@ const navItems = [
   },
 
   {
-    title: "Ateliers",
+    title: "Conseils",
 
-    href: "/atelier",
+    href: "/conseil",
   },
-
+  
   {
-    title: "Formation Produit",
+    title: "Formations",
 
     href: "/formation",
   },
 
   {
-    title: "Conseil & Coaching",
+    title: "Ateliers",
 
-    href: "/conseil",
+    href: "/atelier",
   },
 
   {

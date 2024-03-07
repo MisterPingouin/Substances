@@ -20,8 +20,7 @@ const Conseil = () => {
             <span className="block">Ateliers</span>
           </h1>
           <h2 className="text-4xl p-4 text-colorbrown mr-20 pr-8 font-subtitlefont w-2/3 lg:w-[80%] lg:mr-0 lg:p-0 lg:mt-6">
-            Accompagnement en profondeur ou conseil sur une problématique
-            spécifique, découvrez mes deux offres de conseil aux professionels.
+          Le temps d'un atelier entre collègues ou entre amis, venez à la découverte des secrets de fabrication de ces produits et apprenez à les déguster.
           </h2>
         </div>
         <div className="flex justify-center items-center">
@@ -29,8 +28,8 @@ const Conseil = () => {
             <Ateliers />
           </div>
         </div>
-        <Logo/>
               </main>
+              <Logo/>
               <Footer />
     </div>
   );

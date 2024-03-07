@@ -46,14 +46,11 @@ const Contact = () => {
     try {
         const response = await axios.post('http://votre_backend.com/api/contact', formData);
         console.log('Réponse du serveur', response.data);
-        // Gérer la réponse ici (afficher un message de succès, par exemple)
     } catch (error) {
         console.error('Erreur lors de l\'envoi du formulaire', error);
         if (error.response) {
-            // Gérer les erreurs de validation côté serveur ici
             setErrors(error.response.data);
         }
-        // Autres traitements d'erreur
     }
 };
 
@@ -70,16 +67,22 @@ const Contact = () => {
             <span className="block">Contactez-moi</span>
           </h1>
           <h2 className="text-4xl p-4 lg:p-0 lg:mb-8 text-colorbrown mr-20 lg:mr-0 pr-8 font-subtitlefont w-2/3 lg:w-[80%]">
-          Choisissez l’objet
-de votre message et ensuite
-c’est à vous de jouer !
+          Envie de m'envoyer un petit mot ou de me parler de votre projet ? Choisissez le sujet de votre message et ensuite c'est à vous de jouer ! Vous pouvez m'envoyer un mot doux soit me contacter par téléphone !
           </h2>
           <div className="p-4 text-colorbrown mr-20 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:flex lg:flex-col lg:justify:center lg:items-center lg:w-full lg:p-0">
             <div className="space-y-4  lg:w-[80%]">
               {/* Boutons pour l'objet de la demande */}
-              {['Formations produits', 'Conseil & accompagnement', 'Ateliers', 'Autre'].map((item) => (
-                <button key={item} type="button" className={`px-4 py-2 mr-4 rounded-md text-2xl tracking-wider font-semibold outline-none border-4 lg:mr-8 ${formData.objetDemande === item ? 'bg-coloryellow text-white border-coloryellow' : 'bg-white text-coloryellow border-coloryellow'}`} onClick={() => handleButtonClick(item)}>{item}</button>
-              ))}
+              {['Conseils', 'Formations', 'Ateliers', 'Donner mon avis !', 'Autres'].map((item) => (
+  <button key={item} 
+          type="button" 
+          className={`px-4 py-2 mr-4 rounded-md text-2xl tracking-wider font-semibold outline-none border-4 
+                      ${formData.objetDemande === item 
+                        ? 'bg-coloryellow text-white border-coloryellow' 
+                        : 'bg-white text-coloryellow border-coloryellow hover:bg-coloryellow hover:text-white'}`}
+          onClick={() => handleButtonClick(item)}>
+    {item}
+  </button>
+))}
             </div>
             <form className="lg:hidden mt-8 space-y-2 w-full" onSubmit={handleSubmit}>
               <label className='text-xl'>Nom</label>
@@ -106,6 +109,7 @@ c’est à vous de jouer !
               {errors.message && <p className="text-red-500 text-sm italic">{errors.message}</p>}
               <div className="h-4"></div>
               <Button type="submit" className=" text-2xl mt-4 bg-colorbrown capitalize">Envoyer</Button>
+              <div className="h-4"></div>
             </form>
             <div className='hidden lg:flex flex-col relative justify-center items-center w-full '>
             <form className="mt-8 space-y-6 lg:w-[80%]" onSubmit={handleSubmit}>
@@ -138,9 +142,9 @@ c’est à vous de jouer !
           </div>
         </div>
         <div className='hidden lg:flex'>
-        <Logo/>
         </div>
       </main>
+      <Logo/>
       <Footer />
     </div>
   );

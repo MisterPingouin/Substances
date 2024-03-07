@@ -11,6 +11,7 @@ import Admin from './frontend/pages/Admin';
 import FormationAdmin from './frontend/pages/FormationAdmin';
 import ConseilAdmin from './frontend/pages/ConseilAdmin';
 import AtelierAdmin from './frontend/pages/AtelierAdmin';
+import AboutAdmin from './frontend/pages/AboutAdmin';
 import Logo from './frontend/pages/LogoAdmin';
 import About from './frontend/pages/About';
 import Mention from './frontend/pages/Mention';
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/mention" element={<Mention />} />
           <Route path="/auth" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/about" element={<AboutAdmin />} />
           <Route path="/admin/atelier" element={<AtelierAdmin />} />
           <Route path="/admin/conseil" element={<ConseilAdmin />} />
           <Route path="/admin/formation" element={<FormationAdmin />} />

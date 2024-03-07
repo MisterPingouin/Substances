@@ -9,6 +9,12 @@ import CustomLink from "./Link";
 const navItems = [
 
   {
+    title: "Faisons connaissance",
+
+    href: "/admin/about",
+  },
+
+  {
     title: "Atelier",
 
     href: "/admin/atelier",
