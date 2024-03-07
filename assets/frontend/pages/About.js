@@ -46,8 +46,8 @@ const About = () => {
             Moi c’est Julia-Charlotte Basso. Enchantée!
           </h2>
         </div>
-        <div class="hidden lg:flex justify-center items-center relative z-10">
-          <div class="text-colorbrown border-t w-[80%] mb-10 border-black  "></div>
+        <div className="hidden lg:flex justify-center items-center relative z-10">
+          <div className="text-colorbrown border-t w-[80%] mb-10 border-black  "></div>
         </div>
         <div className="flex justify-center items-center">
           <div className="flex flex-col justify-center items-center w-full lg:w-[80%]">
