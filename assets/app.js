@@ -16,6 +16,7 @@ import Logo from "./frontend/pages/LogoAdmin";
 import About from "./frontend/pages/About";
 import AvisAdmin from "./frontend/pages/AvisAdmin";
 import Mention from "./frontend/pages/Mention";
+import Plan from "./frontend/pages/Plan";
 import "./styles/app.scss";
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/formation" element={<Formation />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/mention" element={<Mention />} />
+        <Route path="/plan" element={<Plan />} />
         <Route path="/auth" element={<Login />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/about" element={<AboutAdmin />} />

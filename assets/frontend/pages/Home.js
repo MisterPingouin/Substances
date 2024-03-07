@@ -8,7 +8,7 @@ import { CardFormation as Card1 } from "../cards/CardFormation";
 import { CardAteliers as Card2 } from "../cards/CardAteliers";
 import Logo from "../components/Logo";
 import Avis from "../components/Avis";
-import about from "../../images/Julia-Home.png";
+import about from "../../images/Julia-Home.jpg";
 
 const Home = () => {
   return (

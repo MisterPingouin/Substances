@@ -79,7 +79,7 @@ const Footer = () => {
             <Link to="/mention" className="hover:text-gray-600 cursor-pointer">
                 Mentions légales
               </Link>
-              <Link to="/plan-du-site" className="hover:text-gray-600 cursor-pointer">
+              <Link to="/plan" className="hover:text-gray-600 cursor-pointer">
                 Plan de site
               </Link>
               </div>
@@ -116,7 +116,7 @@ const Footer = () => {
               <Link to="/mention" className="hover:text-gray-600 cursor-pointer">
                   Mentions légales
                 </Link>
-                <Link to="/plan-du-site" className="hover:text-gray-600 cursor-pointer">
+                <Link to="/plan" className="hover:text-gray-600 cursor-pointer">
                   Plan de site
                 </Link>
               </div>
