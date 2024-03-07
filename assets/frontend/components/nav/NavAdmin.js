@@ -7,7 +7,6 @@ import Curve from "./Curve";
 import CustomLink from "./Link";
 
 const navItems = [
-
   {
     title: "Faisons connaissance",
 
@@ -37,7 +36,6 @@ const navItems = [
 
     href: "/admin/logo",
   },
-
 ];
 
 export default function NavAdmin() {
@@ -57,8 +55,7 @@ export default function NavAdmin() {
           onMouseLeave={() => setSelectedIndicator(location.pathname)}
           className={styles.nav}
         >
-          <div className={styles.header}>
-          </div>
+          <div className={styles.header}></div>
           {navItems.map((item, index) => (
             <CustomLink
               key={index}

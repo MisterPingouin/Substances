@@ -4,21 +4,22 @@ import HeaderAdmin from "../components/nav/HeaderAdmin";
 
 const AboutAdmin = () => {
   const [aboutData, setAboutData] = useState({
-    subtitle: '',
-    bloc1: '',
-    bloc2: '',
-    bloc3: '',
-    bloc4: ''
+    subtitle: "",
+    bloc1: "",
+    bloc2: "",
+    bloc3: "",
+    bloc4: "",
   });
 
   useEffect(() => {
-    axios.get("/api/about/")
-         .then((response) => {
-           if (response.data) {
-             setAboutData(response.data);
-           }
-         })
-         .catch((error) => console.log(error));
+    axios
+      .get("/api/about/")
+      .then((response) => {
+        if (response.data) {
+          setAboutData(response.data);
+        }
+      })
+      .catch((error) => console.log(error));
   }, []);
 
   const handleInputChange = (e) => {
@@ -31,15 +32,16 @@ const AboutAdmin = () => {
       formData.append(key, aboutData[key]);
     });
 
-    axios.post(`/api/about/update/1`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    })
-    .then((response) => {
-      setAboutData(response.data);
-    })
-    .catch((error) => console.log(error));
+    axios
+      .post(`/api/about/update/1`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        setAboutData(response.data);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -47,7 +49,9 @@ const AboutAdmin = () => {
       <HeaderAdmin />
 
       <div className="mb-8 p-10 m-8">
-        <h2 className="text-xl font-semibold mb-3">Modifier la page faisons connaissance</h2>
+        <h2 className="text-xl font-semibold mb-3">
+          Modifier la page faisons connaissance
+        </h2>
         <textarea
           name="subtitle"
           placeholder="Sous-titre"

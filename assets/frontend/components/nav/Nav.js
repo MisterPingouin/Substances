@@ -24,7 +24,7 @@ const navItems = [
 
     href: "/conseil",
   },
-  
+
   {
     title: "Formations",
 
@@ -61,8 +61,7 @@ export default function Nav() {
           onMouseLeave={() => setSelectedIndicator(location.pathname)}
           className={styles.nav}
         >
-          <div className={styles.header}>
-          </div>
+          <div className={styles.header}></div>
           {navItems.map((item, index) => (
             <CustomLink
               key={index}
@@ -74,7 +73,6 @@ export default function Nav() {
             />
           ))}
         </div>
-
       </div>
       <Curve />
     </motion.div>

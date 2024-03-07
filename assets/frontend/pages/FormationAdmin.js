@@ -70,7 +70,9 @@ const FormationAdmin = () => {
   const handleDeleteFormation = (id) => {
     axios
       .delete(`/api/formations/delete/${id}`)
-      .then(() => setFormations(formations.filter((formation) => formation.id !== id)))
+      .then(() =>
+        setFormations(formations.filter((formation) => formation.id !== id))
+      )
       .catch((error) => console.log(error));
   };
 
@@ -80,7 +82,10 @@ const FormationAdmin = () => {
   };
 
   const handleModalInputChange = (e) => {
-    setEditingFormation({ ...editingFormation, [e.target.name]: e.target.value });
+    setEditingFormation({
+      ...editingFormation,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleModalFileChange = (e) => {

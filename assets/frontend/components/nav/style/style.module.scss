@@ -51,7 +51,7 @@
 
 .menu {
   height: 100vh;
-  width:70%;
+  width: 70%;
   background-color: #fabd43;
   position: fixed;
   right: 0;
@@ -73,14 +73,13 @@
       font-size: 40px;
       gap: 12px;
       margin-top: 102px;
-      padding-bottom:18px;
-      
+      padding-bottom: 18px;
 
       .header {
-        color: #342A2C;
+        color: #342a2c;
         text-transform: uppercase;
         font-size: 15px;
-}
+      }
 
       a {
         text-decoration: none;
@@ -89,8 +88,7 @@
       }
     }
   }
-  
-  
+
   .footer {
     display: flex;
     justify-content: center;
@@ -124,9 +122,8 @@
   z-index: 98;
 }
 
-
 .overlayActive::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
@@ -138,8 +135,9 @@
   transition: opacity 1000ms ease-in-out;
 }
 
-.button, .burger {
-  z-index: 99; 
+.button,
+.burger {
+  z-index: 99;
 }
 
 @keyframes slideInFromRight {
@@ -152,13 +150,12 @@
 }
 
 @media (min-width: 1024px) {
-
   .burger {
     height: 4px;
   }
 
-.burger::before,
-.burger::after {
-  height: 4px;
-}
+  .burger::before,
+  .burger::after {
+    height: 4px;
+  }
 }

@@ -62,35 +62,35 @@ const Ateliers = () => {
                 {atelier.titre}
               </h1>
               <div className="lg:flex lg:space-x-24 ">
-              <div className="lg:flex lg:flex-col lg:w-1/2">
-              <p className="mt-10 ">{atelier.sousDescription}</p>
-              <p className="mt-10 ">
-                {renderWithLineBreaks(atelier.description)}
-              </p>
-              </div>
-              <div className="lg:flex lg:flex-col lg:w-1/2">
-              <p className="mt-10 ">
-                {renderWithLineBreaks(atelier.description2)}
-              </p>
-              <p className="mt-10 font-bold font-titlefont">
-                {renderWithLineBreaks(atelier.description3)}
-              </p>
-            <div className="flex flex-col space-y-6 mt-10 mb-16 text-colorbrown font-bold text-3xl w-3/4">
-              <Link to="/contact">
-                <button
-                  type="button"
-                  className="inline-block font-titlefont rounded bg-coloryellow px-6 pb-2 pt-2.5 font-xl leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca]"
-                >
-                  Me Contacter
-                </button>
-              </Link>
-              </div>
+                <div className="lg:flex lg:flex-col lg:w-1/2">
+                  <p className="mt-10 ">{atelier.sousDescription}</p>
+                  <p className="mt-10 ">
+                    {renderWithLineBreaks(atelier.description)}
+                  </p>
+                </div>
+                <div className="lg:flex lg:flex-col lg:w-1/2">
+                  <p className="mt-10 ">
+                    {renderWithLineBreaks(atelier.description2)}
+                  </p>
+                  <p className="mt-10 font-bold font-titlefont">
+                    {renderWithLineBreaks(atelier.description3)}
+                  </p>
+                  <div className="flex flex-col space-y-6 mt-10 mb-16 text-colorbrown font-bold text-3xl w-3/4">
+                    <Link to="/contact">
+                      <button
+                        type="button"
+                        className="inline-block font-titlefont rounded bg-coloryellow px-6 pb-2 pt-2.5 font-xl leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca]"
+                      >
+                        Me Contacter
+                      </button>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
-            </div>
-                {atelier.imageCaroussel && (
-                  <ImageCarouselMobile  images={atelier.imageCaroussel} />
-                )}
+            {atelier.imageCaroussel && (
+              <ImageCarouselMobile images={atelier.imageCaroussel} />
+            )}
           </div>
         ))}
       </div>

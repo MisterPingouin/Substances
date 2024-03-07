@@ -1,13 +1,19 @@
-import React from 'react';
-import { Link as RouterLink } from 'react-router-dom'; 
-import styles from './style/style.module.scss';
-import { motion } from 'framer-motion';
-import { slide, scale } from './Anim'; 
+import React from "react";
+import { Link as RouterLink } from "react-router-dom";
+import styles from "./style/style.module.scss";
+import { motion } from "framer-motion";
+import { slide, scale } from "./Anim";
 
-export default function CustomLink({ title, href, index, isActive, setSelectedIndicator }) {
+export default function CustomLink({
+  title,
+  href,
+  index,
+  isActive,
+  setSelectedIndicator,
+}) {
   return (
-    <motion.div 
-      className={styles.link} 
+    <motion.div
+      className={styles.link}
       onMouseEnter={() => setSelectedIndicator(href)}
       custom={index}
       variants={slide}
@@ -15,12 +21,12 @@ export default function CustomLink({ title, href, index, isActive, setSelectedIn
       animate="enter"
       exit="exit"
     >
-      <motion.div 
-        variants={scale} 
-        animate={isActive ? "open" : "closed"} 
+      <motion.div
+        variants={scale}
+        animate={isActive ? "open" : "closed"}
         className={styles.indicator}
       ></motion.div>
-      <RouterLink to={href}>{title}</RouterLink> 
+      <RouterLink to={href}>{title}</RouterLink>
     </motion.div>
   );
 }

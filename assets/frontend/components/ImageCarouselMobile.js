@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ImageCarouselMobile = ({ images }) => {
   const [page, setPage] = useState(0);
@@ -7,15 +7,15 @@ const ImageCarouselMobile = ({ images }) => {
   const variants = {
     enter: (direction) => ({
       x: direction < 0 ? -1000 : 1000,
-      opacity: 0
+      opacity: 0,
     }),
     center: {
       x: 0,
-      opacity: 1
+      opacity: 1,
     },
     exit: (direction) => ({
       x: direction < 0 ? 1000 : -1000,
-      opacity: 0
+      opacity: 0,
     }),
   };
 
@@ -35,7 +35,7 @@ const ImageCarouselMobile = ({ images }) => {
   const swipePower = (offset, velocity) => Math.abs(offset) * velocity;
 
   return (
-    <div className='w-full h-[70rem] relative mb-10 mt-10 overflow-hidden lg:h-[40rem] lg:hidden'>
+    <div className="w-full h-[70rem] relative mb-10 mt-10 overflow-hidden lg:h-[40rem] lg:hidden">
       <AnimatePresence initial={false}>
         <motion.div
           key={page}
@@ -47,7 +47,7 @@ const ImageCarouselMobile = ({ images }) => {
           exit="exit"
           transition={{
             x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 }
+            opacity: { duration: 0.2 },
           }}
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
@@ -69,7 +69,11 @@ const ImageCarouselMobile = ({ images }) => {
           {images.map((_, index) => (
             <span
               key={index}
-              className={`mx-1 cursor-pointer ${index === page ? 'text-coloryellow text-3xl' : 'text-white text-3xl'}`}
+              className={`mx-1 cursor-pointer ${
+                index === page
+                  ? "text-coloryellow text-3xl"
+                  : "text-white text-3xl"
+              }`}
               onClick={() => navigateToImage(index)}
             >
               ●

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import NavAdmin from './NavAdmin';
-import styles from './style/style.module.scss';
-import logo from '../../../images/logo.svg';
-import backgroundImage from '../../../images/FormeHeader.svg'; 
-import { Link } from 'react-router-dom'; 
+import React, { useState, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
+import NavAdmin from "./NavAdmin";
+import styles from "./style/style.module.scss";
+import logo from "../../../images/logo.svg";
+import backgroundImage from "../../../images/FormeHeader.svg";
+import { Link } from "react-router-dom";
 
 export default function HeaderAdmin() {
   const [isActive, setIsActive] = useState(false);
@@ -17,31 +17,38 @@ export default function HeaderAdmin() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [isActive]); 
+  }, [isActive]);
 
   return (
-    <div className='flex justify-between pl-4 ml-22 items-center relative z-95'>
+    <div className="flex justify-between pl-4 ml-22 items-center relative z-95">
       <Link to="/">
-        <img src={logo} alt="Logo" className="h-28 mt-12 ml-24 pl-4 pt-2"/>
+        <img src={logo} alt="Logo" className="h-28 mt-12 ml-24 pl-4 pt-2" />
       </Link>
       {showButton && (
-        <div onClick={() => { setIsActive(!isActive) }} className={styles.button}>
-          <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
+        <div
+          onClick={() => {
+            setIsActive(!isActive);
+          }}
+          className={styles.button}
+        >
+          <div
+            className={`${styles.burger} ${
+              isActive ? styles.burgerActive : ""
+            }`}
+          ></div>
         </div>
       )}
 
       <div className="absolute right-0 top-0 ">
-        <img src={backgroundImage} alt="Background" className="h-[20rem] " /> 
+        <img src={backgroundImage} alt="Background" className="h-[20rem] " />
       </div>
 
-      <AnimatePresence mode="wait">
-        {isActive && <NavAdmin />}
-      </AnimatePresence>
+      <AnimatePresence mode="wait">{isActive && <NavAdmin />}</AnimatePresence>
     </div>
   );
 }

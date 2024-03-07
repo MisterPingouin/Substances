@@ -15,7 +15,7 @@ const LogoAdmin = () => {
 
   // Contrôle du modal
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [modalType, setModalType] = useState(''); // 'logo' ou 'certification'
+  const [modalType, setModalType] = useState(""); // 'logo' ou 'certification'
 
   useEffect(() => {
     fetchLogos();
@@ -23,19 +23,21 @@ const LogoAdmin = () => {
   }, []);
 
   function fetchLogos() {
-    axios.get("/api/logo-company/list")
+    axios
+      .get("/api/logo-company/list")
       .then((response) => setLogos(response.data))
       .catch((error) => console.error("Error fetching logos:", error));
   }
 
   function fetchCertifications() {
-    axios.get("/api/certification/list")
+    axios
+      .get("/api/certification/list")
       .then((response) => setCertifications(response.data))
       .catch((error) => console.error("Error fetching certifications:", error));
   }
 
   const handleFileChange = (e, type) => {
-    if (type === 'logo') {
+    if (type === "logo") {
       setNewLogo({ ...newLogo, logo: e.target.files[0] });
     } else {
       setNewCertification({ ...newCertification, logo: e.target.files[0] });
@@ -43,25 +45,30 @@ const LogoAdmin = () => {
   };
 
   const handleModalFileChange = (e) => {
-    if (modalType === 'logo') {
+    if (modalType === "logo") {
       setEditingLogo({ ...editingLogo, logo: e.target.files[0] });
     } else {
-      setEditingCertification({ ...editingCertification, logo: e.target.files[0] });
+      setEditingCertification({
+        ...editingCertification,
+        logo: e.target.files[0],
+      });
     }
   };
 
   const handleAdd = (type) => {
     const formData = new FormData();
-    const data = type === 'logo' ? newLogo : newCertification;
-    formData.append('logo', data.logo);
+    const data = type === "logo" ? newLogo : newCertification;
+    formData.append("logo", data.logo);
 
-    const endpoint = type === 'logo' ? "/api/logo-company/add" : "/api/certification/add";
+    const endpoint =
+      type === "logo" ? "/api/logo-company/add" : "/api/certification/add";
 
-    axios.post(endpoint, formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    })
+    axios
+      .post(endpoint, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
       .then(() => {
-        if (type === 'logo') {
+        if (type === "logo") {
           fetchLogos();
           setNewLogo({ logo: null });
         } else {
@@ -74,16 +81,20 @@ const LogoAdmin = () => {
 
   const handleUpdate = () => {
     const formData = new FormData();
-    const data = modalType === 'logo' ? editingLogo : editingCertification;
-    formData.append('logo', data.logo);
+    const data = modalType === "logo" ? editingLogo : editingCertification;
+    formData.append("logo", data.logo);
 
-    const endpoint = modalType === 'logo' ? `/api/logo-company/update/${editingLogo.id}` : `/api/certification/update/${editingCertification.id}`;
+    const endpoint =
+      modalType === "logo"
+        ? `/api/logo-company/update/${editingLogo.id}`
+        : `/api/certification/update/${editingCertification.id}`;
 
-    axios.post(endpoint, formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    })
+    axios
+      .post(endpoint, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
       .then(() => {
-        if (modalType === 'logo') {
+        if (modalType === "logo") {
           fetchLogos();
         } else {
           fetchCertifications();
@@ -94,21 +105,27 @@ const LogoAdmin = () => {
   };
 
   const handleDelete = (id, type) => {
-    const endpoint = type === 'logo' ? `/api/logo-company/delete/${id}` : `/api/certification/delete/${id}`;
+    const endpoint =
+      type === "logo"
+        ? `/api/logo-company/delete/${id}`
+        : `/api/certification/delete/${id}`;
 
-    axios.delete(endpoint)
+    axios
+      .delete(endpoint)
       .then(() => {
-        if (type === 'logo') {
+        if (type === "logo") {
           setLogos(logos.filter((logo) => logo.id !== id));
         } else {
-          setCertifications(certifications.filter((certification) => certification.id !== id));
+          setCertifications(
+            certifications.filter((certification) => certification.id !== id)
+          );
         }
       })
       .catch((error) => console.error(`Error deleting ${type}:`, error));
   };
 
   const openModalWithItem = (item, type) => {
-    if (type === 'logo') {
+    if (type === "logo") {
       setEditingLogo({ ...item });
     } else {
       setEditingCertification({ ...item });
@@ -129,15 +146,17 @@ const LogoAdmin = () => {
 
       {/* Formulaire d'ajout de logo d'entreprise */}
       <div className="mb-8 p-10 m-8">
-        <h2 className="text-xl font-semibold mb-3">Ajouter un nouveau logo d'entreprise</h2>
+        <h2 className="text-xl font-semibold mb-3">
+          Ajouter un nouveau logo d'entreprise
+        </h2>
         <input
           type="file"
           name="logo"
-          onChange={(e) => handleFileChange(e, 'logo')}
+          onChange={(e) => handleFileChange(e, "logo")}
           className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
         />
         <button
-          onClick={() => handleAdd('logo')}
+          onClick={() => handleAdd("logo")}
           className="bg-coloryellow text-white font-bold py-2 px-4 rounded"
         >
           Ajouter
@@ -146,15 +165,17 @@ const LogoAdmin = () => {
 
       {/* Formulaire d'ajout de certification */}
       <div className="mb-8 p-10 m-8">
-        <h2 className="text-xl font-semibold mb-3">Ajouter un nouveau logo de certification</h2>
+        <h2 className="text-xl font-semibold mb-3">
+          Ajouter un nouveau logo de certification
+        </h2>
         <input
           type="file"
           name="certification"
-          onChange={(e) => handleFileChange(e, 'certification')}
+          onChange={(e) => handleFileChange(e, "certification")}
           className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
         />
         <button
-          onClick={() => handleAdd('certification')}
+          onClick={() => handleAdd("certification")}
           className="bg-coloryellow text-white font-bold py-2 px-4 rounded"
         >
           Ajouter
@@ -162,7 +183,9 @@ const LogoAdmin = () => {
       </div>
 
       {/* Liste des logos d'entreprise */}
-      <h1 className="p-10 m-8 text-xl font-semibold  ">Logo ils me font confiances</h1>
+      <h1 className="p-10 m-8 text-xl font-semibold  ">
+        Logo ils me font confiances
+      </h1>
       <div className="flex">
         {logos.map((logo) => (
           <div
@@ -178,13 +201,13 @@ const LogoAdmin = () => {
             )}
             <div className="flex justify-end mt-2">
               <button
-                onClick={() => openModalWithItem(logo, 'logo')}
+                onClick={() => openModalWithItem(logo, "logo")}
                 className="bg-coloryellow text-white font-bold py-2 px-4 rounded mr-2"
               >
                 Modifier
               </button>
               <button
-                onClick={() => handleDelete(logo.id, 'logo')}
+                onClick={() => handleDelete(logo.id, "logo")}
                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
               >
                 Supprimer
@@ -212,13 +235,15 @@ const LogoAdmin = () => {
             )}
             <div className="flex justify-end mt-2">
               <button
-                onClick={() => openModalWithItem(certification, 'certification')}
+                onClick={() =>
+                  openModalWithItem(certification, "certification")
+                }
                 className="bg-coloryellow text-white font-bold py-2 px-4 rounded mr-2"
               >
                 Modifier
               </button>
               <button
-                onClick={() => handleDelete(certification.id, 'certification')}
+                onClick={() => handleDelete(certification.id, "certification")}
                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
               >
                 Supprimer
@@ -232,7 +257,10 @@ const LogoAdmin = () => {
       {modalIsOpen && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
           <div className="relative top-20 mx-auto p-5 border w-1/3 shadow-lg rounded-md bg-white">
-            <h2 className="text-lg font-bold mb-4">Modifier le {modalType === 'logo' ? 'logo' : 'logo de certification'}</h2>
+            <h2 className="text-lg font-bold mb-4">
+              Modifier le{" "}
+              {modalType === "logo" ? "logo" : "logo de certification"}
+            </h2>
             <input
               type="file"
               name={modalType}

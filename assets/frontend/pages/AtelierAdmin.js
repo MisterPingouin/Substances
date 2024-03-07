@@ -27,7 +27,8 @@ const AtelierAdmin = () => {
   }
 
   function fetchAteliers() {
-    axios.get("/api/ateliers/list")
+    axios
+      .get("/api/ateliers/list")
       .then((response) => setAteliers(response.data))
       .catch((error) => console.error("Error fetching ateliers:", error));
   }
@@ -40,7 +41,10 @@ const AtelierAdmin = () => {
   const handleFileChange = (e) => {
     const { name, files } = e.target;
     if (name === "imageCaroussel") {
-      setNewAtelier({ ...newAtelier, [name]: [...newAtelier.imageCaroussel, ...Array.from(files)] });
+      setNewAtelier({
+        ...newAtelier,
+        [name]: [...newAtelier.imageCaroussel, ...Array.from(files)],
+      });
     } else {
       setNewAtelier({ ...newAtelier, [name]: files[0] });
     }
@@ -53,13 +57,13 @@ const AtelierAdmin = () => {
 
   const handleModalFileChange = (e) => {
     const { name, files } = e.target;
-    setEditingAtelier(prevState => ({ ...prevState, [name]: files[0] }));
+    setEditingAtelier((prevState) => ({ ...prevState, [name]: files[0] }));
   };
 
   const handleAddAtelier = () => {
     const formData = new FormData();
-    Object.keys(newAtelier).forEach(key => {
-      if (key === 'imageCaroussel') {
+    Object.keys(newAtelier).forEach((key) => {
+      if (key === "imageCaroussel") {
         newAtelier[key].forEach((file, index) => {
           if (file instanceof File) {
             formData.append(`${key}[${index}]`, file);
@@ -72,7 +76,8 @@ const AtelierAdmin = () => {
 
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
-    axios.post("/api/ateliers/add", formData, config)
+    axios
+      .post("/api/ateliers/add", formData, config)
       .then(() => {
         fetchAteliers();
         setNewAtelier(initialAtelierState());
@@ -82,15 +87,16 @@ const AtelierAdmin = () => {
 
   const handleUpdateAtelier = () => {
     const formData = new FormData();
-    Object.keys(editingAtelier).forEach(key => {
-      if (key !== 'imageCaroussel') {
+    Object.keys(editingAtelier).forEach((key) => {
+      if (key !== "imageCaroussel") {
         formData.append(key, editingAtelier[key]);
       }
     });
 
     const config = { headers: { "Content-Type": "multipart/form-data" } };
 
-    axios.post(`/api/ateliers/update/${editingAtelier.id}`, formData, config)
+    axios
+      .post(`/api/ateliers/update/${editingAtelier.id}`, formData, config)
       .then(() => {
         fetchAteliers();
         closeModal();
@@ -99,7 +105,8 @@ const AtelierAdmin = () => {
   };
 
   const handleDeleteAtelier = (id) => {
-    axios.delete(`/api/ateliers/delete/${id}`)
+    axios
+      .delete(`/api/ateliers/delete/${id}`)
       .then(() => setAteliers(ateliers.filter((atelier) => atelier.id !== id)))
       .catch((error) => console.error("Error deleting atelier:", error));
   };
@@ -114,66 +121,83 @@ const AtelierAdmin = () => {
     setEditingAtelier(null);
   };
 
-  const renderCarrouselImages = (images, atelierId) => images.map((image, index) => {
-    const imageUrl = image instanceof File ? URL.createObjectURL(image) : image;
-    return (
-      <div key={index}>
-        <img src={imageUrl} alt={`Carrousel ${index}`} />
-        <button onClick={() => handleRemoveImageFromCarrousel(atelierId, index)}>Remove</button>
-      </div>
-    );
-  });
-  
+  const renderCarrouselImages = (images, atelierId) =>
+    images.map((image, index) => {
+      const imageUrl =
+        image instanceof File ? URL.createObjectURL(image) : image;
+      return (
+        <div key={index}>
+          <img src={imageUrl} alt={`Carrousel ${index}`} />
+          <button
+            onClick={() => handleRemoveImageFromCarrousel(atelierId, index)}
+          >
+            Remove
+          </button>
+        </div>
+      );
+    });
 
-const renderCarrouselImagesList = (images, atelierId) => (
-  <div className="grid grid-cols-4 gap-4">
-    {images.map((image, index) => (
-      <div key={index} className="w-full">
-        <img src={image} alt={`Carrousel ${index}`} className="w-full h-auto object-cover rounded-lg" />
-        <button onClick={() => handleRemoveImageFromCarrousel(atelierId, index)} className="mt-2 bg-red-500 text-white p-2 rounded">
-          Remove
-        </button>
-      </div>
-    ))}
-  </div>
-);
+  const renderCarrouselImagesList = (images, atelierId) => (
+    <div className="grid grid-cols-4 gap-4">
+      {images.map((image, index) => (
+        <div key={index} className="w-full">
+          <img
+            src={image}
+            alt={`Carrousel ${index}`}
+            className="w-full h-auto object-cover rounded-lg"
+          />
+          <button
+            onClick={() => handleRemoveImageFromCarrousel(atelierId, index)}
+            className="mt-2 bg-red-500 text-white p-2 rounded"
+          >
+            Remove
+          </button>
+        </div>
+      ))}
+    </div>
+  );
 
   const handleRemoveImageFromCarrousel = (atelierId, index) => {
     if (atelierId === undefined) {
-        setNewAtelier(prevAtelier => {
-            const updatedImages = prevAtelier.imageCaroussel.filter((_, i) => i !== index);
-            return { ...prevAtelier, imageCaroussel: updatedImages };
-        });
+      setNewAtelier((prevAtelier) => {
+        const updatedImages = prevAtelier.imageCaroussel.filter(
+          (_, i) => i !== index
+        );
+        return { ...prevAtelier, imageCaroussel: updatedImages };
+      });
     } else {
-        axios.delete(`/api/ateliers/remove-carousel-image/${atelierId}`, {
-            data: { imageIndex: index }
+      axios
+        .delete(`/api/ateliers/remove-carousel-image/${atelierId}`, {
+          data: { imageIndex: index },
         })
         .then(() => fetchAteliers())
-        .catch(error => console.error("Error removing image:", error));
+        .catch((error) => console.error("Error removing image:", error));
     }
-};
-
-  
+  };
 
   const handleAddImageToCarrousel = (atelierId, files) => {
     const formData = new FormData();
-    Array.from(files).forEach(file => {
-      formData.append('imageCaroussel[]', file);
+    Array.from(files).forEach((file) => {
+      formData.append("imageCaroussel[]", file);
     });
-  
-    axios.post(`/api/ateliers/add-carousel-image/${atelierId}`, formData)
+
+    axios
+      .post(`/api/ateliers/add-carousel-image/${atelierId}`, formData)
       .then(() => fetchAteliers())
-      .catch(error => console.error("Error adding image to carrousel:", error));
+      .catch((error) =>
+        console.error("Error adding image to carrousel:", error)
+      );
   };
-  
 
   return (
     <div className="mx-auto">
       <HeaderAdmin />
-  
+
       {/* Formulaire d'ajout d'atelier */}
       <div className="mb-8 p-10 m-8">
-        <h2 className="text-xl font-semibold mb-3">Ajouter un nouvel atelier</h2>
+        <h2 className="text-xl font-semibold mb-3">
+          Ajouter un nouvel atelier
+        </h2>
         <input
           type="text"
           name="lien"
@@ -206,12 +230,12 @@ const renderCarrouselImagesList = (images, atelierId) => (
           className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
         />
         <textarea
-  name="descriptionGras"
-  placeholder="Description Gras"
-  value={newAtelier.descriptionGras}
-  onChange={handleInputChange}
-  className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-/>
+          name="descriptionGras"
+          placeholder="Description Gras"
+          value={newAtelier.descriptionGras}
+          onChange={handleInputChange}
+          className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+        />
 
         <textarea
           name="description2"
@@ -233,13 +257,13 @@ const renderCarrouselImagesList = (images, atelierId) => (
           onChange={handleFileChange}
           className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
         />
-<input
-  type="file"
-  name="imageCaroussel"
-  onChange={handleFileChange}
-  multiple
-  className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-/>
+        <input
+          type="file"
+          name="imageCaroussel"
+          onChange={handleFileChange}
+          multiple
+          className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+        />
 
         <button
           onClick={handleAddAtelier}
@@ -247,11 +271,10 @@ const renderCarrouselImagesList = (images, atelierId) => (
         >
           Ajouter
         </button>
-        {newAtelier.imageCaroussel && 
-  renderCarrouselImages(newAtelier.imageCaroussel)}
-
+        {newAtelier.imageCaroussel &&
+          renderCarrouselImages(newAtelier.imageCaroussel)}
       </div>
-  
+
       {/* Liste des ateliers */}
       <div>
         {ateliers.map((atelier) => (
@@ -272,18 +295,23 @@ const renderCarrouselImagesList = (images, atelierId) => (
                 className="w-1/2 h-auto rounded-lg mt-2"
               />
             )}
-                          <label className="block pb-4 mt-4 mb-2 text-sm font-bold text-gray-700">
-                Modification et ajout image du carrousel:
-              </label>
-              <input
-      type="file"
-      name="imageCaroussel"
-      className="mb-2"
-      multiple
-      onChange={(e) => handleAddImageToCarrousel(atelier.id, e.target.files)}
-    />
-{atelier.imageCaroussel && renderCarrouselImagesList(atelier.imageCaroussel, atelier.id)}
-<h1 className="m-4 titlefont font-bold">Modification texte et image principale :</h1>
+            <label className="block pb-4 mt-4 mb-2 text-sm font-bold text-gray-700">
+              Modification et ajout image du carrousel:
+            </label>
+            <input
+              type="file"
+              name="imageCaroussel"
+              className="mb-2"
+              multiple
+              onChange={(e) =>
+                handleAddImageToCarrousel(atelier.id, e.target.files)
+              }
+            />
+            {atelier.imageCaroussel &&
+              renderCarrouselImagesList(atelier.imageCaroussel, atelier.id)}
+            <h1 className="m-4 titlefont font-bold">
+              Modification texte et image principale :
+            </h1>
             <div className="flex justify-end mt-2">
               <button
                 onClick={() => openModalWithAtelier(atelier)}
@@ -301,99 +329,96 @@ const renderCarrouselImagesList = (images, atelierId) => (
           </div>
         ))}
       </div>
-  
-      {/* Modal de modification */}
-{modalIsOpen && (
-  <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
-    <div className="relative top-20 mx-auto p-5 border w-1/3 shadow-lg rounded-md bg-white">
-      <h2 className="text-lg font-bold mb-4">Modifier l'atelier</h2>
-      <input
-        type="text"
-        name="lien"
-        value={editingAtelier.lien}
-        onChange={handleModalInputChange}
-        placeholder="Lien"
-        className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-      />
-      <input
-        type="text"
-        name="titre"
-        value={editingAtelier.titre}
-        onChange={handleModalInputChange}
-        placeholder="Titre"
-        className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-      />
-      <input
-        type="text"
-        name="sousDescription"
-        value={editingAtelier.sousDescription}
-        onChange={handleModalInputChange}
-        placeholder="Sous Description"
-        className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-      />
-      <textarea
-        name="description"
-        value={editingAtelier.description}
-        onChange={handleModalInputChange}
-        placeholder="Description"
-        className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-      />
-      <textarea
-  name="descriptionGras"
-  value={editingAtelier.descriptionGras}
-  onChange={handleModalInputChange}
-  placeholder="Description Gras"
-  className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-/>
 
-      <textarea
-        name="description2"
-        value={editingAtelier.description2}
-        onChange={handleModalInputChange}
-        placeholder="Description 2"
-        className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-      />
-      <textarea
-        name="description3"
-        value={editingAtelier.description3}
-        onChange={handleModalInputChange}
-        placeholder="Description 3"
-        className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-      />
-                  <div>
+      {/* Modal de modification */}
+      {modalIsOpen && (
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+          <div className="relative top-20 mx-auto p-5 border w-1/3 shadow-lg rounded-md bg-white">
+            <h2 className="text-lg font-bold mb-4">Modifier l'atelier</h2>
+            <input
+              type="text"
+              name="lien"
+              value={editingAtelier.lien}
+              onChange={handleModalInputChange}
+              placeholder="Lien"
+              className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+            />
+            <input
+              type="text"
+              name="titre"
+              value={editingAtelier.titre}
+              onChange={handleModalInputChange}
+              placeholder="Titre"
+              className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+            />
+            <input
+              type="text"
+              name="sousDescription"
+              value={editingAtelier.sousDescription}
+              onChange={handleModalInputChange}
+              placeholder="Sous Description"
+              className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+            />
+            <textarea
+              name="description"
+              value={editingAtelier.description}
+              onChange={handleModalInputChange}
+              placeholder="Description"
+              className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+            />
+            <textarea
+              name="descriptionGras"
+              value={editingAtelier.descriptionGras}
+              onChange={handleModalInputChange}
+              placeholder="Description Gras"
+              className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+            />
+
+            <textarea
+              name="description2"
+              value={editingAtelier.description2}
+              onChange={handleModalInputChange}
+              placeholder="Description 2"
+              className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+            />
+            <textarea
+              name="description3"
+              value={editingAtelier.description3}
+              onChange={handleModalInputChange}
+              placeholder="Description 3"
+              className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+            />
+            <div>
               <label className="block mb-2 text-sm font-bold text-gray-700">
                 Image Principale:
               </label>
-      <input
-        type="file"
-        name="image"
-        onChange={handleModalFileChange}
-        className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
-      />
-       </div>
-      <div>
-      </div>
-      <div className="flex justify-between">
-        <button
-          onClick={handleUpdateAtelier}
-          className="bg-coloryellow text-white font-bold py-2 px-4 rounded"
-        >
-          Sauvegarder
-        </button>
-        <button
-          onClick={closeModal}
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Annuler
-        </button>
-      </div>
-    </div>
-  </div>
-)}
-
+              <input
+                type="file"
+                name="image"
+                onChange={handleModalFileChange}
+                className="w-full px-3 py-2 mb-3 text-base text-gray-700 border rounded-lg focus:shadow-outline"
+              />
+            </div>
+            <div></div>
+            <div className="flex justify-between">
+              <button
+                onClick={handleUpdateAtelier}
+                className="bg-coloryellow text-white font-bold py-2 px-4 rounded"
+              >
+                Sauvegarder
+              </button>
+              <button
+                onClick={closeModal}
+                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Annuler
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
-  
 };
 
 export default AtelierAdmin;
