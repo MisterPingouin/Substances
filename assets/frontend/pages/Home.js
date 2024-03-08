@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/nav/Header";
 import Footer from "../components/Footer";
 import Prestations from "../components/Prestations";
+import { Helmet } from 'react-helmet';
 import { Link } from "react-router-dom";
 import { CardCoaching as Card } from "../cards/CardCoaching";
 import { CardFormation as Card1 } from "../cards/CardFormation";
@@ -13,6 +14,11 @@ import about from "../../images/Julia-Home.jpg";
 const Home = () => {
   return (
     <div className="font-titlefont">
+            <Helmet>
+        <title>Substances - Page d'acceuil</title>
+        <meta name="description" content="Bienvenue sur la page de substances pour les formations" />
+        <meta name="keywords" content="formation, bière, substances" />
+      </Helmet>
       <Header />
       <main className="flex-grow justify-center items-center lg:mx-auto">
         <div className="flex flex-col justify-center items-center relative z-10">

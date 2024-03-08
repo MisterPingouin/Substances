@@ -28,7 +28,6 @@ const Conseil = () => {
           </div>
         </div>
       </main>
-      <Logo />
       <Footer />
     </div>
   );
