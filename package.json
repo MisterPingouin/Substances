@@ -30,6 +30,7 @@
         "framer-motion": "^10.18.0",
         "postcss": "^8.4.33",
         "react": "^18.2.0",
+        "react-cookie-consent": "^9.0.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.21.3",
         "style-loader": "^3.3.4",

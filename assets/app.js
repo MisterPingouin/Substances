@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
 import Home from "./frontend/pages/Home";
 import Contact from "./frontend/pages/Contact";
 import Formation from "./frontend/pages/Formation";
@@ -20,6 +21,19 @@ import Plan from "./frontend/pages/Plan";
 import "./styles/app.scss";
 
 const App = () => {
+  const [showConsent, setShowConsent] = useState(true);
+
+  useEffect(() => {
+    const consentValue = getCookieConsentValue("userCookieConsent");
+    if (consentValue === "false") {
+      setShowConsent(false);
+    }
+  }, []);
+
+  const handleDecline = () => {
+    setShowConsent(false);
+  };
+
   return (
     <Router>
       <Routes>
@@ -41,6 +55,27 @@ const App = () => {
         <Route path="/admin/logo" element={<Logo />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+
+      {showConsent && (
+        <CookieConsent
+          location="bottom"
+          buttonText="Accepter"
+          declineButtonText="Refuser"
+          cookieName="userCookieConsent"
+          style={{ background: "#342A2C" }}
+          buttonStyle={{ background: "#fabd43", marginLeft: "10px" }}
+          declineButtonStyle={{
+            background: "#808080",
+            color: "#000",
+            marginRight: "10px",
+          }}
+          enableDeclineButton
+          onDecline={handleDecline}
+          flipButtons
+        >
+          Nous utilisons des cookies pour améliorer l'expérience utilisateur.
+        </CookieConsent>
+      )}
     </Router>
   );
 };
