@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/nav/Header";
 import Footer from "../components/Footer";
 import Prestations from "../components/Prestations";
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Link } from "react-router-dom";
 import { CardCoaching as Card } from "../cards/CardCoaching";
 import { CardFormation as Card1 } from "../cards/CardFormation";
@@ -13,10 +13,14 @@ import about from "../../images/Julia-Home.jpg";
 
 const Home = () => {
   return (
+    <HelmetProvider>
     <div className="font-titlefont">
-            <Helmet>
+      <Helmet>
         <title>Substances - Page d'acceuil</title>
-        <meta name="description" content="Bienvenue sur la page de substances pour les formations" />
+        <meta
+          name="description"
+          content="Bienvenue sur la page de substances pour les formations"
+        />
         <meta name="keywords" content="formation, bière, substances" />
       </Helmet>
       <Header />
@@ -106,6 +110,7 @@ const Home = () => {
       <Logo />
       <Footer />
     </div>
+    </HelmetProvider>
   );
 };
 

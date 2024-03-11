@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../components/nav/Header";
 import Ateliers from "../components/Ateliers";
 import Footer from "../components/Footer";
-import Logo from "../components/Logo";
 
 const Conseil = () => {
   return (
