@@ -20,25 +20,25 @@ const navItems = [
   },
 
   {
-    title: "Conseils",
+    title: "Conseil",
 
     href: "/conseil",
   },
 
   {
-    title: "Formations",
+    title: "Formation",
 
     href: "/formation",
   },
 
   {
-    title: "Ateliers",
+    title: "Atelier",
 
     href: "/atelier",
   },
 
   {
-    title: "Contact",
+    title: "Contactez-moi",
 
     href: "/contact",
   },

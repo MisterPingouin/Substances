@@ -96,13 +96,13 @@ const Footer = () => {
             <div className="flex justify-between w-full">
               <div className="flex flex-col  mb-16 text-xl font-bold text-colorbrown space-y-1">
               <Link to="/conseil" className="hover:text-gray-600 cursor-pointer">
-                  Conseils
+                  Conseil
                 </Link>
               <Link to="/formation" className="hover:text-gray-600 cursor-pointer">
-                  Formations
+                  Formation
                 </Link>
                 <Link to="/atelier" className="hover:text-gray-600 cursor-pointer">
-                  Ateliers
+                  Atelier
                 </Link>
                 <Link to="/about" className="hover:text-gray-600 cursor-pointer">
                   Faisons connaissance
@@ -110,7 +110,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-col mb-16 justify-end text-xl space-y-1 text-colorborwn ">
               <Link to="/contact" className="font-bold hover:text-gray-600 cursor-pointer">
-                  Contact
+                  Contactez-moi
                 </Link>
                 <p>© Photo Justine Nerini</p>
               <Link to="/mention" className="hover:text-gray-600 cursor-pointer">

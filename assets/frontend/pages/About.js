@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/nav/Header";
 import Footer from "../components/Footer";
-import about from "../../images/About.jpg";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Certification from "../components/Certification";
-import aboutDesktop from "../../images/Julia-ContactDesktop.png";
+import aboutDesktop from "../../images/JuliaHome-Desktop.jpg";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+
 
 const About = () => {
   const [aboutData, setAboutData] = useState({
@@ -28,7 +29,19 @@ const About = () => {
   }, []);
 
   return (
+    <HelmetProvider>
     <div className="font-titlefont">
+      <Helmet>
+        <title>Substances | Julia-Charlotte Basso</title>
+        <meta
+          name="description"
+          content="A propos de moi."
+        />
+        <meta
+          name="keywords"
+          content="Zythologue, Spiritueux, Saké, WSET, Cicerone"
+        />
+      </Helmet>
       <Header />
       <div className="hidden lg:flex justify-center items-center relative z-10">
         <div className="text-colorbrown border-t w-[80%] mt-8 border-black  "></div>
@@ -52,14 +65,14 @@ const About = () => {
         <div className="flex justify-center items-center">
           <div className="flex flex-col justify-center items-center w-full lg:w-[80%]">
             <img
-              src={about}
+              src={aboutDesktop}
               alt="Photo de Julia-Charlotte Basso"
-              className="w-full max-w-4xl lg:hidden"
+              className="w-full lg:hidden"
             />
             <img
               src={aboutDesktop}
               alt="Photo de Julia-Charlotte Basso"
-              className="hidden lg:block w-full max-w-4xl "
+              className="hidden lg:block w-full"
             />
           </div>
         </div>
@@ -108,6 +121,7 @@ const About = () => {
       </main>
       <Footer />
     </div>
+    </HelmetProvider>
   );
 };
 

@@ -8,6 +8,8 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import atelier from "../../images/atelier.jpg";
+
 
 export function CardAteliers() {
   return (
@@ -15,7 +17,7 @@ export function CardAteliers() {
       <Card className="flex flex-col h-full w-full text-colorbrown rounded-none">
         <CardHeader className="m-0 p-0 rounded-none">
           <img
-            src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+            src={atelier}
             alt="Prestation Ateliers Substances"
           />
         </CardHeader>
@@ -24,12 +26,10 @@ export function CardAteliers() {
             variant="h5"
             className="pl-5 lg:pl-0 ml-2 mb-2 pt-8 pb-2 text-5xl lg:text-4xl"
           >
-            Ateliers
+            Atelier
           </Typography>
           <div className="pl-5 pr-5 lg:pl-0 lg:pr-0 ml-2 font-subtitlefont text-4xl lg:text-2xl flex-grow">
-            Le temps d'un atelier entre collègues ou entre amis, venez à la
-            découverte des secrets de fabrication de ces produits et apprenez à
-            les déguster.
+          Envie d'un moment de partage avec vos amis ou collègues?
           </div>
         </CardBody>
         <CardFooter className="pt-0 mt-auto">

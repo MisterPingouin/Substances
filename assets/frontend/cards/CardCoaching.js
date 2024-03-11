@@ -8,6 +8,8 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import conseil from "../../images/conseil.jpg";
+
 
 export function CardCoaching() {
   return (
@@ -15,7 +17,7 @@ export function CardCoaching() {
       <Card className="h-full w-full text-colorbrown rounded-none">
         <CardHeader className="m-0 p-0 rounded-none">
           <img
-            src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+            src={conseil}
             alt="Prestation Coaching Substances"
           />
         </CardHeader>
@@ -24,13 +26,10 @@ export function CardCoaching() {
             variant="h5"
             className="pl-5 lg:pl-0 ml-2 mb-2 pt-8 pb-2 text-5xl lg:text-4xl"
           >
-            Conseils
+            Conseil
           </Typography>
           <div className="pl-5 pr-5 lg:pl-0 lg:pr-0 ml-2 font-subtitlefont text-4xl lg:text-2xl">
-            Professionnels de ces univers, vous êtes dans le coeur opérationnel
-            de l'activité de votre entreprise au quotidien. Un simple avis ou un
-            accompagnement sur des problématiques métiers pour vous aider sur
-            votre vision stratégique ?
+          Besoin d'un avis ou d'un accompagnement d'une experte du secteur ? 
           </div>
         </CardBody>
         <CardFooter className="pt-0 mt-auto">
