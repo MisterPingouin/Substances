@@ -13,20 +13,26 @@ const Login = () => {
     setError("");
 
     try {
-      await axios.post("http://localhost:8000/login", {
+      const response = await axios.post("https://agence-substances.com/login", {
         username,
         password,
       });
 
-      navigate("/admin");
+      if (response.status === 200) {
+        navigate("/admin");
+      } else {
+        setError("Une réponse inattendue du serveur a été reçue.");
+      }
     } catch (err) {
-      if (err.response && err.response.data) {
+      if (err.response) {
         setError(
           err.response.data.message ||
-            "Une erreur s'est produite lors de la connexion."
+          `Erreur ${err.response.status}: ${err.response.statusText}`
         );
+      } else if (err.request) {
+        setError("La requête a été envoyée, mais aucune réponse n'a été reçue.");
       } else {
-        setError("Le serveur n'a pas pu être atteint.");
+        setError("Une erreur est survenue lors de la création de la requête : " + err.message);
       }
     }
   };
