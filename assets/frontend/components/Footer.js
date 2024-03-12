@@ -11,7 +11,7 @@ const Footer = () => {
       </div>
       <div className="text-colorbrown border-t mt-10 border-black w-[85%] mb-8 mx-auto relative z-10 lg:hidden"></div>
       <div className="mt-10 mr-20 ml-12 lg:ml-0 lg:mr-0">
-        <div className="absolute flex justify-center items-center bottom-0 right-[33rem] lg:right-[50rem] 2xl:right-[95rem] left-0">
+        <div className="absolute flex justify-center items-center bottom-0 right-[33rem] lg:right-[70rem] 2xl:right-[95rem] left-0">
           <img
             src={backgroundImageFooter}
             alt="Background"
@@ -79,7 +79,7 @@ const Footer = () => {
             <Link to="/mention" className="hover:text-gray-600 cursor-pointer">
                 Mentions légales
               </Link>
-              <Link to="/plan-du-site" className="hover:text-gray-600 cursor-pointer">
+              <Link to="/plan" className="hover:text-gray-600 cursor-pointer">
                 Plan de site
               </Link>
               </div>
@@ -96,13 +96,13 @@ const Footer = () => {
             <div className="flex justify-between w-full">
               <div className="flex flex-col  mb-16 text-xl font-bold text-colorbrown space-y-1">
               <Link to="/conseil" className="hover:text-gray-600 cursor-pointer">
-                  Conseils
+                  Conseil
                 </Link>
               <Link to="/formation" className="hover:text-gray-600 cursor-pointer">
-                  Formations
+                  Formation
                 </Link>
                 <Link to="/atelier" className="hover:text-gray-600 cursor-pointer">
-                  Ateliers
+                  Atelier
                 </Link>
                 <Link to="/about" className="hover:text-gray-600 cursor-pointer">
                   Faisons connaissance
@@ -110,13 +110,13 @@ const Footer = () => {
               </div>
               <div className="flex flex-col mb-16 justify-end text-xl space-y-1 text-colorborwn ">
               <Link to="/contact" className="font-bold hover:text-gray-600 cursor-pointer">
-                  Contact
+                  Contactez-moi
                 </Link>
                 <p>© Photo Justine Nerini</p>
               <Link to="/mention" className="hover:text-gray-600 cursor-pointer">
                   Mentions légales
                 </Link>
-                <Link to="/plan-du-site" className="hover:text-gray-600 cursor-pointer">
+                <Link to="/plan" className="hover:text-gray-600 cursor-pointer">
                   Plan de site
                 </Link>
               </div>

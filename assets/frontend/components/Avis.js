@@ -16,7 +16,10 @@ const Avis = () => {
   useEffect(() => {
     const updateWidth = () => {
       const totalWidth = avis.length * (avisWidth + spaceBetweenAvis);
-      const overflowWidth = totalWidth > window.innerWidth ? totalWidth - window.innerWidth + marginEnd : 0;
+      const overflowWidth =
+        totalWidth > window.innerWidth
+          ? totalWidth - window.innerWidth + marginEnd
+          : 0;
       setWidth(overflowWidth);
     };
 
@@ -39,10 +42,9 @@ const Avis = () => {
         <div className="text-colorbrown border-t w-[80%] mt-14 border-black "></div>
       </div>
       <div className="ml-12 lg:ml-0 lg:mt-0 relative z-20 lg:hidden">
-        <h1 className="ml-6 text-5xl mt-14 mb-2 font-bold lg:hidden">
-          Les retours
-        </h1>
-        <h2 className="ml-6 text-5xl mb-8 font-bold lg:hidden">de mes super clients</h2>
+        <h2 className="ml-6 text-5xl mt-14 mb-8 font-bold lg:hidden">
+          Partage d'expérience
+        </h2>
         <div style={{ overflow: "hidden" }}>
           <motion.div
             drag="x"
@@ -52,7 +54,9 @@ const Avis = () => {
             {avis.map((unAvis, index) => (
               <motion.div
                 key={unAvis.id}
-                className={`flex-none ${index === 0 ? "ml-6" : ""} ${index === avis.length - 1 ? "mr-12" : ""} border-coloryellow border-4 p-8`}
+                className={`flex-none ${index === 0 ? "ml-6" : ""} ${
+                  index === avis.length - 1 ? "mr-12" : ""
+                } border-coloryellow border-4 p-8`}
                 style={{ width: `${avisWidth}px` }}
               >
                 <div className="text-4xl font-bold">
@@ -69,13 +73,11 @@ const Avis = () => {
         </div>
       </div>
       <div className="hidden lg:flex mt-16 lg:justify-center lg:items-center w-full">
-        <div className="flex flex-col self-start max-w-[20%]">
-            <h1 className="text-5xl font-bold pr-10">
-              Les retours
-            </h1>
-            <h2 className="text-5xl font-bold">de mes super clients</h2>
-            </div>
-            <div className="flex space-x-10 items-start max-w-[60%] ">
+        <div className="flex flex-col self-start lg:max-w-[20%]">
+          <h2 className="text-5xl font-bold">Partage</h2>
+          <h2 className="text-5xl font-bold">d'expérience</h2>
+        </div>
+        <div className="flex space-x-10 items-start max-w-[60%] pl-16">
           {avis.slice(0, 2).map((unAvis, index) => (
             <div
               key={unAvis.id}
@@ -92,7 +94,7 @@ const Avis = () => {
             </div>
           ))}
         </div>
-        </div>
+      </div>
     </>
   );
 };

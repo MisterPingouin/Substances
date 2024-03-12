@@ -4,6 +4,8 @@ import Header from "../components/nav/Header";
 import Footer from "../components/Footer";
 import { Button } from "@material-tailwind/react";
 import Logo from "../components/Logo";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -57,21 +59,28 @@ const Contact = () => {
   };
 
   return (
-    <div className="">
+    <>
+        <HelmetProvider>
+            <Helmet>
+          <title>Substances | Contactez-Moi</title>
+          <meta name="description" content="Envie de me parler de votre projet professionnel ou personnel en lien avec l'univers Bières, Spiritueux & Saké ? Contactez-moi!" />
+          <meta
+            name="keywords"
+            content="Contact, conseil, atelier, Formation, bières"
+          />
+        </Helmet>
       <Header />
       <div className="hidden lg:flex justify-center items-center relative z-10">
         <div className="text-colorbrown border-t w-[80%] mt-8 border-black  "></div>
       </div>
       <main className="flex-grow justify-center items-center min-h-full">
         <div className="flex flex-col justify-center items-center relative z-10">
-          <h1 className="text-7xl p-4 lg:p-0 lg:mt-24 text-colorbrown pt-20 mr-20 lg:mb-6 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:w-[80%]">
-            <span className="block">Contactez-moi</span>
-          </h1>
+          <div className="text-7xl p-4 lg:p-0 lg:mt-24 text-colorbrown pt-20 mr-20 lg:mb-6 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:w-[80%]">
+          <h1 className="block">Contactez-moi</h1>
+          </div>
           <h2 className="text-4xl p-4 lg:p-0 lg:mb-8 text-colorbrown mr-20 lg:mr-0 pr-8 font-subtitlefont w-2/3 lg:w-[80%]">
-            Envie de m'envoyer un petit mot ou de me parler de votre projet ?
-            Choisissez le sujet de votre message et ensuite c'est à vous de
-            jouer ! Vous pouvez m'envoyer un mot doux soit me contacter par
-            téléphone !
+          Envie de m'envoyer un petit mot ou de me parler de votre projet ? Vous pouvez me contacter par téléphone ou bien m'envoyez un message écrit. 
+Pour cela, choisissez le sujet de votre message et ensuite c'est à vous de jouer !
           </h2>
           <div className="p-4 text-colorbrown mr-20 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:flex lg:flex-col lg:justify:center lg:items-center lg:w-full lg:p-0">
             <div className="space-y-4  lg:w-[80%]">
@@ -267,7 +276,8 @@ const Contact = () => {
       </main>
       <Logo />
       <Footer />
-    </div>
+      </HelmetProvider>
+    </>
   );
 };
 
