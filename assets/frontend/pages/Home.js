@@ -36,10 +36,7 @@ const Home = () => {
               Passion substances licites...
             </h1>
             <h2 className="text-4xl p-4 text-black mb-20 mr-20 pr-12 font-subtitlefont w-2/3 lg:mr-0 lg:p-0 lg:mt-10 lg:mb-32 lg:w-[80%]">
-              Le monde des bières, des spiritueux et des sakés est un univers
-              aux 1000 merveilles dans lequel on découvre toujours un nouveau
-              savoir faire, une nouvelle personne, une nouvelle boisson qui nait
-              de l'imagination et de l'expérience de personnes incroyables.
+              De la stratégie d'entreprise à la dégustation, Substances révèle le potentiel de vos projets.
             </h2>
           </div>
           <div className="max-w-full lg:grid lg:grid-cols-2 bg-coloryellow justify-center items-stretch h-full relative z-10">
@@ -48,18 +45,13 @@ const Home = () => {
               alt="Photo de Julia-Charlotte Basso"
               className="w-full h-auto lg:h-full object-cover"
             />
-            <div className="flex flex-col space-y-5 ml-24 pl-10 mr-48 lg:mb-10 relative z-10 p-4">
+            <div className="flex flex-col space-y-8 ml-24 pl-10 mr-48 lg:mb-10 relative z-10 p-4">
               <h2 className="text-5xl text-colorbrown mt-10 pt-20 font-bold w-full">
                 Julia-Charlotte Basso
               </h2>
               <p className="text-4xl lg:text-2xl text-black font-subtitlefont w-full">
               Plus de 15 ans d'expérience et d'expertise en substances licites : bière, spiritueux & saké.
 Enchantée!
-              </p>
-              <p className="text-4xl lg:text-2xl text-black mb-2 pb-6 font-subtitlefont w-full">
-                A votre disposition pour échanger dans ces univers sur une
-                démarche de conseil en compétences métiers ou bien un souhait de
-                monter en compétence sur ces produits !
               </p>
               <Link to="/about">
                 <button

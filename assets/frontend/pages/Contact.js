@@ -43,13 +43,14 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-
+  
     try {
       const response = await axios.post(
-        "http://votre_backend.com/api/contact",
+        "https://agence-substances.com/api/send-email",
         formData
       );
       console.log("Réponse du serveur", response.data);
+      // Vous pouvez ajouter ici une logique pour afficher un message de succès
     } catch (error) {
       console.error("Erreur lors de l'envoi du formulaire", error);
       if (error.response) {
@@ -59,8 +60,8 @@ const Contact = () => {
   };
 
   return (
-    <>
         <HelmetProvider>
+          <div className="font-titlefont">
             <Helmet>
           <title>Substances | Contactez-Moi</title>
           <meta name="description" content="Envie de me parler de votre projet professionnel ou personnel en lien avec l'univers Bières, Spiritueux & Saké ? Contactez-moi!" />
@@ -276,8 +277,8 @@ Pour cela, choisissez le sujet de votre message et ensuite c'est à vous de joue
       </main>
       <Logo />
       <Footer />
+      </div>
       </HelmetProvider>
-    </>
   );
 };
 

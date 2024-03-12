@@ -38,11 +38,11 @@ const Certification = () => {
   return (
     <>
       <div className="text-colorbrown mt-20 border-t border-black w-[85%] mb-8 mx-auto relative z-10 lg:hidden"></div>
-      <div className="ml-12 mt-20 lg:ml-0 lg:mt-0 relative z-20">
+      <div className="ml-12 mt-10 lg:ml-0 lg:mt-0 relative z-20">
         <div className="hidden lg:flex justify-center items-center relative z-10">
           <div className="text-colorbrown border-t w-[80%] mt-14 border-black  "></div>
         </div>
-        <h1 className="ml-6 text-5xl mt-14 font-bold mb-8 lg:hidden">
+        <h1 className="ml-6 text-5xl font-bold mb-8 lg:hidden">
           Mes certifications
         </h1>
         <div style={{ overflow: "hidden" }}>

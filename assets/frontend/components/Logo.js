@@ -66,9 +66,9 @@ const Logo = () => {
         </div>
         <div className="hidden lg:flex mt-16 lg:justify-center lg:items-center w-full">
           <div className="w-[80%] space-x-24 flex items-center">
-            <h1 className="text-5xl font-bold max-w-[20%] pr-10">
+            <h2 className="text-5xl font-bold max-w-[20%] pr-10">
               Ils me font confiance
-            </h1>
+            </h2>
             <div className="flex space-x-12 items-center max-w-[75%]">
               {logos.slice(0, 5).map((logo) => (
                 <div

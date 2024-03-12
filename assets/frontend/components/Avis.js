@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 const Avis = () => {
   const [avis, setAvis] = useState([]);
-  const avisWidth = 500; // Ajustez la largeur selon vos besoins
-  const spaceBetweenAvis = 30; // Espacement entre les cartes
-  const marginEnd = 100; // Marge à la fin
+  const avisWidth = 500; 
+  const spaceBetweenAvis = 30;
+  const marginEnd = 100;
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
@@ -73,11 +73,11 @@ const Avis = () => {
         </div>
       </div>
       <div className="hidden lg:flex mt-16 lg:justify-center lg:items-center w-full">
-        <div className="flex flex-col self-start lg:max-w-[20%]">
+        <div className="flex flex-col self-start w-[20%]">
           <h2 className="text-5xl font-bold">Partage</h2>
           <h2 className="text-5xl font-bold">d'expérience</h2>
         </div>
-        <div className="flex space-x-10 items-start max-w-[60%] pl-16">
+        <div className="flex space-x-10 items-start w-[60%] pl-16">
           {avis.slice(0, 2).map((unAvis, index) => (
             <div
               key={unAvis.id}
