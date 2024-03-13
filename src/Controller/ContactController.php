@@ -21,14 +21,9 @@ class ContactController extends AbstractController
         $constraints = new Assert\Collection([
             'nom' => [new Assert\NotBlank(), new Assert\Length(['min' => 2])],
             'prenom' => [new Assert\NotBlank(), new Assert\Length(['min' => 2])],
-            'telephone' => new Assert\Optional([
-                new Assert\Regex([
-                    'pattern' => '/^\+?[0-9]{3}-?[0-9]{6,12}$/',
-                    'message' => 'Veuillez fournir un numéro de téléphone valide.',
-                ])
-            ]),
+            'telephone' => new Assert\Optional(), 
             'email' => [new Assert\NotBlank(), new Assert\Email()],
-            'societe' => [new Assert\Optional(), new Assert\Length(['min' => 2])],
+            'societe' => new Assert\Optional(),
             'objetDemande' => [new Assert\NotBlank()],
             'message' => [new Assert\NotBlank(), new Assert\Length(['min' => 10])],
         ]);
@@ -42,7 +37,7 @@ class ContactController extends AbstractController
         }
 
         $email = (new Email())
-            ->from('juliacharlotte@agence-substances.com')
+            ->from('contact@agence-substances.com')
             ->to('juliacharlotte@agence-substances.com')
             ->subject('Nouveau message de contact')
             ->text('Nom: '.$data['nom']."\n".

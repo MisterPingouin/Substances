@@ -32,7 +32,6 @@ const Contact = () => {
     const newErrors = {};
     if (!formData.nom) newErrors.nom = "Le nom est requis.";
     if (!formData.prenom) newErrors.prenom = "Le prénom est requis.";
-    if (!formData.telephone) newErrors.telephone = "Le téléphone est requis.";
     if (!formData.email) newErrors.email = "L'email est requis.";
     if (!formData.message) newErrors.message = "Le message est requis.";
 
