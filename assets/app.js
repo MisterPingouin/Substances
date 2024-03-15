@@ -62,12 +62,11 @@ const App = () => {
           buttonText="Accepter"
           declineButtonText="Refuser"
           cookieName="userCookieConsent"
-          style={{ background: "#342A2C" }}
-          buttonStyle={{ background: "#fabd43", marginLeft: "10px" }}
+          style={{ background: "#342A2C", padding: "1.5em", fontSize: "1.3em", }}
+          buttonStyle={{ background: "#fabd43"}}
           declineButtonStyle={{
             background: "#808080",
             color: "#000",
-            marginRight: "10px",
           }}
           enableDeclineButton
           onDecline={handleDecline}
