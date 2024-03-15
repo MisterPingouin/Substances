@@ -17,11 +17,11 @@ const Contact = () => {
     message: "",
   });
   const [errors, setErrors] = useState({});
-  const [responseSuccess, setResponseSuccess] = useState(false);
-  const [responseError, setResponseError] = useState('');
+  const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
 
   const handleButtonClick = (value) => {
     setFormData({ ...formData, objetDemande: value });
+    setErrors({ ...errors, objetDemande: "" });
   };
 
   const handleChange = (e) => {
@@ -35,6 +35,10 @@ const Contact = () => {
     if (!formData.prenom) newErrors.prenom = "Le prénom est requis.";
     if (!formData.email) newErrors.email = "L'email est requis.";
     if (!formData.message) newErrors.message = "Le message est requis.";
+    if (!formData.objetDemande)
+      newErrors.objetDemande = "Merci d'indiquer un objet pour votre demande.";
+    if (!formData.message || formData.message.length < 10)
+      newErrors.message = "Le message doit contenir au moins 10 caractères.";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -42,262 +46,271 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmittedSuccessfully(false);
+
     if (!validateForm()) return;
 
     try {
-      const response = await axios.post(
+      await axios.post(
         "https://agence-substances.com/api/send-email",
         formData
       );
-      setResponseSuccess(true);
-      setResponseError('');
+      console.log("Réponse du serveur: Message envoyé avec succès.");
+      setErrors({});
+      setIsSubmittedSuccessfully(true);
     } catch (error) {
       console.error("Erreur lors de l'envoi du formulaire", error);
-      if (error.response) {
-        setResponseError(error.response.data.errors || 'Une erreur est survenue.');
-        setResponseSuccess(false);
-      }
+      setErrors({
+        form: "Une erreur s'est produite lors de l'envoi du formulaire.",
+      });
     }
   };
 
   return (
-        <HelmetProvider>
-          <div className="font-titlefont">
-            <Helmet>
+    <HelmetProvider>
+      <div className="font-titlefont">
+        <Helmet>
           <title>Substances | Contactez-Moi</title>
-          <meta name="description" content="Envie de me parler de votre projet professionnel ou personnel en lien avec l'univers Bières, Spiritueux & Saké ? Contactez-moi!" />
+          <meta
+            name="description"
+            content="Envie de me parler de votre projet professionnel ou personnel en lien avec l'univers Bières, Spiritueux & Saké ? Contactez-moi!"
+          />
           <meta
             name="keywords"
             content="Contact, conseil, atelier, Formation, bières"
           />
         </Helmet>
-      <Header />
-      <div className="hidden lg:flex justify-center items-center relative z-10">
-        <div className="text-colorbrown border-t w-[80%] mt-8 border-black  "></div>
-      </div>
-      <main className="flex-grow justify-center items-center min-h-full">
-        {/* Modal pour le succès de l'envoi */}
-        {responseSuccess && (
-            <div className="fixed inset-0 bg-colorbrown bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center">
-              <div className="bg-coloryellow p-5 rounded-lg max-w-sm mx-auto">
-                <p>Votre message a bien été transmis, merci !</p>
-                <button
-                  onClick={() => setResponseSuccess(false)}
-                  className="mt-4 bg-colorbrown hover:bg-opacity-80 text-white font-bold py-2 px-4 rounded"
-                >
-                  Fermer
-                </button>
-              </div>
+        <Header />
+        <div className="hidden lg:flex justify-center items-center relative z-10">
+          <div className="text-colorbrown border-t w-[80%] mt-8 border-black  "></div>
+        </div>
+        <main className="flex-grow justify-center items-center min-h-full">
+          <div className="flex flex-col justify-center items-center relative z-10">
+            <div className="text-7xl p-4 lg:p-0 lg:mt-24 text-colorbrown pt-20 mr-20 lg:mb-6 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:w-[80%]">
+              <h1 className="block">Contactez-moi</h1>
             </div>
-          )}
-                    {/* Affichage des erreurs */}
-                    {responseError && (
-            <div className="text-red-500 text-center py-2">{responseError}</div>
-          )}
-        <div className="flex flex-col justify-center items-center relative z-10">
-          <div className="text-7xl p-4 lg:p-0 lg:mt-24 text-colorbrown pt-20 mr-20 lg:mb-6 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:w-[80%]">
-          <h1 className="block">Contactez-moi</h1>
-          </div>
-          <h2 className="text-4xl p-4 lg:p-0 lg:mb-8 text-colorbrown mr-20 lg:mr-0 pr-8 font-subtitlefont w-2/3 lg:w-[80%]">
-          Envie de m'envoyer un petit mot ou de me parler de votre projet ? Vous pouvez me contacter par téléphone ou bien m'envoyez un message écrit. 
-Pour cela, choisissez le sujet de votre message et ensuite c'est à vous de jouer !
-          </h2>
-          <div className="p-4 text-colorbrown mr-20 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:flex lg:flex-col lg:justify:center lg:items-center lg:w-full lg:p-0">
-            <div className="space-y-4  lg:w-[80%]">
-              {/* Boutons pour l'objet de la demande */}
-              {[
-                "Conseils",
-                "Formations",
-                "Ateliers",
-                "Donner mon avis !",
-                "Autres",
-              ].map((item) => (
-                <button
-                  key={item}
-                  type="button"
-                  className={`px-4 py-2 mr-4 rounded-md text-2xl tracking-wider font-semibold outline-none border-4 
+            <h2 className="text-4xl p-4 lg:p-0 lg:mb-8 text-colorbrown mr-20 lg:mr-0 pr-8 font-subtitlefont w-2/3 lg:w-[80%]">
+              Envie de m'envoyer un petit mot ou de me parler de votre projet ?
+              Vous pouvez me contacter par téléphone ou bien m'envoyez un
+              message écrit. Pour cela, choisissez le sujet de votre message et
+              ensuite c'est à vous de jouer !
+            </h2>
+            <div className="p-4 text-colorbrown mr-20 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:flex lg:flex-col lg:justify:center lg:items-center lg:w-full lg:p-0">
+              <div className="space-y-4  lg:w-[80%]">
+                {/* Boutons pour l'objet de la demande */}
+                {[
+                  "Conseils",
+                  "Formations",
+                  "Ateliers",
+                  "Donner mon avis !",
+                  "Autres",
+                ].map((item) => (
+                  <button
+                    key={item}
+                    type="button"
+                    className={`px-4 py-2 mr-4 rounded-md text-2xl tracking-wider font-semibold outline-none border-4 
                       ${
                         formData.objetDemande === item
                           ? "bg-coloryellow text-white border-coloryellow"
                           : "bg-white text-coloryellow border-coloryellow hover:bg-coloryellow hover:text-white"
                       }`}
-                  onClick={() => handleButtonClick(item)}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-            <form
-              className="lg:hidden mt-8 space-y-2 w-full"
-              onSubmit={handleSubmit}
-            >
-              <label className="text-xl">Nom</label>
-              <input
-                type="text"
-                className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
-                name="nom"
-                onChange={handleChange}
-              />
-              {errors.nom && (
-                <p className="text-red-500 text-sm italic">{errors.nom}</p>
-              )}
-              <div className=""></div>
-              <label className="text-xl">Prénom</label>
-              <input
-                type="text"
-                className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
-                name="prenom"
-                onChange={handleChange}
-              />
-              {errors.prenom && (
-                <p className="text-red-500 text-sm italic">{errors.prenom}</p>
-              )}
-              <div className=""></div>
-              <label className="text-xl">Téléphone</label>
-              <input
-                type="tel"
-                className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
-                name="telephone"
-                onChange={handleChange}
-              />
-              {errors.telephone && (
-                <p className="text-red-500 text-sm italic">
-                  {errors.telephone}
-                </p>
-              )}
-              <div className=""></div>
-              <label className="text-xl">Adresse mail</label>
-              <input
-                type="email"
-                className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
-                name="email"
-                onChange={handleChange}
-              />
-              {errors.email && (
-                <p className="text-red-500 text-sm italic">{errors.email}</p>
-              )}
-              <div className=""></div>
-              <label className="text-xl">Société</label>
-              <input
-                type="text"
-                className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
-                name="societe"
-                onChange={handleChange}
-              />
-              <div className=""></div>
-              <label className="text-xl">Message</label>
-              <textarea
-                rows="6"
-                className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
-                name="message"
-                onChange={handleChange}
-              ></textarea>
-              {errors.message && (
-                <p className="text-red-500 text-sm italic">{errors.message}</p>
-              )}
-              <div className="h-4"></div>
-              <Button
-                type="submit"
-                className=" text-2xl mt-4 bg-colorbrown capitalize"
-              >
-                Envoyer
-              </Button>
-              <div className="h-4"></div>
-            </form>
-            <div className="hidden lg:flex flex-col relative justify-center items-center w-full ">
+                    onClick={() => handleButtonClick(item)}
+                  >
+                    {item}
+                  </button>
+                ))}
+                {errors.objetDemande && (
+                  <p className="text-red-500 text-sm italic">
+                    {errors.objetDemande}
+                  </p>
+                )}
+              </div>
               <form
-                className="mt-8 space-y-6 lg:w-[80%]"
+                className="lg:hidden mt-8 space-y-2 w-full"
                 onSubmit={handleSubmit}
               >
-                <div className="flex justify-center items-center space-x-20">
-                  <div className="space-y-2 w-1/2">
-                    <label className="text-xl">Nom</label>
-                    <input
-                      type="text"
-                      className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
-                      name="nom"
-                      onChange={handleChange}
-                    />
-                    {errors.nom && (
-                      <p className="text-red-500 text-sm italic">
-                        {errors.nom}
-                      </p>
-                    )}
-                    <label className="text-xl block mt-1">Prénom</label>
-                    <input
-                      type="text"
-                      className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
-                      name="prenom"
-                      onChange={handleChange}
-                    />
-                    {errors.prenom && (
-                      <p className="text-red-500 text-sm italic">
-                        {errors.prenom}
-                      </p>
-                    )}
-                    <label className="text-xl block mt-1">Téléphone</label>
-                    <input
-                      type="tel"
-                      className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
-                      name="telephone"
-                      onChange={handleChange}
-                    />
-                    {errors.telephone && (
-                      <p className="text-red-500 text-sm italic">
-                        {errors.telephone}
-                      </p>
-                    )}
-                    <label className="text-xl block mt-1">Adresse mail</label>
-                    <input
-                      type="email"
-                      className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
-                      name="email"
-                      onChange={handleChange}
-                    />
-                    {errors.email && (
-                      <p className="text-red-500 text-sm italic">
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
-                  <div className="space-y-2 w-3/4">
-                    <label className="text-xl">Société</label>
-                    <input
-                      type="text-xl"
-                      className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
-                      name="societe"
-                      onChange={handleChange}
-                    />
-                    <label className="text-xl inline-block mt-1">Message</label>
-                    <textarea
-                      rows="8"
-                      className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
-                      name="message"
-                      onChange={handleChange}
-                    ></textarea>
-                    {errors.message && (
-                      <p className="text-red-500 text-sm italic">
-                        {errors.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
+                <label className="text-xl">Nom</label>
+                <input
+                  type="text"
+                  className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
+                  name="nom"
+                  onChange={handleChange}
+                />
+                {errors.nom && (
+                  <p className="text-red-500 text-sm italic">{errors.nom}</p>
+                )}
+                <div className=""></div>
+                <label className="text-xl">Prénom</label>
+                <input
+                  type="text"
+                  className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
+                  name="prenom"
+                  onChange={handleChange}
+                />
+                {errors.prenom && (
+                  <p className="text-red-500 text-sm italic">{errors.prenom}</p>
+                )}
+                <div className=""></div>
+                <label className="text-xl">Téléphone</label>
+                <input
+                  type="tel"
+                  className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
+                  name="telephone"
+                  onChange={handleChange}
+                />
+                {errors.telephone && (
+                  <p className="text-red-500 text-sm italic">
+                    {errors.telephone}
+                  </p>
+                )}
+                <div className=""></div>
+                <label className="text-xl">Adresse mail</label>
+                <input
+                  type="email"
+                  className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
+                  name="email"
+                  onChange={handleChange}
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm italic">{errors.email}</p>
+                )}
+                <div className=""></div>
+                <label className="text-xl">Société</label>
+                <input
+                  type="text"
+                  className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
+                  name="societe"
+                  onChange={handleChange}
+                />
+                <div className=""></div>
+                <label className="text-xl">Message</label>
+                <textarea
+                  rows="6"
+                  className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
+                  name="message"
+                  onChange={handleChange}
+                ></textarea>
+                {errors.message && (
+                  <p className="text-red-500 text-sm italic">
+                    {errors.message}
+                  </p>
+                )}
+                {isSubmittedSuccessfully && (
+                  <p className="text-colorbrown">
+                    Merci. Votre message a bien été transmis. Belle journée !
+                  </p>
+                )}
+                <div className="h-4"></div>
                 <Button
                   type="submit"
                   className=" text-2xl mt-4 bg-colorbrown capitalize"
                 >
                   Envoyer
                 </Button>
+                <div className="h-4"></div>
               </form>
+              <div className="hidden lg:flex flex-col relative justify-center items-center w-full ">
+                <form
+                  className="mt-8 space-y-6 lg:w-[80%]"
+                  onSubmit={handleSubmit}
+                >
+                  <div className="flex justify-center items-center space-x-20">
+                    <div className="space-y-2 w-1/2">
+                      <label className="text-xl">Nom</label>
+                      <input
+                        type="text"
+                        className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
+                        name="nom"
+                        onChange={handleChange}
+                      />
+                      {errors.nom && (
+                        <p className="text-red-500 text-sm italic">
+                          {errors.nom}
+                        </p>
+                      )}
+                      <label className="text-xl block mt-1">Prénom</label>
+                      <input
+                        type="text"
+                        className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
+                        name="prenom"
+                        onChange={handleChange}
+                      />
+                      {errors.prenom && (
+                        <p className="text-red-500 text-sm italic">
+                          {errors.prenom}
+                        </p>
+                      )}
+                      <label className="text-xl block mt-1">Téléphone</label>
+                      <input
+                        type="tel"
+                        className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
+                        name="telephone"
+                        onChange={handleChange}
+                      />
+                      {errors.telephone && (
+                        <p className="text-red-500 text-sm italic">
+                          {errors.telephone}
+                        </p>
+                      )}
+                      <label className="text-xl block mt-1">Adresse mail</label>
+                      <input
+                        type="email"
+                        className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
+                        name="email"
+                        onChange={handleChange}
+                      />
+                      {errors.email && (
+                        <p className="text-red-500 text-sm italic">
+                          {errors.email}
+                        </p>
+                      )}
+                    </div>
+                    <div className="space-y-2 w-3/4">
+                      <label className="text-xl">Société</label>
+                      <input
+                        type="text-xl"
+                        className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
+                        name="societe"
+                        onChange={handleChange}
+                      />
+                      <label className="text-xl inline-block mt-1">
+                        Message
+                      </label>
+                      <textarea
+                        rows="8"
+                        className="w-full rounded-md py-3 px-4 border-2 shadow-md border-colorbrown"
+                        name="message"
+                        onChange={handleChange}
+                      ></textarea>
+                      {errors.message && (
+                        <p className="text-red-500 text-sm italic">
+                          {errors.message}
+                        </p>
+                      )}
+                      {isSubmittedSuccessfully && (
+                        <p className="text-colorbrown">
+                          Merci. Votre message a bien été transmis. Belle
+                          journée !
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <Button
+                    type="submit"
+                    className=" text-2xl mt-4 bg-colorbrown capitalize"
+                  >
+                    Envoyer
+                  </Button>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="hidden lg:flex"></div>
-      </main>
-      <Logo />
-      <Footer />
+          <div className="hidden lg:flex"></div>
+        </main>
+        <Logo />
+        <Footer />
       </div>
-      </HelmetProvider>
+    </HelmetProvider>
   );
 };
 
