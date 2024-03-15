@@ -45,7 +45,9 @@ const Footer = () => {
             <div className="flex flex-col items-end mr-2">
               <div className="flex space-x-7">
                 <div className="bg-black rounded-full p-5">
-                  <a href="https://www.linkedin.com/in/julia-charlotte-basso-41434912/">
+                  <a href="https://www.linkedin.com/in/julia-charlotte-basso-41434912/"
+                      target="_blank" 
+                      rel="noopener noreferrer">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-10 w-10 text-white"
@@ -57,7 +59,9 @@ const Footer = () => {
                   </a>
                 </div>
                 <div className="bg-black rounded-full p-5">
-                  <a href="https://www.instagram.com/subs_stances?igsh=ZTM1MHYxbW12Ymhu&utm_source=qr">
+                  <a href="https://www.instagram.com/subs_stances?igsh=ZTM1MHYxbW12Ymhu&utm_source=qr"
+                      target="_blank" 
+                      rel="noopener noreferrer">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-10 w-10 text-white"
@@ -125,6 +129,8 @@ const Footer = () => {
                   <div className="bg-black rounded-full p-5">
                     <a
                       href="https://www.linkedin.com/in/julia-charlotte-basso-41434912/"
+                      target="_blank" 
+                      rel="noopener noreferrer"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -139,6 +145,8 @@ const Footer = () => {
                   <div className="bg-black rounded-full p-5">
                     <a
                       href="https://www.instagram.com/subs_stances?igsh=ZTM1MHYxbW12Ymhu&utm_source=qr"
+                      target="_blank" 
+                      rel="noopener noreferrer"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

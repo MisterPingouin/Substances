@@ -29,7 +29,7 @@ const Ateliers = () => {
 
   return (
     <>
-      <div className="text-4xl p-4 text-colorbrown mr-20 pr-14 space-y-2 mt-4 font-bold w-2/3 lg:w-[80%] lg:mr-0 lg:p-0 lg:mt-10 lg:flex lg:space-x-24">
+      <div className="text-4xl p-4 text-colorbrown mr-20 pr-14 space-y-2 mt-4 font-bold w-2/3 lg:w-[80%] lg:mr-0 lg:p-0 lg:mt-10 lg:space-y-4">
         {ateliers.map((atelier, index) => (
           <div key={index} className="flex items-center">
             <img src={arrow} alt="Arrow right" className="h-auto w-12 mr-4" />
@@ -54,9 +54,9 @@ const Ateliers = () => {
             <div className="flex flex-col text-colorbrown text-3xl mt-14 font-subtitlefont w-3/4 pl-4 pr-10 lg:w-[80%] lg:mr-0 lg:p-0 lg:mt-14">
               <div className="text-colorbrown border-t border-black relative z-10 lg:mb-10"></div>
               <div className="hidden lg:flex">
-                {atelier.imageCaroussel && (
-                  <ImageCarousel images={atelier.imageCaroussel} />
-                )}
+              {atelier.imageCaroussel && atelier.imageCaroussel.length > 0 && (
+    <ImageCarousel images={atelier.imageCaroussel} />
+  )}
               </div>
               <h1 className="text-7xl font-bold font-titlefont mt-20 lg:mt-12">
                 {atelier.titre}
@@ -69,6 +69,9 @@ const Ateliers = () => {
                   </p>
                 </div>
                 <div className="lg:flex lg:flex-col lg:w-1/2">
+                <p className="mt-10 font-bold font-titlefont">
+                    {renderWithLineBreaks(atelier.descriptionGras)}
+                  </p>
                   <p className="mt-10 ">
                     {renderWithLineBreaks(atelier.description2)}
                   </p>
@@ -88,9 +91,9 @@ const Ateliers = () => {
                 </div>
               </div>
             </div>
-            {atelier.imageCaroussel && (
-              <ImageCarouselMobile images={atelier.imageCaroussel} />
-            )}
+            {atelier.imageCaroussel && atelier.imageCaroussel.length > 0 && (
+  <ImageCarouselMobile images={atelier.imageCaroussel} />
+)}
           </div>
         ))}
       </div>

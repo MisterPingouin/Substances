@@ -36,7 +36,7 @@ const Home = () => {
               Passion substances licites...
             </h1>
             <h2 className="text-4xl p-4 text-black mb-20 mr-20 pr-12 font-subtitlefont w-2/3 lg:mr-0 lg:p-0 lg:mt-10 lg:mb-32 lg:w-[80%]">
-              De la stratégie d'entreprise à la dégustation, Substances révèle le potentiel de vos projets.
+              De la stratégie d'entreprise à la dégustation, Substances révèle le potentiel de vos projets dans l'univers merveilleux des boissons fermentées: bières, spiritueux et saké.
             </h2>
           </div>
           <div className="max-w-full lg:grid lg:grid-cols-2 bg-coloryellow justify-center items-stretch h-full relative z-10">
@@ -49,10 +49,12 @@ const Home = () => {
               <h2 className="text-5xl text-colorbrown mt-10 pt-20 font-bold w-full">
                 Julia-Charlotte Basso
               </h2>
+              <div className="flex flex-col">
               <p className="text-4xl lg:text-2xl text-black font-subtitlefont w-full">
               Plus de 15 ans d'expérience et d'expertise en substances licites : bière, spiritueux & saké.
-Enchantée!
               </p>
+              <p className="text-4xl pt-4 lg:text-2xl text-black font-subtitlefont w-full">Enchantée!</p>
+              </div>
               <Link to="/about">
                 <button
                   type="button"

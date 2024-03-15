@@ -27,7 +27,7 @@ const Formations = () => {
 
   return (
     <>
-      <div className="text-4xl p-4 text-colorbrown mr-20 pr-14 space-y-2 mt-4 font-bold w-2/3 lg:w-[80%] lg:mr-0 lg:p-0 lg:mt-12">
+      <div className="text-4xl p-4 text-colorbrown mr-20 pr-14 space-y-2 mt-4 font-bold w-2/3 lg:w-[80%] lg:mr-0 lg:p-0 lg:mt-12 lg:space-y-4">
         {formations.map((formation, index) => (
           <div key={index} className="flex items-center">
             <img src={arrow} alt="Arrow right" className="h-auto w-12 mr-4" />
@@ -71,15 +71,15 @@ const Formations = () => {
                       className="w-full"
                     />
                   )}
-                  <p className="text-xl">{formation.logoDescription}</p>
-                  <div className="flex flex-col space-y-6 mt-10 mb-16 text-colorbrown font-bold font-titlefont text-3xl w-3/4 lg:w-[80%]">
-                    <p className="">
+                  <div className="flex flex-col space-y-6 mt-10 mb-16 text-colorbrown text-3xl w-3/4 lg:w-[80%]">
+                  <p className="">{formation.logoDescription}</p>
+                    <p className="font-bold font-titlefont">
                       {renderWithLineBreaks(formation.description2)}
                     </p>
                     <Link to="/contact">
                       <button
                         type="button"
-                        className="inline-block rounded bg-coloryellow px-6 pb-2 pt-2.5  font-xl  leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca]"
+                        className="inline-block font-bold font-titlefont rounded bg-coloryellow px-6 pb-2 pt-2.5  font-xl  leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca]"
                       >
                         Me Contacter
                       </button>{" "}

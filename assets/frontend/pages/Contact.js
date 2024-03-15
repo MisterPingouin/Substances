@@ -6,7 +6,6 @@ import { Button } from "@material-tailwind/react";
 import Logo from "../components/Logo";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     nom: "",
@@ -18,6 +17,8 @@ const Contact = () => {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const [responseSuccess, setResponseSuccess] = useState(false);
+  const [responseError, setResponseError] = useState('');
 
   const handleButtonClick = (value) => {
     setFormData({ ...formData, objetDemande: value });
@@ -42,18 +43,19 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-  
+
     try {
       const response = await axios.post(
         "https://agence-substances.com/api/send-email",
         formData
       );
-      console.log("Réponse du serveur", response.data);
-      // Vous pouvez ajouter ici une logique pour afficher un message de succès
+      setResponseSuccess(true);
+      setResponseError('');
     } catch (error) {
       console.error("Erreur lors de l'envoi du formulaire", error);
       if (error.response) {
-        setErrors(error.response.data);
+        setResponseError(error.response.data.errors || 'Une erreur est survenue.');
+        setResponseSuccess(false);
       }
     }
   };
@@ -74,6 +76,24 @@ const Contact = () => {
         <div className="text-colorbrown border-t w-[80%] mt-8 border-black  "></div>
       </div>
       <main className="flex-grow justify-center items-center min-h-full">
+        {/* Modal pour le succès de l'envoi */}
+        {responseSuccess && (
+            <div className="fixed inset-0 bg-colorbrown bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center">
+              <div className="bg-coloryellow p-5 rounded-lg max-w-sm mx-auto">
+                <p>Votre message a bien été transmis, merci !</p>
+                <button
+                  onClick={() => setResponseSuccess(false)}
+                  className="mt-4 bg-colorbrown hover:bg-opacity-80 text-white font-bold py-2 px-4 rounded"
+                >
+                  Fermer
+                </button>
+              </div>
+            </div>
+          )}
+                    {/* Affichage des erreurs */}
+                    {responseError && (
+            <div className="text-red-500 text-center py-2">{responseError}</div>
+          )}
         <div className="flex flex-col justify-center items-center relative z-10">
           <div className="text-7xl p-4 lg:p-0 lg:mt-24 text-colorbrown pt-20 mr-20 lg:mb-6 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:w-[80%]">
           <h1 className="block">Contactez-moi</h1>

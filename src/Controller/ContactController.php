@@ -21,7 +21,7 @@ class ContactController extends AbstractController
         $constraints = new Assert\Collection([
             'nom' => [new Assert\NotBlank(), new Assert\Length(['min' => 2])],
             'prenom' => [new Assert\NotBlank(), new Assert\Length(['min' => 2])],
-            'telephone' => new Assert\Optional(), 
+            'telephone' => new Assert\Optional(),
             'email' => [new Assert\NotBlank(), new Assert\Email()],
             'societe' => new Assert\Optional(),
             'objetDemande' => [new Assert\NotBlank()],
@@ -31,8 +31,10 @@ class ContactController extends AbstractController
         $errors = $validator->validate($data, $constraints);
 
         if (count($errors) > 0) {
-            $errorsString = (string) $errors;
-
+            $errorsString = [];
+            foreach ($errors as $error) {
+                $errorsString[$error->getPropertyPath()] = $error->getMessage();
+            }
             return new JsonResponse(['errors' => $errorsString], Response::HTTP_BAD_REQUEST);
         }
 

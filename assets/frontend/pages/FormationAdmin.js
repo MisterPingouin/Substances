@@ -133,6 +133,20 @@ const FormationAdmin = () => {
     setEditingFormation(null);
   };
 
+  const handleDeleteImage = (formationId) => {
+    axios
+      .delete(`/api/formations/deleteImage/${formationId}`)
+      .then(() => {
+        setFormations(formations.map((formation) => {
+          if (formation.id === formationId) {
+            return { ...formation, image: null };
+          }
+          return formation;
+        }));
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="mx-auto">
       <HeaderAdmin />
@@ -222,11 +236,19 @@ const FormationAdmin = () => {
             <p>{formation.logoDescription}</p>
             {/* Affichage des images si présentes */}
             {formation.image && (
-              <img
-                src={formation.image}
-                alt="Image du formation"
-                className="w-1/2 h-auto rounded-lg mt-2"
-              />
+              <>
+                <img
+                  src={formation.image}
+                  alt="Image de la formation"
+                  className="w-1/2 h-auto rounded-lg mt-2"
+                />
+                <button
+                  onClick={() => handleDeleteImage(formation.id)}
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-2"
+                >
+                  Supprimer l'image
+                </button>
+              </>
             )}
             {formation.logoUrl && (
               <img

@@ -92,4 +92,26 @@ class ConseilController extends AbstractController
     {
         return md5(uniqid());
     }
+
+    #[Route('/deleteImage/{id}', name: 'conseils_delete_image', methods: ['DELETE'])]
+public function deleteImage(Conseils $conseil, EntityManagerInterface $entityManager): Response
+{
+    if (!$conseil) {
+        return $this->json(['message' => 'Conseil not found'], Response::HTTP_NOT_FOUND);
+    }
+
+    $imagePath = $conseil->getImage(); 
+    if ($imagePath) {
+        $absolutePath = $this->getParameter('kernel.project_dir') . '/public' . $imagePath;
+        if (file_exists($absolutePath)) {
+            unlink($absolutePath);
+        }
+
+        $conseil->setImage(null); 
+        $entityManager->flush();
+    }
+
+    return $this->json(['message' => 'Image deleted successfully']);
+}
+
 }

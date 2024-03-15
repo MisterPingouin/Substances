@@ -92,4 +92,26 @@ class FormationController extends AbstractController
     {
         return md5(uniqid());
     }
+
+    #[Route('/deleteImage/{id}', name: 'formations_delete_image', methods: ['DELETE'])]
+    public function deleteImage(Formations $formation, EntityManagerInterface $entityManager): Response
+    {
+        if (!$formation) {
+            return $this->json(['message' => 'Formation not found'], Response::HTTP_NOT_FOUND);
+        }
+    
+        $imagePath = $formation->getImage(); 
+        if ($imagePath) {
+            $absolutePath = $this->getParameter('kernel.project_dir') . '/public' . $imagePath;
+            if (file_exists($absolutePath)) {
+                unlink($absolutePath);
+            }
+    
+            $formation->setImage(null);
+            $entityManager->flush();
+        }
+    
+        return $this->json(['message' => 'Image deleted successfully']);
+    }
+    
 }

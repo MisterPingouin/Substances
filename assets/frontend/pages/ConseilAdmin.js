@@ -128,6 +128,20 @@ const ConseilAdmin = () => {
     setEditingConseil(null);
   };
 
+  const handleDeleteImageConseil = (conseilId) => {
+    axios
+      .delete(`/api/conseils/deleteImage/${conseilId}`)
+      .then(() => {
+        setConseils(conseils.map((conseil) => {
+          if (conseil.id === conseilId) {
+            return { ...conseil, image: null }; 
+          }
+          return conseil;
+        }));
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="mx-auto">
       <HeaderAdmin />
@@ -217,11 +231,19 @@ const ConseilAdmin = () => {
             <p>{conseil.logoDescription}</p>
             {/* Affichage des images si présentes */}
             {conseil.image && (
-              <img
-                src={conseil.image}
-                alt="Image du conseil"
-                className="w-1/2 h-auto rounded-lg mt-2"
-              />
+              <>
+                <img
+                  src={conseil.image}
+                  alt="Image du conseil"
+                  className="w-1/2 h-auto rounded-lg mt-2"
+                />
+                <button
+                  onClick={() => handleDeleteImageConseil(conseil.id)}
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-2"
+                >
+                  Supprimer l'image
+                </button>
+              </>
             )}
             {conseil.logoUrl && (
               <img

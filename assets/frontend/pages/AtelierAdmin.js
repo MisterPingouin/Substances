@@ -286,6 +286,7 @@ const AtelierAdmin = () => {
             <p>{atelier.lien}</p>
             <p>{atelier.sousDescription}</p>
             <p>{atelier.description}</p>
+            <p>{atelier.descriptionGras}</p>
             <p>{atelier.description2}</p>
             <p>{atelier.description3}</p>
             {atelier.image && (
