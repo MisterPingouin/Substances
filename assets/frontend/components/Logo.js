@@ -39,11 +39,15 @@ const Logo = () => {
   };
 
   const nextLogo = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1 < logos.length - 3 ? prevIndex + 1 : prevIndex));
+    setCurrentIndex((prevIndex) =>
+      prevIndex + 1 < logos.length - 3 ? prevIndex + 1 : prevIndex
+    );
   };
 
   const prevLogo = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 >= 0 ? prevIndex - 1 : prevIndex));
+    setCurrentIndex((prevIndex) =>
+      prevIndex - 1 >= 0 ? prevIndex - 1 : prevIndex
+    );
   };
 
   return (
@@ -80,14 +84,14 @@ const Logo = () => {
             <h2 className="text-5xl font-bold w-[15%]">
               Ils me font confiance
             </h2>
-            <div className="flex space-x-10 items-center">
-            <button onClick={prevLogo}>
-            <img src={arrowleft} alt="Left" />
-          </button>
-            {logos.slice(currentIndex, currentIndex + 4).map((logo) => (
+            <div className="flex space-x-10 min-w-[65%]">
+              <button onClick={prevLogo}>
+                <img src={arrowleft} alt="Left" />
+              </button>
+              {logos.slice(currentIndex, currentIndex + 4).map((logo) => (
                 <div
                   key={logo.id}
-                  className="w-36 h-26 flex justify-center items-center"
+                  className="h-auto w-40 flex justify-center items-center"
                 >
                   <img
                     src={logo.logoPath}
@@ -96,9 +100,9 @@ const Logo = () => {
                   />
                 </div>
               ))}
-                          <button onClick={nextLogo}>
-            <img src={arrowright} alt="Right"/>
-          </button>
+              <button onClick={nextLogo}>
+                <img src={arrowright} alt="Right" />
+              </button>
             </div>
           </div>
         </div>
