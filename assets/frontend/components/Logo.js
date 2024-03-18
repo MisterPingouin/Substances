@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
+import arrowright from "../../images/Bw-right.svg";
+import arrowleft from "../../images/Bw-left.svg";
 
 const Logo = () => {
   const [logos, setLogos] = useState([]);
@@ -8,6 +10,7 @@ const Logo = () => {
   const spaceBetweenLogos = 50;
   const marginEnd = 200;
   const [width, setWidth] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     fetchLogos();
@@ -33,6 +36,14 @@ const Logo = () => {
       .get("/api/logo-company/list")
       .then((response) => setLogos(response.data))
       .catch((error) => console.error("Error fetching logos:", error));
+  };
+
+  const nextLogo = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1 < logos.length - 3 ? prevIndex + 1 : prevIndex));
+  };
+
+  const prevLogo = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 >= 0 ? prevIndex - 1 : prevIndex));
   };
 
   return (
@@ -66,14 +77,17 @@ const Logo = () => {
         </div>
         <div className="hidden lg:flex mt-16 lg:justify-center lg:items-center w-full">
           <div className="w-[80%] space-x-24 flex items-center">
-            <h2 className="text-5xl font-bold max-w-[20%] pr-10">
+            <h2 className="text-5xl font-bold w-[15%]">
               Ils me font confiance
             </h2>
-            <div className="flex space-x-12 items-center max-w-[75%]">
-              {logos.slice(0, 5).map((logo) => (
+            <div className="flex space-x-10 items-center">
+            <button onClick={prevLogo}>
+            <img src={arrowleft} alt="Left" />
+          </button>
+            {logos.slice(currentIndex, currentIndex + 4).map((logo) => (
                 <div
                   key={logo.id}
-                  className="w-48 h-30 flex justify-center items-center"
+                  className="w-36 h-26 flex justify-center items-center"
                 >
                   <img
                     src={logo.logoPath}
@@ -82,6 +96,9 @@ const Logo = () => {
                   />
                 </div>
               ))}
+                          <button onClick={nextLogo}>
+            <img src={arrowright} alt="Right"/>
+          </button>
             </div>
           </div>
         </div>

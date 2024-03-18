@@ -115,8 +115,8 @@ const About = () => {
                     {renderWithLineBreaks(aboutData.bloc4)}
                   </p>{" "}
                   <div className="flex flex-col font-titlefont space-y-2 mt-10 mb-10 text-colorbrown font-bold text-4xl w-[75%] lg:text-3xl">
-                    <p>Assez parlé de moi</p>
-                    <p> parlons de vous.</p>
+                    <p>Assez parlé de moi.</p>
+                    <p>Parlons de vous.</p>
                     <Link to="/contact">
                       <button
                         type="button"
