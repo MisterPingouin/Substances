@@ -53,14 +53,9 @@ const Formation = () => {
             />
             <div className="flex flex-col text-2xl w-[80%] lg:w-[60%] items-start z-20">
               <p className="z-20">
-              Substances est intégrée à l'organisme de formation "Auxime", certifié Qualiopi.
-              </p>
+              Substances est intégrée à l'organisme de formation "Auxime", certifié Qualiopi au titre de la catégorie d’action suivante: Actions de formation.              </p>
               <p className="z-20 mt-2">
-              N'hésitez pas à me solliciter pour échanger sur vos besoins. Qualiopi est un gage de qualité et permet aux acteurs de la filière de faire appel aux financeurs de la formation professionnelle.
-              </p>
-              <p className="z-20 mt-2">
-              Votre formation /accompagnement peut être financé par votre OPCO.
-              </p>
+              Pour les acteurs de la filière, renseignez-vous auprès de contact privilégié de votre OPCO ou autre financeur de la formation professionnelle afin de connaitre les conditions de financement.              </p>
             </div>
           </div>
         </main>

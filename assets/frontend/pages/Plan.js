@@ -46,7 +46,7 @@ const Plan = () => {
               Conseils{" "}
             </Link>
           </div>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center z-20">
             <img src={arrow} alt="Arrow right" className="h-auto w-12 mr-4" />
             <Link
               to="/formation"
