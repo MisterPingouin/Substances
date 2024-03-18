@@ -99,9 +99,9 @@ const Contact = () => {
               <div className="space-y-4  lg:w-[80%]">
                 {/* Boutons pour l'objet de la demande */}
                 {[
-                  "Conseils",
-                  "Formations",
-                  "Ateliers",
+                  "Conseil",
+                  "Formation",
+                  "Atelier",
                   "Donner mon avis !",
                   "Autres",
                 ].map((item) => (

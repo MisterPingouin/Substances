@@ -27,6 +27,15 @@ const About = () => {
       .catch((error) => console.error("Error fetching about data:", error));
   }, []);
 
+  const renderWithLineBreaks = (text) => {
+    return text.split("\n").map((line, index, array) => (
+      <React.Fragment key={index}>
+        {line}
+        {index < array.length - 1 && <br />}
+      </React.Fragment>
+    ));
+  };
+
   return (
     <HelmetProvider>
       <div className="font-titlefont">
@@ -91,12 +100,20 @@ const About = () => {
               </h1>
               <div className="lg:flex lg:space-x-32">
                 <div className="lg:flex lg:flex-col lg:w-1/2">
-                  <p className="mt-8">{aboutData.bloc1}</p>
-                  <p className="mt-8">{aboutData.bloc2}</p>
-                  <p className="mt-8">{aboutData.bloc3}</p>
+                  <p className="mt-8">
+                    {renderWithLineBreaks(aboutData.bloc1)}
+                  </p>
+                  <p className="mt-8">
+                    {renderWithLineBreaks(aboutData.bloc2)}
+                  </p>
+                  <p className="mt-8">
+                    {renderWithLineBreaks(aboutData.bloc3)}
+                  </p>
                 </div>
                 <div className="lg:flex lg:flex-col lg:w-1/2">
-                  <p className="mt-8">{aboutData.bloc4}</p>
+                  <p className="mt-8">
+                    {renderWithLineBreaks(aboutData.bloc4)}
+                  </p>{" "}
                   <div className="flex flex-col font-titlefont space-y-2 mt-10 mb-10 text-colorbrown font-bold text-4xl w-[75%] lg:text-3xl">
                     <p>Assez parlé de moi</p>
                     <p> parlons de vous.</p>
