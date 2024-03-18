@@ -8,7 +8,6 @@ const Logo = () => {
   const [logos, setLogos] = useState([]);
   const logoWidth = 200;
   const spaceBetweenLogos = 50;
-  const marginEnd = 200;
   const [width, setWidth] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -21,7 +20,7 @@ const Logo = () => {
       const totalWidth = logos.length * (logoWidth + spaceBetweenLogos);
       const overflowWidth =
         totalWidth > window.innerWidth
-          ? totalWidth - window.innerWidth + marginEnd
+          ? totalWidth - window.innerWidth 
           : 0;
       setWidth(overflowWidth);
     };
