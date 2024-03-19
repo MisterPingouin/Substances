@@ -90,7 +90,7 @@ const About = () => {
                 En quelques mots 💬{" "}
               </h1>
               <p className="mt-10 font-bold font-titlefont">
-                {aboutData.subtitle}
+                {renderWithLineBreaks(aboutData.subtitle)}
               </p>
               <h1 className="text-6xl font-bold uppercase mt-16 mb-8 font-titlefont lg:hidden">
                 En détail... 🔍{" "}

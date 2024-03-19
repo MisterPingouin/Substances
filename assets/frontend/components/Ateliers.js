@@ -69,7 +69,7 @@ const Ateliers = () => {
                     {renderWithLineBreaks(atelier.description)}
                   </p>
                 </div>
-                <div className="lg:flex lg:flex-col lg:w-1/2">
+                <div className="lg:flex lg:flex-col lg:w-1/2 lg:mt-12">
                   <p className="mt-10 lg:mt-0 font-bold font-titlefont">
                     {renderWithLineBreaks(atelier.descriptionGras)}
                   </p>

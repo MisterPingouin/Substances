@@ -25,19 +25,19 @@ const Footer = () => {
               <div className="flex">
                 <div className="flex flex-col ml-6 mb-4 text-3xl font-bold text-colorborwn space-y-1">
                 <Link to="/conseil" className="hover:text-gray-600 cursor-pointer">
-                  Conseils
+                  Conseil
                 </Link>
                 <Link to="/formation" className="hover:text-gray-600 cursor-pointer">
-                  Formations
+                  Formation
                 </Link>
                 <Link to="/atelier" className="hover:text-gray-600 cursor-pointer">
-                  Ateliers
+                  Atelier
                 </Link>
                 <Link to="/about" className="hover:text-gray-600 cursor-pointer">
                   Faisons connaissance
                 </Link>
                 <Link to="/contact" className="hover:text-gray-600 cursor-pointer">
-                  Contact
+                  Contactez-moi
                 </Link>
                 </div>
               </div>

@@ -74,7 +74,7 @@ const Conseils = () => {
                     />
                   )}
                   <div className="flex flex-col space-y-6 mt-10 mb-16 text-colorbrown text-3xl w-3/4">
-                  <p className="">{conseil.logoDescription}</p>
+                  <p className="">{renderWithLineBreaks(conseil.logoDescription)}</p>
                     <p className="font-bold font-titlefont">
                       {renderWithLineBreaks(conseil.description2)}
                     </p>

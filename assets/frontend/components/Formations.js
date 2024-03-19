@@ -72,7 +72,7 @@ const Formations = () => {
                     />
                   )}
                   <div className="flex flex-col space-y-6 mt-10 mb-16 text-colorbrown text-3xl w-3/4 lg:w-[80%]">
-                  <p className="">{formation.logoDescription}</p>
+                  <p className="">{renderWithLineBreaks(formation.logoDescription)}</p>
                     <p className="font-bold font-titlefont">
                       {renderWithLineBreaks(formation.description2)}
                     </p>

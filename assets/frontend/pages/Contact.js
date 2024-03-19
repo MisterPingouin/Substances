@@ -90,10 +90,7 @@ const Contact = () => {
               <h1 className="block">Contactez-moi</h1>
             </div>
             <h2 className="text-4xl p-4 lg:p-0 lg:mb-8 text-colorbrown mr-20 lg:mr-0 pr-8 font-subtitlefont w-2/3 lg:w-[80%]">
-              Envie de m'envoyer un petit mot ou de me parler de votre projet ?
-              Vous pouvez me contacter par téléphone ou bien m'envoyez un
-              message écrit. Pour cela, choisissez le sujet de votre message et
-              ensuite c'est à vous de jouer !
+            Envie de m'envoyer un petit mot ou de me parler de votre projet ? Vous pouvez me contacter par message. Pour cela, choisissez le sujet de votre message et ensuite c'est à vous de jouer !
             </h2>
             <div className="p-4 text-colorbrown mr-20 lg:mr-0 pr-14 lg:pr-0 font-bold w-2/3 lg:flex lg:flex-col lg:justify:center lg:items-center lg:w-full lg:p-0">
               <div className="space-y-4  lg:w-[80%]">

@@ -43,7 +43,7 @@ const Plan = () => {
               to="/conseil"
               className="ml-4 hover:text-gray-600 cursor-pointer"
             >
-              Conseils{" "}
+              Conseil{" "}
             </Link>
           </div>
           <div className="flex justify-center items-center z-20">
@@ -52,7 +52,7 @@ const Plan = () => {
               to="/formation"
               className="ml-4 hover:text-gray-600 cursor-pointer"
             >
-              Formations{" "}
+              Formation{" "}
             </Link>
             </div>
           </div>
@@ -63,7 +63,7 @@ const Plan = () => {
               to="/atelier"
               className="ml-4 hover:text-gray-600 cursor-pointer"
             >
-              Ateliers{" "}
+              Atelier{" "}
             </Link>
           </div>
           <div className="flex justify-center items-center">
@@ -72,7 +72,7 @@ const Plan = () => {
               to="/contact"
               className="ml-4 hover:text-gray-600 cursor-pointer"
             >
-              Contact{" "}
+              Contactez-moi{" "}
             </Link>
           </div>
           <div className="flex justify-center items-center">
@@ -81,7 +81,7 @@ const Plan = () => {
               to="/mention"
               className="ml-4 hover:text-gray-600 cursor-pointer"
             >
-              Mention légales{" "}
+              Mentions légales{" "}
             </Link>
           </div>
           </div>
