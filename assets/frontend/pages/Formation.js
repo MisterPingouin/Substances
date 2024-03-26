@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../components/nav/Header";
 import Formations from "../components/Formations";
 import Footer from "../components/Footer";
-import Qualiopi from "../../images/qualiopi.png";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const Formation = () => {
@@ -45,13 +44,8 @@ const Formation = () => {
           <div className="hidden lg:flex justify-center items-center relative z-10">
             <div className="text-colorbrown border-t w-[80%] mt-14 border-black "></div>
           </div>
-          <div className="flex flex-col justify-center w-max-[80%] items-center lg:flex-row-reverse lg:items-center lg:justify-center lg:w-full mt-8 z-20">
-            <img
-              src={Qualiopi}
-              alt="logo qualiopi"
-              className="z-20 lg:w-[20%] lg:h-auto"
-            />
-            <div className="flex flex-col text-2xl w-[80%] lg:w-[60%] items-start z-20">
+          <div className="flex flex-col justify-center w-max-[80%] items-center lg:flex-row-reverse lg:items-center lg:justify-center lg:w-full mt-12 z-20">
+            <div className="flex flex-col text-2xl w-[80%] items-start z-20">
               <p className="z-20">
               Substances est intégrée à l'organisme de formation "Auxime", certifié Qualiopi au titre de la catégorie d’action suivante: Actions de formation.              </p>
               <p className="z-20 mt-2">
