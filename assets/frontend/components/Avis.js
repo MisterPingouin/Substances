@@ -98,7 +98,7 @@ const Avis = () => {
               <div className="text-3xl font-bold">
                 <p className="mb-3">{unAvis.content}</p>
                 <div className="text-coloryellow text-2xl">
-                  <h4>{unAvis.name}</h4>
+                  <h3>{unAvis.name}</h3>
                   <p>{unAvis.fonction}</p>
                   <p>{unAvis.company}</p>
                 </div>

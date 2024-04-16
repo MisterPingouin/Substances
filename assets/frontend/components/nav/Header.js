@@ -45,12 +45,12 @@ export default function Header() {
     >
       <div className="hidden mt-14 lg:flex justify-center items-center w-full relative z-10">
         <div className="flex w-[83%]">
-          <Link to="/">
-            <img src={logo} alt="Logo Substances" className="h-28" />
+          <Link to="/" aria-label="Retour à la page d'accueil de Substances">
+            <img src={logo} alt="Logo Substances" className="h-28"/>
           </Link>
         </div>
       </div>
-      <Link to="/">
+      <Link to="/" aria-label="Retour à la page d'accueil de Substances">
         <img
           src={logo}
           alt="Logo Substances"

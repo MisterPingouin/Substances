@@ -8,6 +8,7 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }} 
         {% endblock %}
+        <link rel="canonical" href="{{ app.request.schemeAndHttpHost ~ app.request.requestUri }}">
     </head>
     <body>
         <div id="root">{% block body %}{% endblock %}</div> 

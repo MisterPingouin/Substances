@@ -24,7 +24,7 @@ export function CardFormation() {
         </CardHeader>
         <CardBody className="flex flex-col flex-grow">
           <Typography
-            variant="h5"
+            variant="h2"
             className="pl-5 lg:pl-0 ml-2 mb-2 pt-8 pb-2 text-5xl lg:text-4xl"
           >
             Formation

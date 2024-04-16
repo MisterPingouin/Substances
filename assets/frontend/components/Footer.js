@@ -47,7 +47,8 @@ const Footer = () => {
                 <div className="bg-black rounded-full p-5">
                   <a href="https://www.linkedin.com/in/julia-charlotte-basso-41434912/"
                       target="_blank" 
-                      rel="noopener noreferrer">
+                      rel="noopener noreferrer"
+                      aria-label="Visitez notre page LinkedIn">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-10 w-10 text-white"
@@ -61,7 +62,8 @@ const Footer = () => {
                 <div className="bg-black rounded-full p-5">
                   <a href="https://www.instagram.com/subs_stances?igsh=ZTM1MHYxbW12Ymhu&utm_source=qr"
                       target="_blank" 
-                      rel="noopener noreferrer">
+                      rel="noopener noreferrer"
+                      aria-label="Visitez notre page Instagram">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-10 w-10 text-white"
@@ -131,6 +133,7 @@ const Footer = () => {
                       href="https://www.linkedin.com/in/julia-charlotte-basso-41434912/"
                       target="_blank" 
                       rel="noopener noreferrer"
+                      aria-label="Visitez notre page LinkedIn"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -147,6 +150,7 @@ const Footer = () => {
                       href="https://www.instagram.com/subs_stances?igsh=ZTM1MHYxbW12Ymhu&utm_source=qr"
                       target="_blank" 
                       rel="noopener noreferrer"
+                      aria-label="Visitez notre page Instagram"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
