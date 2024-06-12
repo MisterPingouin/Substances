@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import CookieConsent, { getCookieConsentValue } from "react-cookie-consent";
 import Home from "./frontend/pages/Home";
 import Contact from "./frontend/pages/Contact";
@@ -21,6 +21,7 @@ import Plan from "./frontend/pages/Plan";
 import "./styles/app.scss";
 
 const App = () => {
+  const location = useLocation();
   const [showConsent, setShowConsent] = useState(true);
 
   useEffect(() => {
@@ -35,8 +36,8 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <Routes>
+    <>
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/atelier" element={<Atelier />} />
@@ -62,8 +63,8 @@ const App = () => {
           buttonText="Accepter"
           declineButtonText="Refuser"
           cookieName="userCookieConsent"
-          style={{ background: "#342A2C", padding: "1.5em", fontSize: "1.3em", }}
-          buttonStyle={{ background: "#fabd43"}}
+          style={{ background: "#342A2C", padding: "1.5em", fontSize: "1.3em" }}
+          buttonStyle={{ background: "#fabd43" }}
           declineButtonStyle={{
             background: "#808080",
             color: "#000",
@@ -75,7 +76,7 @@ const App = () => {
           Nous utilisons des cookies pour améliorer l'expérience utilisateur.
         </CookieConsent>
       )}
-    </Router>
+    </>
   );
 };
 

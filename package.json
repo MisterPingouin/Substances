@@ -19,7 +19,7 @@
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
-        "build": "encore production --progress"
+        "build": "encore production --progress && react-snap"
     },
     "dependencies": {
         "@material-tailwind/react": "^2.1.8",
@@ -35,7 +35,13 @@
         "react-helmet": "^6.1.0",
         "react-helmet-async": "^2.0.4",
         "react-router-dom": "^6.21.3",
+        "react-snap": "^1.23.0",
         "style-loader": "^3.3.4",
         "tailwindcss": "^3.4.1"
+    },
+    "reactSnap": {
+        "inlineCss": true,
+        "puppeteerArgs": ["--no-sandbox"],
+        "skipThirdPartyRequests": true
     }
 }
